@@ -126,16 +126,19 @@
   /* ---- about ---- */
   .gallery{ position:relative; margin-bottom: 52px; }
   .gallery-track{
-    display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+    display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
     padding-bottom:6px; -webkit-overflow-scrolling:touch; scrollbar-width:none;
   }
   .gallery-track::-webkit-scrollbar{ display:none; }
-  .gallery-page{ display:flex; gap:16px; flex:0 0 100%; scroll-snap-align:start; }
-  .gallery-page img{
-    flex:1 1 0; min-width:0; aspect-ratio: 4/5; object-fit:cover;
+  .gallery-track img{
+    scroll-snap-align:start; flex: 0 0 calc((100% - 32px) / 3); min-width:0;
+    aspect-ratio: 4/5; object-fit:cover;
     border-radius:20px; border:1px solid var(--line); box-shadow: var(--shadow); background: var(--surface);
   }
-  @media (max-width:620px){ .gallery-page{ gap:8px; } }
+  @media (max-width:620px){
+    .gallery-track{ gap:12px; }
+    .gallery-track img{ flex-basis: calc((100% - 12px) / 2); }
+  }
   .gallery-nav{
     position:absolute; top:50%; transform:translateY(-50%);
     width:42px; height:42px; border-radius:50%;
@@ -222,16 +225,12 @@
   <div class="wrap">
     <div class="gallery">
       <div class="gallery-track" id="galleryTrack">
-        <div class="gallery-page">
-          <img src="photos/01.jpg" alt="Gene 在家中吧檯操作 Pioneer 控台" loading="lazy">
-          <img src="photos/02.jpg" alt="Gene 在霓虹燈招牌下演出" loading="lazy">
-          <img src="photos/04.jpg" alt="Gene 在戶外帳篷場地演出，桌上擺著鮮花" loading="lazy">
-        </div>
-        <div class="gallery-page">
-          <img src="photos/03.jpg" alt="Gene 身著彩色針織衫演出" loading="lazy">
-          <img src="photos/05.jpg" alt="Gene 在和室窗邊演出，窗外可見庭園" loading="lazy">
-          <img src="photos/06.jpg" alt="Gene 戴著鴨舌帽專注操作控台" loading="lazy">
-        </div>
+        <img src="photos/01.jpg" alt="Gene 在家中吧檯操作 Pioneer 控台" loading="lazy">
+        <img src="photos/02.jpg" alt="Gene 在霓虹燈招牌下演出" loading="lazy">
+        <img src="photos/04.jpg" alt="Gene 在戶外帳篷場地演出，桌上擺著鮮花" loading="lazy">
+        <img src="photos/03.jpg" alt="Gene 身著彩色針織衫演出" loading="lazy">
+        <img src="photos/05.jpg" alt="Gene 在和室窗邊演出，窗外可見庭園" loading="lazy">
+        <img src="photos/06.jpg" alt="Gene 戴著鴨舌帽專注操作控台" loading="lazy">
       </div>
       <button class="gallery-nav prev" id="galleryPrev" type="button" aria-label="上一組照片" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5l-7 7 7 7"/></svg>
