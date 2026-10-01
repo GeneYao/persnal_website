@@ -204,9 +204,31 @@
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
   footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; }
   footer .fine{ font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); letter-spacing:.04em; }
+
+  /* ---- language switch ---- */
+  #page:not([data-lang="en"]) .lang-en{ display:none; }
+  #page[data-lang="en"] .lang-zh{ display:none; }
+  .lang-switch{
+    position:fixed; top:calc(16px + env(safe-area-inset-top,0px)); right:16px; z-index:20;
+    display:flex; align-items:center; gap:6px;
+    background: var(--surface); border:1px solid var(--line); border-radius:999px;
+    padding:7px 12px; box-shadow: var(--shadow);
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em;
+  }
+  .lang-btn{ background:none; border:none; padding:2px 3px; margin:0; cursor:pointer; color: var(--ink-soft); font-family:inherit; font-size:inherit; }
+  .lang-btn.active{ color: var(--accent); font-weight:600; }
+  .lang-sep{ color: var(--ink-soft); opacity:.5; }
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button type="button" class="lang-btn active" id="langZh">中</button>
+  <span class="lang-sep">/</span>
+  <button type="button" class="lang-btn" id="langEn">EN</button>
+</div>
+
+<div id="page" data-lang="zh">
 
 <header class="hero">
   <div class="wrap hero-grid">
@@ -214,10 +236,11 @@
       <h1>GeneYao</h1>
       <p class="eyebrow">Music Lover / Selector / DJ</p>
       <div class="cta-row">
-        <a class="btn solid" href="#music">收聽作品
+        <a class="btn solid" href="#music">
+          <span class="lang-zh">收聽作品</span><span class="lang-en">Listen</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
         </a>
-        <a class="btn" href="#contact">合作邀約</a>
+        <a class="btn" href="#contact"><span class="lang-zh">合作邀約</span><span class="lang-en">Bookings</span></a>
       </div>
     </div>
     <div class="eq" aria-hidden="true">
@@ -244,7 +267,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5l7 7-7 7"/></svg>
       </button>
     </div>
-    <p class="bio">熱愛有機、富有質地和靈魂的聲響，廣泛遊走在各種不同的音樂類型之間，以敏銳的選曲與細膩的編排，為空間裡的光線與空氣注入各式色彩，讓音樂的能量帶領你回歸本質，踏上一段模糊時間與空間邊界的沉浸式聽覺體驗。</p>
+    <p class="bio lang-zh">熱愛有機、富有質地和靈魂的聲響，廣泛遊走在各種不同的音樂類型之間，以敏銳的選曲與細膩的編排，為空間裡的光線與空氣注入各式色彩，讓音樂的能量帶領你回歸本質，踏上一段模糊時間與空間邊界的沉浸式聽覺體驗。</p>
+    <p class="bio lang-en">A love for sound that is organic, textured and soulful — moving freely across genres. Through intuitive selection and nuanced arrangement, he colors the light and air of a room, letting the energy of music guide you back to your essence on an immersive journey that blurs the edges of time and space.</p>
   </div>
 </section>
 
@@ -261,8 +285,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15.5v-3M4.5 16.5v-5.5M7 17v-8M9.5 17V8"/><path d="M9.5 17h8.2a3.8 3.8 0 0 0 .4-7.58 5 5 0 0 0-9.28-1.8"/></svg>
         </div>
         <h3>SoundCloud</h3>
-        <p>收聽混音作品與 DJ Set 錄音</p>
-        <span class="go">前往收聽
+        <p class="lang-zh">收聽混音作品與 DJ Set 錄音</p>
+        <p class="lang-en">Listen to mixes and DJ set recordings</p>
+        <span class="go">
+          <span class="lang-zh">前往收聽</span><span class="lang-en">Listen</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
         </span>
       </a>
@@ -271,8 +297,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5.5" width="19.6" height="13" rx="4"/><path d="M10.3 9.6l5 2.4-5 2.4z" fill="currentColor" stroke="none"/></svg>
         </div>
         <h3>YouTube</h3>
-        <p>觀看現場演出紀錄與影像作品</p>
-        <span class="go">前往觀看
+        <p class="lang-zh">觀看現場演出紀錄與影像作品</p>
+        <p class="lang-en">Watch live performance footage and videos</p>
+        <span class="go">
+          <span class="lang-zh">前往觀看</span><span class="lang-en">Watch</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
         </span>
       </a>
@@ -281,8 +309,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M6.8 10.2c3.3-1 7.2-.7 9.9 1M7 13.2c2.7-.8 6-.6 8.3.9M7.3 16c2.2-.6 4.7-.5 6.6.7"/></svg>
         </div>
         <h3>Spotify</h3>
-        <p>收聽我的精選歌單與播放清單</p>
-        <span class="go">前往收聽
+        <p class="lang-zh">收聽我的精選歌單與播放清單</p>
+        <p class="lang-en">Listen to my curated playlists</p>
+        <span class="go">
+          <span class="lang-zh">前往收聽</span><span class="lang-en">Listen</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
         </span>
       </a>
@@ -338,9 +368,28 @@
   </div>
 </footer>
 
+</div>
+
 <script>
   try{
     document.getElementById('year-line').textContent = '© ' + new Date().getFullYear() + ' GeneYao';
+  }catch(e){}
+
+  try{
+    const page = document.getElementById('page');
+    const btnZh = document.getElementById('langZh');
+    const btnEn = document.getElementById('langEn');
+    function setLang(lang){
+      page.dataset.lang = lang;
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.classList.toggle('active', lang === 'en');
+      try{ localStorage.setItem('geneyao-lang', lang); }catch(e){}
+    }
+    btnZh.addEventListener('click', ()=> setLang('zh'));
+    btnEn.addEventListener('click', ()=> setLang('en'));
+    try{
+      if(localStorage.getItem('geneyao-lang') === 'en') setLang('en');
+    }catch(e){}
   }catch(e){}
 
   try{
