@@ -158,9 +158,53 @@
 
   /* ---- latest mix ---- */
   .latest{ margin-top: 32px; }
-  .latest .eyebrow{ margin: 0 0 12px; }
-  .latest-frame{ border:1px solid var(--line); border-radius:22px; overflow:hidden; background: var(--surface); box-shadow: var(--shadow); }
-  .latest iframe{ display:block; width:100%; height:166px; border:0; }
+  .latest > .eyebrow{ margin: 0 0 12px; }
+  .latest-card{
+    position:relative; display:grid; grid-template-columns: 132px 1fr; gap: 24px; align-items:center;
+    background: var(--surface); border:1px solid var(--line); border-radius: 22px; padding: 16px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .latest-card:hover{ border-color: var(--accent); box-shadow: var(--shadow); }
+  .latest-card.ready{ grid-template-columns: 132px 1fr minmax(0, 300px); }
+  .latest-card img{ width:132px; height:132px; object-fit:cover; border-radius:14px; border:1px solid var(--line); }
+  .latest-card h3{ font-size: 24px; }
+  .latest-card h3 a{ text-decoration:none; }
+  .latest-card h3 a:hover{ color: var(--accent); }
+  .latest-card .meta{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.06em; color: var(--ink-soft); }
+  .latest-card p{ margin: 10px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .latest-card .go{ margin-top:14px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); text-decoration:none; }
+  .latest-card .go svg{ width:13px; height:13px; transition: transform .2s ease; }
+  .latest-card .go:hover svg{ transform: translate(2px,-2px); }
+
+  .mix-player{ display:none; align-items:center; gap:16px; }
+  .latest-card.ready .mix-player{ display:flex; }
+  .mix-play{
+    flex:0 0 auto; width:56px; height:56px; border-radius:50%; border:1px solid var(--ink);
+    background: var(--ink); color: var(--bg); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .2s ease, border-color .2s ease, transform .18s ease;
+  }
+  .mix-play:hover{ background: var(--accent); border-color: var(--accent); transform: scale(1.05); }
+  .mix-play svg{ width:20px; height:20px; }
+  .mix-play .ico-pause{ display:none; }
+  .mix-play.playing .ico-play{ display:none; }
+  .mix-play.playing .ico-pause{ display:block; }
+  .mix-bar{ flex:1; min-width:0; }
+  .mix-time{ display:flex; justify-content:space-between; margin-top:8px; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mix-seek{ -webkit-appearance:none; appearance:none; width:100%; height:20px; margin:0; background:transparent; cursor:pointer; --pos:0%; }
+  .mix-seek::-webkit-slider-runnable-track{ height:4px; border-radius:4px; background: linear-gradient(to right, var(--accent) var(--pos), var(--line) var(--pos)); }
+  .mix-seek::-moz-range-track{ height:4px; border-radius:4px; background: var(--line); }
+  .mix-seek::-moz-range-progress{ height:4px; border-radius:4px; background: var(--accent); }
+  .mix-seek::-webkit-slider-thumb{ -webkit-appearance:none; width:14px; height:14px; margin-top:-5px; border-radius:50%; background: var(--accent); border:2px solid var(--surface); }
+  .mix-seek::-moz-range-thumb{ width:10px; height:10px; border-radius:50%; background: var(--accent); border:2px solid var(--surface); }
+  .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+  @media (max-width: 860px){
+    .latest-card.ready{ grid-template-columns: 132px 1fr; }
+    .latest-card.ready .mix-player{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px){
+    .latest-card, .latest-card.ready{ grid-template-columns: 1fr; }
+    .latest-card img{ width:100%; height:auto; aspect-ratio:1/1; }
+  }
 
   /* ---- music ---- */
   .card-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
@@ -287,8 +331,29 @@
     <h2>My Mix/Playlist</h2>
     <div class="latest">
       <p class="eyebrow">Latest Mix</p>
-      <div class="latest-frame">
-        <iframe id="latestMix" title="L'ultimo Tuffo | From Mediterranean Breeze to Italo by GeneYao" scrolling="no" frameborder="no" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&color=%234F6142&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+      <div class="latest-card" id="latestCard">
+        <img src="photos/mix.jpg" alt="L'ultimo Tuffo mix artwork" loading="lazy">
+        <div>
+          <h3><a href="https://soundcloud.com/potenyzr1nma/lultimo-tuffo-from" target="_blank" rel="noopener">L'ultimo Tuffo | From Mediterranean Breeze to Italo</a></h3>
+          <div class="meta">1:17:45 · 18 TRACKS</div>
+          <p class="lang-zh">日落時分的 18 首曲目旅程，從地中海的微風一路潛入義式迪斯可的黃金時刻。</p>
+          <p class="lang-en">An 18-track sunset journey, from a Mediterranean breeze to the golden hour of Italo disco.</p>
+          <a class="go" href="https://soundcloud.com/potenyzr1nma/lultimo-tuffo-from" target="_blank" rel="noopener">
+            <span class="lang-zh">在 SoundCloud 開啟</span><span class="lang-en">Open in SoundCloud</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
+          </a>
+        </div>
+        <div class="mix-player">
+          <button type="button" class="mix-play" id="mixPlay" aria-label="Play / Pause">
+            <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>
+          </button>
+          <div class="mix-bar">
+            <input type="range" class="mix-seek" id="mixSeek" min="0" max="1000" value="0" aria-label="Seek">
+            <div class="mix-time"><span id="mixCur">0:00</span><span id="mixDur">1:17:45</span></div>
+          </div>
+        </div>
+        <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
       </div>
     </div>
     <div class="card-row">
@@ -432,17 +497,52 @@
     window.addEventListener('resize', updateGalleryNav);
     updateGalleryNav();
   }catch(e){}
-  try{
-    const mix = document.getElementById('latestMix');
-    const dark = window.matchMedia('(prefers-color-scheme: dark)');
-    function syncMixColor(){
-      const color = dark.matches ? '%239FAE79' : '%234F6142';
-      const next = mix.getAttribute('src').replace(/color=%23[0-9A-Fa-f]{6}/, 'color=' + color);
-      if(next !== mix.getAttribute('src')) mix.setAttribute('src', next);
-    }
-    dark.addEventListener('change', syncMixColor);
-    syncMixColor();
-  }catch(e){}
+  window.addEventListener('load', function(){
+    try{
+      if(typeof SC === 'undefined') return;
+      const card = document.getElementById('latestCard');
+      const widget = SC.Widget(document.getElementById('mixFrame'));
+      const playBtn = document.getElementById('mixPlay');
+      const seek = document.getElementById('mixSeek');
+      const cur = document.getElementById('mixCur');
+      const dur = document.getElementById('mixDur');
+      let duration = 0, dragging = false;
+      function fmt(ms){
+        const t = Math.max(0, Math.floor(ms / 1000));
+        const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), sec = t % 60;
+        const pad = n => String(n).padStart(2, '0');
+        return h ? h + ':' + pad(m) + ':' + pad(sec) : m + ':' + pad(sec);
+      }
+      function paint(ratio){
+        seek.value = Math.round(ratio * 1000);
+        seek.style.setProperty('--pos', (ratio * 100) + '%');
+      }
+      widget.bind(SC.Widget.Events.READY, function(){
+        widget.getDuration(function(d){ duration = d; dur.textContent = fmt(d); });
+        card.classList.add('ready');
+      });
+      widget.bind(SC.Widget.Events.PLAY, function(){ playBtn.classList.add('playing'); });
+      widget.bind(SC.Widget.Events.PAUSE, function(){ playBtn.classList.remove('playing'); });
+      widget.bind(SC.Widget.Events.FINISH, function(){ playBtn.classList.remove('playing'); paint(0); cur.textContent = '0:00'; });
+      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(e){
+        if(dragging) return;
+        cur.textContent = fmt(e.currentPosition);
+        paint(e.relativePosition);
+      });
+      playBtn.addEventListener('click', function(){ widget.toggle(); });
+      seek.addEventListener('pointerdown', function(){ dragging = true; });
+      seek.addEventListener('input', function(){
+        const ratio = seek.value / 1000;
+        seek.style.setProperty('--pos', (ratio * 100) + '%');
+        cur.textContent = fmt(ratio * duration);
+      });
+      seek.addEventListener('change', function(){
+        dragging = false;
+        widget.seekTo((seek.value / 1000) * duration);
+      });
+    }catch(e){}
+  });
 </script>
+<script src="https://w.soundcloud.com/player/api.js"></script>
 </body>
 </html>
