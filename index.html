@@ -159,7 +159,8 @@
   /* ---- latest mix ---- */
   .latest{ margin-top: 32px; }
   .latest .eyebrow{ margin: 0 0 12px; }
-  .latest iframe{ display:block; width:100%; height:166px; border:0; border-radius:16px; background: var(--surface); }
+  .latest-frame{ border:1px solid var(--line); border-radius:22px; overflow:hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .latest iframe{ display:block; width:100%; height:166px; border:0; }
 
   /* ---- music ---- */
   .card-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
@@ -286,7 +287,9 @@
     <h2>My Mix/Playlist</h2>
     <div class="latest">
       <p class="eyebrow">Latest Mix</p>
-      <iframe title="L'ultimo Tuffo | From Mediterranean Breeze to Italo by GeneYao" scrolling="no" frameborder="no" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&color=%234F6142&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+      <div class="latest-frame">
+        <iframe id="latestMix" title="L'ultimo Tuffo | From Mediterranean Breeze to Italo by GeneYao" scrolling="no" frameborder="no" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&color=%234F6142&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+      </div>
     </div>
     <div class="card-row">
       <a class="card" href="https://soundcloud.com/potenyzr1nma" target="_blank" rel="noopener">
@@ -428,6 +431,17 @@
     track.addEventListener('scroll', updateGalleryNav);
     window.addEventListener('resize', updateGalleryNav);
     updateGalleryNav();
+  }catch(e){}
+  try{
+    const mix = document.getElementById('latestMix');
+    const dark = window.matchMedia('(prefers-color-scheme: dark)');
+    function syncMixColor(){
+      const color = dark.matches ? '%239FAE79' : '%234F6142';
+      const next = mix.getAttribute('src').replace(/color=%23[0-9A-Fa-f]{6}/, 'color=' + color);
+      if(next !== mix.getAttribute('src')) mix.setAttribute('src', next);
+    }
+    dark.addEventListener('change', syncMixColor);
+    syncMixColor();
   }catch(e){}
 </script>
 </body>
