@@ -135,6 +135,10 @@
   .vibe-masonry{ column-count: 3; column-gap: 14px; }
   .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
+  .video-embed{ padding-block: 8px 48px; }
+  .video-embed .frame{ position:relative; aspect-ratio:16/9; border-radius:22px; overflow:hidden; border:1px solid var(--line); box-shadow: var(--shadow); background:#000; }
+  .video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  @media (max-width: 560px){ .video-embed .frame{ border-radius:14px; } }
   .more{ text-align:center; padding-block: 16px 80px; }
   .more .btn svg{ width:20px; height:20px; }
   .more .btn svg.arrow{ width:14px; height:14px; }

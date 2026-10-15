@@ -34,6 +34,15 @@ def vibe_html(m):
     imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
     return f'\n  <section class="vibe">\n    <div class="vibe-masonry">\n{imgs}\n    </div>\n  </section>\n'
 
+def video_html(m):
+    vid = m.get('youtube_embed')
+    if not vid:
+        return ''
+    return ('  <section class="video-embed">\n    <div class="frame">\n'
+            f'      <iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{attr(m["title"])} (YouTube)" loading="lazy" '
+            'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>\n'
+            '    </div>\n  </section>\n')
+
 def build_detail(m, idx):
     title = m['title']
     short = title.split(' | ')[0]
@@ -74,7 +83,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
-        'TRACKLIST': tracklist, 'VIBE': vibe_html(m),
+        'VIDEO': video_html(m), 'TRACKLIST': tracklist, 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():
