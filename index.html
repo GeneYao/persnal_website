@@ -168,7 +168,7 @@
   .bio{ font-size: 22px; line-height: 1.9; color: var(--ink); max-width: 680px; margin-inline: auto; text-align: center; }
 
   /* ---- latest mix ---- */
-  .latest{ margin-top: 32px; }
+  .latest{ margin-top: 32px; scroll-margin-top: 24px; }
   .latest > .eyebrow{ margin: 0 0 12px; }
   .latest-card{
     position:relative; display:grid; grid-template-columns: 132px 1fr; gap: 24px; align-items:center;
@@ -297,7 +297,7 @@
       <h1>GeneYao</h1>
       <p class="eyebrow">Music Lover / Selector / DJ</p>
       <div class="cta-row">
-        <a class="btn solid" href="#music">
+        <a class="btn solid" href="#latest">
           <span class="lang-zh">收聽作品</span><span class="lang-en">Listen</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
         </a>
@@ -340,7 +340,7 @@
 <section id="music">
   <div class="wrap">
     <h2>My Mix/Playlist</h2>
-    <div class="latest">
+    <div class="latest" id="latest">
       <p class="eyebrow">Latest Mix</p>
       <div class="latest-card" id="latestCard">
         <img src="photos/mix.jpg" alt="L'ultimo Tuffo mix artwork" loading="lazy">
