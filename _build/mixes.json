@@ -803,17 +803,66 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/winnies-birthday-party",
   "dur": "0:56:22",
   "cover": "mix-winnies-birthday-party.jpg",
-  "tracks": [],
+  "tracks": [
+   "Sade - Smooth Operator",
+   "Michael Jackson - P.Y.T. (Pretty Young Thing)",
+   "Tom Misch, Poppy Ajudha - Disco Yes",
+   "Grace Jones - I've Seen That Face Before (Libertango)",
+   "Banda Black Rio - Maria fumaça",
+   "Marcos Valle - Estrelar",
+   "Tania Maria - Come With Me",
+   "Jamiroquai - Virtual Insanity",
+   "Moonchild - The List",
+   "Amy Winehouse - Stronger Than Me",
+   "Maxwell - Ascension (Don't Ever Wonder)",
+   "Grover Washington, Jr., Bill Withers - Just the Two of Us",
+   "Incognito - Don't You Worry 'Bout a Thing",
+   "Monsieur Periné, Vicente Garcia - Nuestra Canción"
+  ],
   "desc_en": [
-   "Happy Birthday to Winnie!!!!"
+   "Opening with smooth grooves and classic dance floor energy, the set shifts lightly into the bright rhythms of Brazilian Samba and Bossa, gradually moving into the warm textures of Acid Jazz and Neo-Soul, and closes with gentle melodies and lively Latin grooves, sending the guest of honor warm wishes."
   ],
   "desc_zh": [
-   "Winnie 生日快樂！！！！"
+   "以 Smooth 的律動與經典舞曲開場，輕快轉入巴西 Samba 與 Bossa 的明亮節奏，漸入 Acid Jazz 與 Neo-Soul 的溫潤質地，最後在溫柔的旋律與動感的拉丁律動裡，為壽星送上滿滿祝福。"
   ],
   "credits": [],
   "spotify": "https://open.spotify.com/playlist/3ohW2pecDyRzmZclj8beo6?si=tFSoHxGzRG2s4ImcmAkNRQ&pi=020HKFf8RhWiY",
-  "when": null,
-  "vibe": false,
+  "when": {
+   "zh": "2026.01.21 WED · 遊牧計劃 · 台北",
+   "en": "2026.01.21 WED · Nomad Project · Taipei"
+  },
+  "vibe": {
+   "left": [
+    {
+     "file": "winnie-1.jpg",
+     "alt": "Winnie 與 Gene 在 DJ 台前開心合照"
+    },
+    {
+     "file": "winnie-2.jpg",
+     "alt": "Gene 穿著彩色針織衫在窗邊操作控台"
+    }
+   ],
+   "mid": [
+    {
+     "file": "winnie-3.jpg",
+     "alt": "Gene 戴著墨鏡的側臉特寫，身穿彩色針織衫"
+    },
+    {
+     "file": "winnie-5.jpg",
+     "alt": "從 DJ 台後方看向席地而坐聆聽的來賓"
+    }
+   ],
+   "right": [
+    {
+     "file": "winnie-4.jpg",
+     "alt": "生日派對全體來賓的大合照"
+    },
+    {
+     "file": "winnie-6.jpg",
+     "alt": "手拿印有 Winnie 插畫的飲料杯"
+    }
+   ]
+  },
   "wave": [
    115,
    113,
