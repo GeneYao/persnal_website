@@ -53,20 +53,22 @@
   .back:hover{ color: var(--accent); }
   .back svg{ width:14px; height:14px; }
 
-  .mix-hero{ padding-block: 40px 56px; display:grid; grid-template-columns: 300px 1fr; gap: 44px; align-items:center; }
-  .mix-hero img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
-  .mix-hero h1{ font-size: clamp(34px, 5vw, 56px); line-height: 1.04; margin-top: 12px; }
-  .meta{ margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
-  .desc{ margin: 20px 0 0; font-size: 17px; line-height: 1.85; max-width: 56ch; }
-  .credit{ margin: 10px 0 0; color: var(--ink-soft); font-size: 15px; }
-  .links{ margin-top: 28px; display:flex; gap:14px; flex-wrap:wrap; }
+  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 380px 1fr; gap: 36px; align-items:stretch; }
+  .cover{ position:relative; min-height:280px; }
+  .cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .mix-hero > div:last-child{ align-self:center; }
+  .mix-hero h1{ font-size: clamp(30px, 3.8vw, 42px); line-height: 1.08; margin-top: 10px; }
+  .meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
+  .desc{ margin: 14px 0 0; font-size: 16px; line-height: 1.8; max-width: 56ch; }
+  .credit{ margin: 8px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .links{ margin-top: 20px; display:flex; gap:14px; flex-wrap:wrap; }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; padding:13px 20px; border-radius:999px; text-decoration:none; border:1px solid var(--line); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
   .btn:hover{ transform: translateY(-2px); border-color: var(--accent); }
   .btn.solid{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
   .btn svg{ width:16px; height:16px; }
 
-  .player-box{ display:none; margin-top: 26px; padding: 20px 22px 44px; background: var(--surface); border:1px solid var(--line); border-radius:22px; }
+  .player-box{ display:none; margin-top: 20px; padding: 14px 18px 38px; background: var(--surface); border:1px solid var(--line); border-radius:22px; }
   .player-box.ready{ display:block; }
   .mix-player{ display:none; align-items:center; gap:16px; }
   .player-box.ready .mix-player{ display:flex; }
@@ -96,9 +98,9 @@
   .tracklist li{ display:grid; grid-template-columns: 44px 1fr; gap: 12px; align-items:baseline; padding: 14px 0; border-bottom:1px solid var(--line); }
   .tracklist .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); font-variant-numeric: tabular-nums; }
   .tracklist .tx{ font-size:16px; }
-  @media (max-width: 760px){
+  @media (max-width: 860px){
     .mix-hero{ grid-template-columns: 1fr; gap: 28px; }
-    .mix-hero img{ max-width: 320px; }
+    .cover{ aspect-ratio:1/1; max-width:320px; min-height:0; }
   }
 
   footer{ padding-block: 40px; border-top: 1px solid var(--line); }
@@ -130,15 +132,14 @@
   </a>
 
   <section class="mix-hero">
-    <img src="../../photos/mix.jpg" alt="L'ultimo Tuffo mix artwork">
+    <div class="cover"><img src="../../photos/mix.jpg" alt="L'ultimo Tuffo mix artwork"></div>
     <div>
       <p class="eyebrow">Latest Mix</p>
       <h1>L'ultimo Tuffo | From Mediterranean Breeze to Italo</h1>
       <div class="meta">1:17:45 · 18 TRACKS</div>
-      <p class="desc lang-zh">日落時分的 18 首曲目旅程，由地中海的原聲微風出發，穿過拿坡里的有機打擊樂，最後潛入歡愉的義式迪斯可黃金時刻。</p>
+      <p class="desc lang-zh">日落時分的 18 首曲目旅程，由地中海的微風出發，穿過拿坡里的有機打擊樂，最後潛入愉快的義式迪斯可黃金時刻。</p>
       <p class="desc lang-en">An 18-track sunset journey starting with a Mediterranean acoustic breeze, transiting through Neapolitan organic percussion, and diving into a euphoric Italo disco golden hour.</p>
-      <p class="credit lang-zh">由 GeneYao 精選並混音。</p>
-      <p class="credit lang-en">Curated and mixed by GeneYao.</p>
+      <p class="credit">Presented by GeneYao</p>
 <div class="player-box" id="latestCard">
         <div class="mix-player">
         <button type="button" class="mix-play" id="mixPlay" aria-label="Play / Pause">
