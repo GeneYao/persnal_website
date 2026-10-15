@@ -963,7 +963,23 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/organic-dream-resonancexone-20261110",
   "dur": "1:05:40",
   "cover": "mix-organic-dream.jpg",
-  "tracks": [],
+  "tracks": [
+   "Laraaji - Being Here",
+   "BADBADNOTGOOD - Unfolding (Momentum 73)",
+   "Sunbear - Let Love Flow for Peace",
+   "Herbie Hancock - I Thought It Was You",
+   "Nu Guinea - Je vulesse (Original Mix)",
+   "Nicola Cruz - Tzantza (Simple Symmetry Remix)",
+   "Beat Pharmacy - Wata (Water) feat. Mutabaruka",
+   "Osunlade - Momma's Groove",
+   "Ron Trent - Prescription (Original Mix)",
+   "Quantic - Atlantic Oscillations (Original Mix)",
+   "Hidden Spheres - Waiting (Waiting)",
+   "Leon Vynehall - Butterflies (Original Mix)",
+   "Session Victim - Good Intentions (LP Mix)",
+   "Chaos In The CBD - Midnight in Peckham (Original Mix)",
+   "Wendell Harrison - Peace of Mind"
+  ],
   "desc_en": [
    "Music slowly unfolds in the mountains,<br>moving with the light,<br>rhythm emerging from the earth,<br>the afternoon air still bright,<br>footsteps wandering through the forest,<br>the body responding gently to the beat.",
    "Music is only one part of the scene,<br>existing alongside tree shadows, clouds, wind and conversation,<br>slowly taking shape in the mountains."
@@ -974,8 +990,50 @@
   ],
   "credits": [],
   "spotify": null,
-  "when": null,
-  "vibe": false,
+  "when": {
+   "zh": "2026.01.10 SAT · ResonanceXone · 桃園",
+   "en": "2026.01.10 SAT · ResonanceXone · Taoyuan"
+  },
+  "vibe": {
+   "left": [
+    {
+     "file": "organic-1.jpg",
+     "alt": "Gene 在帳篷下操作控台，前景是一位穿黑色連帽外套的背影"
+    },
+    {
+     "file": "organic-4.jpg",
+     "alt": "Gene 戴著耳機站在擺著花草的 DJ 桌後"
+    },
+    {
+     "file": "organic-3.jpg",
+     "alt": "兩位聽眾坐在折疊椅上遠眺山景"
+    },
+    {
+     "file": "organic-2.jpg",
+     "alt": "彩色印地安風披風的織紋與 DJ 控台特寫"
+    }
+   ],
+   "mid": [
+    {
+     "file": "organic-5.jpg",
+     "alt": "山坡上的白色帳篷舞台與坐在周圍聆聽的人們"
+    },
+    {
+     "file": "organic-6.jpg",
+     "alt": "Gene 穿著披風、戴耳機專注混音，前方有花草與監聽喇叭"
+    }
+   ],
+   "right": [
+    {
+     "file": "organic-7.jpg",
+     "alt": "黃昏時山巒間的雲霞"
+    },
+    {
+     "file": "organic-8.jpg",
+     "alt": "傍晚山邊的白色帳篷"
+    }
+   ]
+  },
   "wave": [
    76,
    114,
