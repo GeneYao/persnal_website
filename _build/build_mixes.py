@@ -16,6 +16,23 @@ attr = lambda s: html.escape(s, quote=True)
 
 def strip_tags(s): return re.sub(r'<[^>]+>', ' ', s).replace('  ', ' ').strip()
 
+def vibe_html(m):
+    v = m.get('vibe')
+    if not v:
+        return ''
+    if v is True:
+        return vibe
+    if isinstance(v, dict):
+        def col(items, cls):
+            body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in items)
+            return f'      <div class="{cls}">\n{body}\n      </div>'
+        mid_cls = 'vcol mid' + (' mid2' if len(v['mid']) == 2 else '')
+        return ('\n  <section class="vibe">\n    <div class="vibe-grid">\n'
+                + col(v['left'], 'vcol') + '\n' + col(v['mid'], mid_cls) + '\n' + col(v['right'], 'vcol')
+                + '\n    </div>\n  </section>\n')
+    imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
+    return f'\n  <section class="vibe">\n    <div class="vibe-masonry">\n{imgs}\n    </div>\n  </section>\n'
+
 def build_detail(m, idx):
     title = m['title']
     short = title.split(' | ')[0]
@@ -55,7 +72,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else '',
-        'TRACKLIST': tracklist, 'VIBE': vibe if m.get('vibe') else '',
+        'TRACKLIST': tracklist, 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():

@@ -130,6 +130,10 @@
     .vcol.mid{ grid-column: 1 / -1; order: 2; gap:10px; }
     .vibe-grid img{ border-radius:12px; }
   }
+  @media (max-width: 760px){ .vcol.mid2{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:center; } }
+  .vibe-masonry{ column-count: 3; column-gap: 14px; }
+  .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
   .more{ text-align:center; padding-block: 16px 80px; }
   .more .btn svg{ width:20px; height:20px; }
   .more .btn svg.arrow{ width:14px; height:14px; }
