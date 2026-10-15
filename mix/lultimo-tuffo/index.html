@@ -53,22 +53,27 @@
   .back:hover{ color: var(--accent); }
   .back svg{ width:14px; height:14px; }
 
-  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 380px 1fr; gap: 36px; align-items:stretch; }
-  .cover{ position:relative; min-height:280px; }
-  .cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
-  .mix-hero > div:last-child{ align-self:center; }
+  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 340px 1fr; gap: 36px; align-items:center; }
+  .cover{ width:100%; aspect-ratio:1/1; }
+  .cover img{ width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
   .mix-hero h1{ font-size: clamp(30px, 3.8vw, 42px); line-height: 1.08; margin-top: 10px; }
   .meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
   .desc{ margin: 14px 0 0; font-size: 16px; line-height: 1.8; max-width: 56ch; }
   .credit{ margin: 8px 0 0; color: var(--ink-soft); font-size: 14.5px; }
-  .links{ margin-top: 20px; display:flex; gap:14px; flex-wrap:wrap; }
+  .links{ display:flex; gap:10px; flex:0 0 auto; }
+  .action-row{ margin-top: 20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .action-row .btn{ padding: 11px 15px; font-size:12px; }
+  .action-row .btn svg{ width:15px; height:15px; }
+  .player-box .mix-play{ width:46px; height:46px; }
+  .player-box .mix-play svg{ width:17px; height:17px; }
+  .player-box .wave{ height:38px; }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; padding:13px 20px; border-radius:999px; text-decoration:none; border:1px solid var(--line); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
   .btn:hover{ transform: translateY(-2px); border-color: var(--accent); }
   .btn.solid{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
   .btn svg{ width:16px; height:16px; }
 
-  .player-box{ display:none; margin-top: 20px; padding: 14px 18px 38px; background: var(--surface); border:1px solid var(--line); border-radius:22px; }
+  .player-box{ display:none; flex:1 1 270px; min-width:0; margin:0; padding: 12px 14px 34px; background: var(--surface); border:1px solid var(--line); border-radius:22px; }
   .player-box.ready{ display:block; }
   .mix-player{ display:none; align-items:center; gap:16px; }
   .player-box.ready .mix-player{ display:flex; }
@@ -100,7 +105,7 @@
   .tracklist .tx{ font-size:16px; }
   @media (max-width: 860px){
     .mix-hero{ grid-template-columns: 1fr; gap: 28px; }
-    .cover{ aspect-ratio:1/1; max-width:320px; min-height:0; }
+    .cover{ width:min(100%, 320px); }
   }
 
   footer{ padding-block: 40px; border-top: 1px solid var(--line); }
@@ -140,7 +145,8 @@
       <p class="desc lang-zh">日落時分的 18 首曲目旅程，由地中海的微風出發，穿過拿坡里的有機打擊樂，最後潛入愉快的義式迪斯可黃金時刻。</p>
       <p class="desc lang-en">An 18-track sunset journey starting with a Mediterranean acoustic breeze, transiting through Neapolitan organic percussion, and diving into a euphoric Italo disco golden hour.</p>
       <p class="credit">Presented by GeneYao</p>
-<div class="player-box" id="latestCard">
+<div class="action-row">
+      <div class="player-box" id="latestCard">
         <div class="mix-player">
         <button type="button" class="mix-play" id="mixPlay" aria-label="Play / Pause">
           <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
@@ -166,6 +172,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M6.8 10.2c3.3-1 7.2-.7 9.9 1M7 13.2c2.7-.8 6-.6 8.3.9M7.3 16c2.2-.6 4.7-.5 6.6.7"/></svg>
           Spotify
         </a>
+      </div>
       </div>
     </div>
   </section>
