@@ -1134,13 +1134,64 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/a-wash-of-verdant-haze",
   "dur": "0:54:04",
   "cover": "mix-a-wash-of-verdant-haze.jpg",
-  "tracks": [],
-  "desc_en": [],
-  "desc_zh": [],
+  "tracks": [
+   "Bill Evans - Peace Piece",
+   "Joseph Shabason - 1517",
+   "Daniel Blumberg - Overture (Ship)",
+   "naran ratan - Forevertime Journeys",
+   "Domenique Dumont - Arrival",
+   "Susumu Yokota - Blue Sky And Yellow Sunflower",
+   "Lauge - Sandslottet",
+   "Green-House - Sansevieria",
+   "Mort Garson - Plantasia",
+   "Bon Iver - Wash.",
+   "Beach House - On the Sea",
+   "Nick Drake - Pink Moon",
+   "Joni Mitchell - Little Green",
+   "Crosby, Stills, Nash & Young - Our House",
+   "The Beatles - In My Life (Remastered 2009)"
+  ],
+  "desc_en": [
+   "The open space of piano and ambient textures, drifting slowly through plant-like synthesizers and soft electronic atmospheres, and settling into the warmth of folk and familiar melodies, like a green haze slowly lifting over the garden."
+  ],
+  "desc_zh": [
+   "鋼琴與環境音的留白，緩緩穿過如植物生長般的合成器與柔和的電子氛圍，最後落在民謠的溫暖與熟悉的旋律裡，像庭園中一層慢慢散開的綠色薄霧。"
+  ],
   "credits": [],
-  "spotify": null,
-  "when": null,
-  "vibe": false,
+  "spotify": "https://open.spotify.com/playlist/1ka5vuMI6mhDseFBjRNr3s?si=613988c956684697",
+  "when": {
+   "zh": "2025.12.27 SAT · 裏山 URAYAMA · 台北",
+   "en": "2025.12.27 SAT · URAYAMA · Taipei"
+  },
+  "vibe": {
+   "left": [
+    {
+     "file": "urayama-6.jpg",
+     "alt": "雨後的日式庭院，碎石步道與修剪整齊的松樹與灌木"
+    }
+   ],
+   "mid": [
+    {
+     "file": "urayama-1.jpg",
+     "alt": "Gene 坐在日式庭院的長椅上，身旁擺著陶壺",
+     "wide": true
+    },
+    {
+     "file": "urayama-2.jpg",
+     "alt": "Gene 站在窗邊的 DJ 台後，窗外是日式庭園"
+    },
+    {
+     "file": "urayama-5.jpg",
+     "alt": "Gene 在窗前混音，牆上掛著「裏山」書法"
+    }
+   ],
+   "right": [
+    {
+     "file": "urayama-4.jpg",
+     "alt": "低頭操作 DJ 控台的特寫，背景是庭園的綠意"
+    }
+   ]
+  },
   "wave": [
    41,
    67,
