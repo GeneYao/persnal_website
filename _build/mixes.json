@@ -1292,13 +1292,67 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/bonne-soiree",
   "dur": "1:07:01",
   "cover": "mix-bonne-soiree.jpg",
-  "tracks": [],
-  "desc_en": [],
-  "desc_zh": [],
+  "tracks": [
+   "Yves Montand - Les feuilles mortes",
+   "Juliette Gréco - La javanaise",
+   "Michel Polnareff - Love Me, Please Love Me",
+   "La Femme - Tu t'en lasses",
+   "Air - Ce matin-là",
+   "高橋ユキヒロ - セ・シ・ボン",
+   "Cortex - L'enfant samba",
+   "Serge Gainsbourg - Couleur café",
+   "Anoraak, Sarah Maison - Gang",
+   "Benjamin Biolay - Comment est ta peine ?",
+   "Clea Vincent - Nuits sans sommeil",
+   "Parcels - Iknowhowlfeel",
+   "Serge Gainsbourg, MONTMARTRE - Sea, Sex And Sun (Remix)",
+   "Jeanne Bonjour - Creep (Reprise)",
+   "Daft Punk - Voyager",
+   "Corine - Pourquoi pourquoi",
+   "L'Impératrice - Agitations tropicales",
+   "Sacha Distel - La belle vie (Remix)",
+   "Jacques Dutronc - Les cactus",
+   "Cassius - Cassius 1999 (Radio Edit)",
+   "Stardust, Benjamin Diamond - Music Sounds Better With You",
+   "Modjo - Lady (Hear Me Tonight)",
+   "Jarvis Cocker - Aline"
+  ],
+  "desc_en": [
+   "Beginning with the warmth of French Chanson, carrying the ease and slight intoxication of a Parisian night, the set gradually turns to Bossa Nova and light French Pop, and closes in the filtered grooves of French House and the glitter of the dance floor, lighting up the atmosphere of the night."
+  ],
+  "desc_zh": [
+   "從法國香頌的溫度開始，帶著巴黎夜晚的閒適與微醺，漸漸轉入 Bossa Nova 與輕盈的法式流行，最後在 French House 的濾波律動與舞池的閃光裡，點亮夜晚的氛圍。"
+  ],
   "credits": [],
-  "spotify": null,
-  "when": null,
-  "vibe": false,
+  "spotify": "https://open.spotify.com/playlist/6zXLpqumqxbKqsdXStKHkI?si=5559a836ec8549ae",
+  "when": {
+   "zh": "2025.10.31 FRI · The Uncles · 台北",
+   "en": "2025.10.31 FRI · The Uncles · Taipei"
+  },
+  "vibe": {
+   "left": [
+    {
+     "file": "bonne-1.jpg",
+     "alt": "法國國旗串旗下的長桌，擺著花草、蠟燭、水果與砧板"
+    }
+   ],
+   "mid": [
+    {
+     "file": "bonne-2.jpg",
+     "alt": "Gene 穿著細條紋西裝站在 DJ 台後，身旁是 Perrier 氣泡水"
+    },
+    {
+     "file": "bonne-5.jpg",
+     "alt": "Gene 比出雙手大拇指，身旁有來賓拿著手機"
+    }
+   ],
+   "right": [
+    {
+     "file": "bonne-3.jpg",
+     "alt": "BONNE SOIRÉE 海報與艾菲爾鐵塔擺飾，來賓在後方交談"
+    }
+   ]
+  },
   "wave": [
    79,
    89,
