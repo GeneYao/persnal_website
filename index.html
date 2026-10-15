@@ -218,14 +218,19 @@
   }
 
   .archive-link{
-    display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top: 14px;
-    padding: 16px 22px; border:1px solid var(--line); border-radius: 999px; text-decoration:none; color: var(--ink);
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
-    transition: border-color .2s ease, color .2s ease, transform .18s ease;
+    display:flex; align-items:center; gap:14px; margin-top: 14px;
+    padding: 10px 24px 10px 10px; border:1px solid var(--accent); border-radius: 999px; text-decoration:none; color: var(--ink);
+    background: var(--surface);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    transition: background .2s ease, transform .18s ease, box-shadow .2s ease;
   }
-  .archive-link:hover{ border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-  .archive-link .sub{ color: var(--ink-soft); letter-spacing:.04em; text-transform:none; font-size:12px; }
-  .archive-link svg{ width:14px; height:14px; flex:0 0 auto; }
+  .archive-link:hover{ background: var(--accent-soft); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .archive-link .ico{ flex:0 0 auto; width:44px; height:44px; border-radius:50%; background: var(--accent); color: var(--bg); display:flex; align-items:center; justify-content:center; }
+  .archive-link .ico svg{ width:24px; height:24px; }
+  .archive-link .txt{ flex:1; min-width:0; }
+  .archive-link .sub{ display:block; margin-top:2px; color: var(--ink-soft); letter-spacing:.03em; text-transform:none; font-size:12px; }
+  .archive-link .arrow{ width:16px; height:16px; flex:0 0 auto; color: var(--accent); transition: transform .2s ease; }
+  .archive-link:hover .arrow{ transform: translate(2px,-2px); }
 
   /* ---- music ---- */
   .card-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
@@ -381,8 +386,13 @@
         <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
       </div>
       <a class="archive-link" href="archive/">
-        <span>Archive Mix <span class="sub"><span class="lang-zh">· 收錄所有 set</span><span class="lang-en">· Browse all sets</span></span></span>
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2" stroke-width="1.1" opacity=".7"/><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="txt">Archive Mix
+          <span class="sub"><span class="lang-zh">收錄所有 set，點進去選一個聽</span><span class="lang-en">Browse every set and pick one to play</span></span>
+        </span>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </a>
     </div>
     <div class="card-row">

@@ -66,7 +66,7 @@ def build_detail(m, idx):
 
 ARCHIVE_CSS = '''
   .arch-head{ padding-block: 28px 8px; }
-  .arch-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; margin-top: 12px; }
+  .arch-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; }
   .arch-head p{ margin: 14px 0 0; color: var(--ink-soft); max-width: 52ch; }
   .arch-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 26px 20px; padding-block: 36px 88px; }
   .acard{ display:block; text-decoration:none; color: var(--ink); }
@@ -112,10 +112,7 @@ def build_archive():
   </a>
 
   <header class="arch-head">
-    <p class="eyebrow">{n} Sets</p>
     <h1>Archive Mix</h1>
-    <p class="lang-zh">收錄在 SoundCloud 上的每一個 DJ set，選一個想聽的點進去。</p>
-    <p class="lang-en">Every DJ set on SoundCloud in one place. Pick one to start listening.</p>
   </header>
 
   <section class="arch-grid">
