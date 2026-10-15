@@ -132,7 +132,9 @@
   }
   footer{ padding-block: 40px; border-top: 1px solid var(--line); }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; }
+  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition: color .2s ease; }
+  footer .wordmark svg{ width:22px; height:22px; fill: var(--accent); }
+  footer .wordmark:hover{ color: var(--accent); }
   footer .fine{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); letter-spacing:.04em; }
 
   #page:not([data-lang="en"]) .lang-en{ display:none; }
@@ -246,7 +248,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="wordmark">GeneYao</div>
+    <a class="wordmark" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
     <div class="fine" id="year-line">© GeneYao</div>
   </div>
 </footer>
