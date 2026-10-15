@@ -108,6 +108,13 @@
   .player-box .mix-time{ position:static; flex:0 0 auto; font-size:11.5px; }
   .player-box #mixDur{ display:none; }
   .action-row .btn{ height:46px; padding: 0 16px; }
+  @media (min-width: 861px){
+    .action-row{ flex-wrap:nowrap; gap:10px; }
+    .player-box{ flex:1 1 180px; }
+    .links{ gap:8px; }
+    .action-row .btn{ padding: 0 13px; font-size:11.5px; gap:7px; }
+    .action-row .btn svg{ width:14px; height:14px; }
+  }
   .tracklist{ padding-block: 8px 80px; }
   .tracklist h2{ font-size: 32px; }
   .tracklist ol{ list-style:none; margin: 28px 0 0; padding:0; border-top:1px solid var(--line); }
