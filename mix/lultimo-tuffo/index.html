@@ -119,6 +119,15 @@
     .links{ width:100%; justify-content:center; }
   }
 
+  .vibe{ padding-block: 8px 88px; }
+  .vibe-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items:center; }
+  .vcol{ display:flex; flex-direction:column; gap:14px; }
+  .vibe-grid img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){
+    .vibe-grid{ grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vcol.mid{ grid-column: 1 / -1; order: 2; gap:10px; }
+    .vibe-grid img{ border-radius:12px; }
+  }
   footer{ padding-block: 40px; border-top: 1px solid var(--line); }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
   footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; }
@@ -210,6 +219,22 @@
         <li><span class="no">17.</span><span class="tx">My Mine - Hypnotic Tango (Original 12" Version)</span></li>
         <li><span class="no">18.</span><span class="tx">Ryan Paris - Dolce Vita (Original Remastered)</span></li>
     </ol>
+  </section>
+
+  <section class="vibe">
+    <div class="vibe-grid">
+      <div class="vcol">
+        <img src="../../photos/vibe-1.jpg" alt="Gene 戴著帽子與領巾專注操作 DJ 控台" loading="lazy">
+      </div>
+      <div class="vcol mid">
+        <img src="../../photos/vibe-2.jpg" alt="盤子上的巴斯克起司蛋糕與兩顆馬卡龍" loading="lazy">
+        <img src="../../photos/vibe-5.jpg" alt="L'Atelier de Mlle HO 門口聚集的人群與玻璃上的 L'ultimo Tuffo 海報" loading="lazy">
+        <img src="../../photos/vibe-3.jpg" alt="木桌上陳列的水果與蔬菜造型蠟燭" loading="lazy">
+      </div>
+      <div class="vcol">
+        <img src="../../photos/vibe-4.jpg" alt="Gene 戴著帽子、坐在淺色石凳上微笑" loading="lazy">
+      </div>
+    </div>
   </section>
 </div>
 
