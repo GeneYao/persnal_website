@@ -290,16 +290,52 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/80s-cantopop-mandopop-mix",
   "dur": "2:04:32",
   "cover": "mix-yu-ye-chu-jian.jpg",
-  "tracks": [],
+  "tracks": [
+   "張學友 - 藍雨",
+   "陳百強 - 夢囈",
+   "關淑怡 - 難得有情人",
+   "林憶蓮 - 滴汗",
+   "林志美 - 雨夜鋼琴 (Blue Mix)",
+   "林憶蓮 & Blue Jeans - 下雨天",
+   "梅艷芳 - 壞女孩",
+   "高凌風 - 夏天的浪花",
+   "張國榮 - 拒絕再玩",
+   "張國榮 - 無心睡眠",
+   "林憶蓮 - 灰色",
+   "梅艷芳 - 夢伴",
+   "陳慧嫻 - 跳舞街",
+   "郭小霖 - 愛情蝙蝠俠",
+   "譚詠麟 - 愛情陷阱",
+   "張國榮 - Monica",
+   "羅文 - 在我生命裡",
+   "馬玉芬 - 多情會有問題",
+   "Raidas - 杯中冷巷",
+   "Raidas - 吸煙的女人 (Remix)",
+   "達明一派 - 石頭記",
+   "葉德嫻 - 輕輕嘆",
+   "陳淑樺 - 傲慢與偏見",
+   "黃韻玲 - 一瞬間",
+   "潘越雲 - 情字這條路",
+   "梅艷芳 - 夢幻的擁抱",
+   "蔡楓華 - 絕對空虛",
+   "梅艷芳 - 赤的疑惑",
+   "梅艷芳 - 裝飾的眼淚",
+   "林子祥 - 最愛是誰",
+   "王傑 - 一場遊戲一場夢",
+   "張國榮 - 風繼續吹"
+  ],
   "desc_en": [
    "A 120-minute sonic journey through the rainy midnight of Keelung. This set captures the neon illusions, nihilism, and romantic melancholy of 80s Hong Kong and Taiwan, blending Canton-Disco, Synth-Pop, and City Pop into a cinematic midnight soundscape."
   ],
   "desc_zh": [
-   "一段長達 120 分鐘、穿越基隆雨夜午夜的聲音旅程。這個 set 捕捉八〇年代香港與台灣的霓虹幻影、虛無與浪漫的憂鬱，將廣東迪斯可、合成流行與 City Pop 揉合成電影感的午夜聲景。"
+   "一段長達 120 分鐘、穿越基隆雨夜午夜的聲音旅程。這個 set 捕捉八〇年代香港與台灣的霓虹幻影、虛無與浪漫的憂鬱，將廣東迪斯可、Synth Pop 與 City Pop 揉合成電影感的午夜聲景。"
   ],
   "credits": [],
-  "spotify": null,
-  "when": null,
+  "spotify": "https://open.spotify.com/playlist/2ba3CIQDlfB0mEVy5bcvlU?si=22f2f1e824eb4162",
+  "when": {
+   "zh": "2026.05.16 SAT · 初見咖啡·藝文委託行 · 基隆",
+   "en": "2026.05.16 SAT · Chujian Café (Arts & Culture Consignment) · Keelung"
+  },
   "vibe": false,
   "wave": [
    82,
@@ -393,7 +429,8 @@
    92,
    86
   ],
-  "pub": "Mon, 18 May 2026 11:41:06 +0000"
+  "pub": "Mon, 18 May 2026 11:41:06 +0000",
+  "youtube": "https://www.youtube.com/watch?v=K5APPaG6ncg"
  },
  {
   "slug": "the-indigo-blueprint",

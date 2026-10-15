@@ -10,6 +10,7 @@ mixes = json.load(open(os.path.join(B, 'mixes.json'), encoding='utf-8'))
 tpl = open(os.path.join(B, 'template.html'), encoding='utf-8').read()
 vibe = open(os.path.join(B, 'vibe_section.html'), encoding='utf-8').read()
 spot_tpl = open(os.path.join(B, 'spotify_btn.html'), encoding='utf-8').read()
+yt_tpl = open(os.path.join(B, 'youtube_btn.html'), encoding='utf-8').read()
 
 esc = lambda s: html.escape(s, quote=False)
 attr = lambda s: html.escape(s, quote=True)
@@ -54,8 +55,9 @@ def build_detail(m, idx):
         f'      <p class="credit lang-zh">{esc(c["zh"])}</p>\n      <p class="credit lang-en">{esc(c["en"])}</p>\n'
         for c in m['credits'])
     if m['tracks']:
-        lis = '\n'.join(f'        <li><span class="no">{i}.</span><span class="tx">{esc(t)}</span></li>'
-                        for i, t in enumerate(m['tracks'], 1))
+        times = m.get('times') or [''] * len(m['tracks'])
+        lis = '\n'.join(f'        <li><span class="no">{i}.</span><span class="tx">{esc(t)}</span>' + (f'<span class="tm">{tm}</span>' if tm else '') + '</li>'
+                        for i, (t, tm) in enumerate(zip(m['tracks'], times), 1))
         tracklist = ('  <section class="tracklist">\n'
                      '    <h2><span class="lang-zh">曲目清單</span><span class="lang-en">Tracklist</span></h2>\n'
                      f'    <ol>\n{lis}\n    </ol>\n  </section>\n')
@@ -71,7 +73,7 @@ def build_detail(m, idx):
         'TITLE': esc(title), 'WHEN_BLOCK': when, 'DUR_LINE': dur_line, 'DESC_BLOCK': desc,
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
-        'SPOTIFY_BTN': spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else '',
+        'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
         'TRACKLIST': tracklist, 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
