@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>雨夜初見 | GeneYao</title>
+<meta name="description" content="雨夜初見 | 80s Cantopop &amp; Mandopop Mix. A 120-minute sonic journey through the rainy midnight of Keelung. This set captures the neon illusions, nihilism, and romantic melancholy of 80s Hong Kong and Taiwan, blending Cant…">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeneYao">
+<meta property="og:title" content="雨夜初見 | 80s Cantopop &amp; Mandopop Mix">
+<meta property="og:description" content="A 120-minute sonic journey through the rainy midnight of Keelung. This set captures the neon illusions, nihilism, and romantic melancholy of 80s Hong Kong and Taiwan, blending Cant…">
+<meta property="og:url" content="https://geneyao.com/mix/yu-ye-chu-jian/">
+<meta property="og:image" content="https://geneyao.com/photos/mix-yu-ye-chu-jian.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F6142'/%3E%3Crect x='4' y='13' width='3' height='9' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='9' y='8' width='3' height='16' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='14' y='4' width='3' height='24' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='19' y='10' width='3' height='14' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='24' y='14' width='3' height='8' rx='1.5' fill='%23D8D6CB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{ color-scheme: light dark; }
+  *{box-sizing:border-box;}
+  html,body{ margin:0; padding:0; }
+  img{ max-width:100%; display:block; }
+  :root{
+    --bg: #D8D6CB; --surface: #E8E6DA; --ink: #24261F; --ink-soft: #62644F;
+    --accent: #4F6142; --accent-soft: #4F614224; --line: rgba(36,38,31,.15);
+    --shadow: 0 18px 40px -24px rgba(36,38,31,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #14150F; --surface: #1D1F16; --ink: #E6E7DA; --ink-soft: #9EA089;
+      --accent: #9FAE79; --accent-soft: #9FAE7924; --line: rgba(230,231,218,.14);
+      --shadow: 0 18px 40px -24px rgba(0,0,0,.65);
+    }
+  }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; position: relative;
+  }
+  body::before{
+    content:''; position: fixed; inset:0; z-index:0; pointer-events:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px; mix-blend-mode: overlay; opacity: .06;
+  }
+  body > *{ position: relative; z-index: 1; }
+  h1,h2,h3{ font-family:'Instrument Serif', 'Noto Serif TC', serif; font-weight:400; text-wrap:balance; margin:0; }
+  a{ color:inherit; }
+  .wrap{ max-width: 1040px; margin:0 auto; padding-inline: 24px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color: var(--accent); margin:0; }
+
+  .back{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--ink-soft); }
+  .back:hover{ color: var(--accent); }
+  .back svg{ width:14px; height:14px; }
+
+  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 340px 1fr; gap: 36px; align-items:center; }
+  .cover{ width:100%; aspect-ratio:1/1; }
+  .cover img{ width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .mix-hero h1{ font-size: clamp(30px, 3.8vw, 42px); line-height: 1.08; margin-top: 10px; }
+  .meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
+  .meta.when{ color: var(--accent); }
+  .meta.dur{ margin-top:6px; }
+  .desc{ margin: 14px 0 0; font-size: 16px; line-height: 1.8; max-width: 56ch; }
+  .credit{ margin: 8px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .links{ display:flex; gap:10px; flex:0 0 auto; }
+  .action-row{ margin-top: 20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .action-row .btn{ padding: 11px 15px; font-size:12px; }
+  .action-row .btn svg{ width:15px; height:15px; }
+  .player-box .mix-play{ width:46px; height:46px; }
+  .player-box .mix-play svg{ width:17px; height:17px; }
+  .player-box .wave{ height:38px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; padding:13px 20px; border-radius:999px; text-decoration:none; border:1px solid var(--line); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+  .btn:hover{ transform: translateY(-2px); border-color: var(--accent); }
+  .btn.solid{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
+  .btn svg{ width:16px; height:16px; }
+
+  .player-box{ display:none; flex:1 1 330px; min-width:0; margin:0; height:46px; padding: 0 16px 0 6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; }
+  .player-box.ready{ display:flex; align-items:center; }
+  .mix-player{ display:none; align-items:center; gap:16px; }
+  .player-box.ready .mix-player{ display:flex; }
+  .mix-play{
+    flex:0 0 auto; width:56px; height:56px; border-radius:50%; border:1px solid var(--ink);
+    background: var(--ink); color: var(--bg); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .2s ease, border-color .2s ease, transform .18s ease;
+  }
+  .mix-play:hover{ background: var(--accent); border-color: var(--accent); transform: scale(1.05); }
+  .mix-play svg{ width:20px; height:20px; }
+  .mix-play .ico-pause{ display:none; }
+  .mix-play.playing .ico-play{ display:none; }
+  .mix-play.playing .ico-pause{ display:block; }
+  .mix-bar{ flex:1; min-width:0; position:relative; }
+  .wave{ position:relative; height:46px; --pos:0%; cursor:pointer; }
+  .wave-layer{ position:absolute; inset:0; display:flex; align-items:center; gap:2px; overflow:hidden; }
+  .wave-layer i{ flex:1 1 0; min-width:0; border-radius:2px; background: var(--line); }
+  .wave-fill{ clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .wave-fill i{ background: var(--accent); }
+  .mix-seek{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
+  .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+
+  /* compact one-line player */
+  .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
+  .player-box .mix-play{ width:34px; height:34px; }
+  .player-box .mix-play svg{ width:14px; height:14px; }
+  .player-box .mix-bar{ display:flex; align-items:center; gap:12px; }
+  .player-box .wave{ flex:1; min-width:0; height:24px; }
+  .player-box .mix-time{ position:static; flex:0 0 auto; font-size:11.5px; }
+  .player-box #mixDur{ display:none; }
+  .action-row .btn{ height:46px; padding: 0 16px; }
+  .tracklist{ padding-block: 8px 80px; }
+  .tracklist h2{ font-size: 32px; }
+  .tracklist ol{ list-style:none; margin: 28px 0 0; padding:0; border-top:1px solid var(--line); }
+  .tracklist li{ display:grid; grid-template-columns: 44px 1fr; gap: 12px; align-items:baseline; padding: 14px 0; border-bottom:1px solid var(--line); }
+  .tracklist .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .tracklist .tx{ font-size:16px; }
+  @media (max-width: 860px){
+    .mix-hero{ grid-template-columns: 1fr; gap: 28px; }
+    .cover{ width:min(100%, 320px); }
+    .action-row{ justify-content:center; }
+    .links{ width:100%; justify-content:center; }
+  }
+
+  .vibe{ padding-block: 8px 88px; }
+  .vibe-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items:center; }
+  .vcol{ display:flex; flex-direction:column; gap:14px; }
+  .vibe-grid img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){
+    .vibe-grid{ grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vcol.mid{ grid-column: 1 / -1; order: 2; gap:10px; }
+    .vibe-grid img{ border-radius:12px; }
+  }
+  footer{ padding-block: 40px; border-top: 1px solid var(--line); }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition: color .2s ease; }
+  footer .wordmark svg{ width:22px; height:22px; fill: var(--accent); }
+  footer .wordmark:hover{ color: var(--accent); }
+  footer .fine{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); letter-spacing:.04em; }
+
+  #page:not([data-lang="en"]) .lang-en{ display:none; }
+  #page[data-lang="en"] .lang-zh{ display:none; }
+  .lang-switch{ position:fixed; top:calc(16px + env(safe-area-inset-top,0px)); right:16px; z-index:20; display:flex; align-items:center; gap:6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; padding:7px 12px; box-shadow: var(--shadow); font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em; }
+  .lang-btn{ background:none; border:none; padding:2px 3px; margin:0; cursor:pointer; color: var(--ink-soft); font-family:inherit; font-size:inherit; }
+  .lang-btn.active{ color: var(--accent); font-weight:600; }
+  .lang-sep{ color: var(--ink-soft); opacity:.5; }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button type="button" class="lang-btn active" id="langZh">中</button>
+  <span class="lang-sep">/</span>
+  <button type="button" class="lang-btn" id="langEn">EN</button>
+</div>
+
+<div id="page" data-lang="zh">
+<div class="wrap">
+  <a class="back" href="../../archive/">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    <span>Archive Mix</span>
+  </a>
+
+  <section class="mix-hero">
+    <div class="cover"><img src="../../photos/mix-yu-ye-chu-jian.jpg" alt="雨夜初見 | 80s Cantopop &amp; Mandopop Mix artwork"></div>
+    <div>
+      <p class="eyebrow">Archive Mix</p>
+      <h1>雨夜初見 | 80s Cantopop &amp; Mandopop Mix</h1>
+      <div class="meta dur">2:04:32</div>
+      <p class="desc lang-zh">一段長達 120 分鐘、穿越基隆雨夜午夜的聲音旅程。這個 set 捕捉八〇年代香港與台灣的霓虹幻影、虛無與浪漫的憂鬱，將廣東迪斯可、合成流行與 City Pop 揉合成電影感的午夜聲景。</p>
+      <p class="desc lang-en">A 120-minute sonic journey through the rainy midnight of Keelung. This set captures the neon illusions, nihilism, and romantic melancholy of 80s Hong Kong and Taiwan, blending Canton-Disco, Synth-Pop, and City Pop into a cinematic midnight soundscape.</p>
+      <p class="credit">Presented by GeneYao</p>
+<div class="action-row">
+      <div class="player-box" id="latestCard">
+        <div class="mix-player">
+        <button type="button" class="mix-play" id="mixPlay" aria-label="Play / Pause">
+          <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+          <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>
+        </button>
+        <div class="mix-bar">
+          <div class="wave" id="mixWave">
+            <div class="wave-layer" id="waveBase" aria-hidden="true"></div>
+            <div class="wave-layer wave-fill" id="waveFill" aria-hidden="true"></div>
+            <input type="range" class="mix-seek" id="mixSeek" min="0" max="1000" value="0" aria-label="Seek">
+          </div>
+          <div class="mix-time"><span id="mixCur">0:00</span><span id="mixDur">2:04:32</span></div>
+        </div>
+        </div>
+      </div>
+      <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2F80s-cantopop-mandopop-mix&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+      <div class="links">
+        <a class="btn solid" href="https://soundcloud.com/potenyzr1nma/80s-cantopop-mandopop-mix" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15.5v-3M4.5 16.5v-5.5M7 17v-8M9.5 17V8"/><path d="M9.5 17h8.2a3.8 3.8 0 0 0 .4-7.58 5 5 0 0 0-9.28-1.8"/></svg>
+          SoundCloud
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="../../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
+    <div class="fine" id="year-line">© GeneYao</div>
+  </div>
+</footer>
+</div>
+
+<script>
+  try{ document.getElementById('year-line').textContent = '© ' + new Date().getFullYear() + ' GeneYao'; }catch(e){}
+  try{
+    const page = document.getElementById('page');
+    const btnZh = document.getElementById('langZh');
+    const btnEn = document.getElementById('langEn');
+    function setLang(lang){
+      page.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.classList.toggle('active', lang === 'en');
+      try{ localStorage.setItem('geneyao-lang', lang); }catch(e){}
+    }
+    btnZh.addEventListener('click', ()=> setLang('zh'));
+    btnEn.addEventListener('click', ()=> setLang('en'));
+    try{ if(localStorage.getItem('geneyao-lang') === 'en') setLang('en'); }catch(e){}
+  }catch(e){}
+
+  window.addEventListener('load', function(){
+    try{
+      if(typeof SC === 'undefined') return;
+      const card = document.getElementById('latestCard');
+      const widget = SC.Widget(document.getElementById('mixFrame'));
+      const playBtn = document.getElementById('mixPlay');
+      const seek = document.getElementById('mixSeek');
+      const cur = document.getElementById('mixCur');
+      const dur = document.getElementById('mixDur');
+      let duration = 0, dragging = false;
+      function fmt(ms){
+        const t = Math.max(0, Math.floor(ms / 1000));
+        const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), sec = t % 60;
+        const pad = n => String(n).padStart(2, '0');
+        return h ? h + ':' + pad(m) + ':' + pad(sec) : m + ':' + pad(sec);
+      }
+      const wave = document.getElementById('mixWave');
+      const WAVE = [82, 90, 85, 80, 91, 99, 112, 110, 89, 92, 95, 99, 105, 106, 112, 116, 116, 109, 104, 101, 102, 105, 106, 94, 91, 99, 107, 106, 108, 106, 105, 105, 111, 120, 119, 105, 104, 104, 105, 103, 102, 100, 95, 89, 86, 96, 124, 127, 114, 111, 112, 109, 113, 112, 109, 97, 104, 104, 116, 118, 100, 99, 93, 100, 99, 97, 107, 109, 100, 95, 97, 100, 96, 100, 96, 95, 103, 86, 102, 100, 98, 88, 83, 94, 103, 106, 92, 97, 92, 86];
+      function buildWave(){
+        const n = Math.max(24, Math.min(WAVE.length, Math.floor(wave.clientWidth / 4)));
+        ['waveBase', 'waveFill'].forEach(function(id){
+          const layer = document.getElementById(id);
+          layer.textContent = '';
+          for(let i = 0; i < n; i++){
+            const from = Math.floor(i * WAVE.length / n), to = Math.max(from + 1, Math.floor((i + 1) * WAVE.length / n));
+            let sum = 0;
+            for(let j = from; j < to; j++) sum += WAVE[j];
+            const v = sum / (to - from);
+            const bar = document.createElement('i');
+            bar.style.height = Math.round(22 + Math.min(1, Math.max(0, (v - 85) / 42)) * 74) + '%';
+            layer.appendChild(bar);
+          }
+        });
+      }
+      let waveTimer;
+      window.addEventListener('resize', function(){ clearTimeout(waveTimer); waveTimer = setTimeout(buildWave, 150); });
+      function paint(ratio){
+        seek.value = Math.round(ratio * 1000);
+        wave.style.setProperty('--pos', (ratio * 100) + '%');
+      }
+      widget.bind(SC.Widget.Events.READY, function(){
+        widget.getDuration(function(d){ duration = d; dur.textContent = fmt(d); });
+        card.classList.add('ready');
+        buildWave();
+      });
+      widget.bind(SC.Widget.Events.PLAY, function(){ playBtn.classList.add('playing'); });
+      widget.bind(SC.Widget.Events.PAUSE, function(){ playBtn.classList.remove('playing'); });
+      widget.bind(SC.Widget.Events.FINISH, function(){ playBtn.classList.remove('playing'); paint(0); cur.textContent = '0:00'; });
+      widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(e){
+        if(dragging) return;
+        cur.textContent = fmt(e.currentPosition);
+        paint(e.relativePosition);
+      });
+      playBtn.addEventListener('click', function(){ widget.toggle(); });
+      seek.addEventListener('pointerdown', function(){ dragging = true; });
+      seek.addEventListener('input', function(){
+        const ratio = seek.value / 1000;
+        wave.style.setProperty('--pos', (ratio * 100) + '%');
+        cur.textContent = fmt(ratio * duration);
+      });
+      seek.addEventListener('change', function(){
+        dragging = false;
+        widget.seekTo((seek.value / 1000) * duration);
+      });
+    }catch(e){}
+  });
+</script>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+</body>
+</html>

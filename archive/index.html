@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Archive Mix | GeneYao</title>
+<meta name="description" content="Archive Mix. Every DJ set by GeneYao, collected in one place.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeneYao">
+<meta property="og:title" content="Archive Mix">
+<meta property="og:description" content="Every DJ set by GeneYao, collected in one place.">
+<meta property="og:url" content="https://geneyao.com/archive/">
+<meta property="og:image" content="https://geneyao.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F6142'/%3E%3Crect x='4' y='13' width='3' height='9' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='9' y='8' width='3' height='16' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='14' y='4' width='3' height='24' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='19' y='10' width='3' height='14' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='24' y='14' width='3' height='8' rx='1.5' fill='%23D8D6CB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{ color-scheme: light dark; }
+  *{box-sizing:border-box;}
+  html,body{ margin:0; padding:0; }
+  img{ max-width:100%; display:block; }
+  :root{
+    --bg: #D8D6CB; --surface: #E8E6DA; --ink: #24261F; --ink-soft: #62644F;
+    --accent: #4F6142; --accent-soft: #4F614224; --line: rgba(36,38,31,.15);
+    --shadow: 0 18px 40px -24px rgba(36,38,31,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #14150F; --surface: #1D1F16; --ink: #E6E7DA; --ink-soft: #9EA089;
+      --accent: #9FAE79; --accent-soft: #9FAE7924; --line: rgba(230,231,218,.14);
+      --shadow: 0 18px 40px -24px rgba(0,0,0,.65);
+    }
+  }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; position: relative;
+  }
+  body::before{
+    content:''; position: fixed; inset:0; z-index:0; pointer-events:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px; mix-blend-mode: overlay; opacity: .06;
+  }
+  body > *{ position: relative; z-index: 1; }
+  h1,h2,h3{ font-family:'Instrument Serif', 'Noto Serif TC', serif; font-weight:400; text-wrap:balance; margin:0; }
+  a{ color:inherit; }
+  .wrap{ max-width: 1040px; margin:0 auto; padding-inline: 24px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color: var(--accent); margin:0; }
+
+  .back{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--ink-soft); }
+  .back:hover{ color: var(--accent); }
+  .back svg{ width:14px; height:14px; }
+
+  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 340px 1fr; gap: 36px; align-items:center; }
+  .cover{ width:100%; aspect-ratio:1/1; }
+  .cover img{ width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .mix-hero h1{ font-size: clamp(30px, 3.8vw, 42px); line-height: 1.08; margin-top: 10px; }
+  .meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
+  .meta.when{ color: var(--accent); }
+  .meta.dur{ margin-top:6px; }
+  .desc{ margin: 14px 0 0; font-size: 16px; line-height: 1.8; max-width: 56ch; }
+  .credit{ margin: 8px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .links{ display:flex; gap:10px; flex:0 0 auto; }
+  .action-row{ margin-top: 20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .action-row .btn{ padding: 11px 15px; font-size:12px; }
+  .action-row .btn svg{ width:15px; height:15px; }
+  .player-box .mix-play{ width:46px; height:46px; }
+  .player-box .mix-play svg{ width:17px; height:17px; }
+  .player-box .wave{ height:38px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; padding:13px 20px; border-radius:999px; text-decoration:none; border:1px solid var(--line); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+  .btn:hover{ transform: translateY(-2px); border-color: var(--accent); }
+  .btn.solid{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
+  .btn svg{ width:16px; height:16px; }
+
+  .player-box{ display:none; flex:1 1 330px; min-width:0; margin:0; height:46px; padding: 0 16px 0 6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; }
+  .player-box.ready{ display:flex; align-items:center; }
+  .mix-player{ display:none; align-items:center; gap:16px; }
+  .player-box.ready .mix-player{ display:flex; }
+  .mix-play{
+    flex:0 0 auto; width:56px; height:56px; border-radius:50%; border:1px solid var(--ink);
+    background: var(--ink); color: var(--bg); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .2s ease, border-color .2s ease, transform .18s ease;
+  }
+  .mix-play:hover{ background: var(--accent); border-color: var(--accent); transform: scale(1.05); }
+  .mix-play svg{ width:20px; height:20px; }
+  .mix-play .ico-pause{ display:none; }
+  .mix-play.playing .ico-play{ display:none; }
+  .mix-play.playing .ico-pause{ display:block; }
+  .mix-bar{ flex:1; min-width:0; position:relative; }
+  .wave{ position:relative; height:46px; --pos:0%; cursor:pointer; }
+  .wave-layer{ position:absolute; inset:0; display:flex; align-items:center; gap:2px; overflow:hidden; }
+  .wave-layer i{ flex:1 1 0; min-width:0; border-radius:2px; background: var(--line); }
+  .wave-fill{ clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .wave-fill i{ background: var(--accent); }
+  .mix-seek{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
+  .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+
+  /* compact one-line player */
+  .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
+  .player-box .mix-play{ width:34px; height:34px; }
+  .player-box .mix-play svg{ width:14px; height:14px; }
+  .player-box .mix-bar{ display:flex; align-items:center; gap:12px; }
+  .player-box .wave{ flex:1; min-width:0; height:24px; }
+  .player-box .mix-time{ position:static; flex:0 0 auto; font-size:11.5px; }
+  .player-box #mixDur{ display:none; }
+  .action-row .btn{ height:46px; padding: 0 16px; }
+  .tracklist{ padding-block: 8px 80px; }
+  .tracklist h2{ font-size: 32px; }
+  .tracklist ol{ list-style:none; margin: 28px 0 0; padding:0; border-top:1px solid var(--line); }
+  .tracklist li{ display:grid; grid-template-columns: 44px 1fr; gap: 12px; align-items:baseline; padding: 14px 0; border-bottom:1px solid var(--line); }
+  .tracklist .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .tracklist .tx{ font-size:16px; }
+  @media (max-width: 860px){
+    .mix-hero{ grid-template-columns: 1fr; gap: 28px; }
+    .cover{ width:min(100%, 320px); }
+    .action-row{ justify-content:center; }
+    .links{ width:100%; justify-content:center; }
+  }
+
+  .vibe{ padding-block: 8px 88px; }
+  .vibe-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items:center; }
+  .vcol{ display:flex; flex-direction:column; gap:14px; }
+  .vibe-grid img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){
+    .vibe-grid{ grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vcol.mid{ grid-column: 1 / -1; order: 2; gap:10px; }
+    .vibe-grid img{ border-radius:12px; }
+  }
+  footer{ padding-block: 40px; border-top: 1px solid var(--line); }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition: color .2s ease; }
+  footer .wordmark svg{ width:22px; height:22px; fill: var(--accent); }
+  footer .wordmark:hover{ color: var(--accent); }
+  footer .fine{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); letter-spacing:.04em; }
+
+  #page:not([data-lang="en"]) .lang-en{ display:none; }
+  #page[data-lang="en"] .lang-zh{ display:none; }
+  .lang-switch{ position:fixed; top:calc(16px + env(safe-area-inset-top,0px)); right:16px; z-index:20; display:flex; align-items:center; gap:6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; padding:7px 12px; box-shadow: var(--shadow); font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em; }
+  .lang-btn{ background:none; border:none; padding:2px 3px; margin:0; cursor:pointer; color: var(--ink-soft); font-family:inherit; font-size:inherit; }
+  .lang-btn.active{ color: var(--accent); font-weight:600; }
+  .lang-sep{ color: var(--ink-soft); opacity:.5; }
+
+  .arch-head{ padding-block: 28px 8px; }
+  .arch-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; margin-top: 12px; }
+  .arch-head p{ margin: 14px 0 0; color: var(--ink-soft); max-width: 52ch; }
+  .arch-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 26px 20px; padding-block: 36px 88px; }
+  .acard{ display:block; text-decoration:none; color: var(--ink); }
+  .acard .acover{ position:relative; aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:1px solid var(--line); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .acard img{ width:100%; height:100%; object-fit:cover; }
+  .acard:hover .acover{ transform: translateY(-4px); border-color: var(--accent); }
+  .acard h3{ font-size: 21px; line-height:1.15; margin-top: 14px; }
+  .acard:hover h3{ color: var(--accent); }
+  .acard .ameta{ margin-top: 6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.05em; color: var(--ink-soft); }
+  .acard .badge{ position:absolute; left:10px; top:10px; padding:4px 10px; border-radius:999px; background: var(--bg); color: var(--accent); font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; }
+  @media (max-width: 560px){ .arch-grid{ grid-template-columns: 1fr 1fr; gap: 20px 12px; } .acard h3{ font-size:17px; } .acard .acover{ border-radius:14px; } }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button type="button" class="lang-btn active" id="langZh">中</button>
+  <span class="lang-sep">/</span>
+  <button type="button" class="lang-btn" id="langEn">EN</button>
+</div>
+
+<div id="page" data-lang="zh">
+<div class="wrap">
+  <a class="back" href="../#music">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    <span>GeneYao</span>
+  </a>
+
+  <header class="arch-head">
+    <p class="eyebrow">10 Sets</p>
+    <h1>Archive Mix</h1>
+    <p class="lang-zh">收錄在 SoundCloud 上的每一個 DJ set，選一個想聽的點進去。</p>
+    <p class="lang-en">Every DJ set on SoundCloud in one place. Pick one to start listening.</p>
+  </header>
+
+  <section class="arch-grid">
+    <a class="acard" href="../mix/lultimo-tuffo/"><div class="acover"><img src="../photos/mix.jpg" alt="L&#x27;ultimo Tuffo | From Mediterranean Breeze to Italo artwork" loading="lazy"><span class="badge">Latest</span></div><h3>L'ultimo Tuffo | From Mediterranean Breeze to Italo</h3><div class="ameta">1:17:45 · 18 TRACKS</div></a>
+    <a class="acard" href="../mix/yes-fil-we-can-boogie/"><div class="acover"><img src="../photos/mix-yes-fil-we-can-boogie.jpg" alt="Yes Fil, We Can Boogie | Late 70&#x27;s Funk/Disco Retro Groove artwork" loading="lazy"></div><h3>Yes Fil, We Can Boogie | Late 70's Funk/Disco Retro Groove</h3><div class="ameta">1:01:15 · 14 TRACKS</div></a>
+    <a class="acard" href="../mix/yu-ye-chu-jian/"><div class="acover"><img src="../photos/mix-yu-ye-chu-jian.jpg" alt="雨夜初見 | 80s Cantopop &amp; Mandopop Mix artwork" loading="lazy"></div><h3>雨夜初見 | 80s Cantopop &amp; Mandopop Mix</h3><div class="ameta">2:04:32</div></a>
+    <a class="acard" href="../mix/the-indigo-blueprint/"><div class="acover"><img src="../photos/mix-the-indigo-blueprint.jpg" alt="The Indigo Blueprint @ The UNCLES’ × New Manual 1st Taiwan Pop-Up artwork" loading="lazy"></div><h3>The Indigo Blueprint @ The UNCLES’ × New Manual 1st Taiwan Pop-Up</h3><div class="ameta">1:09:43</div></a>
+    <a class="acard" href="../mix/lheure-doree/"><div class="acover"><img src="../photos/mix-lheure-doree.jpg" alt="L&#x27;Heure Dorée | French Touch &amp; Chic Grooves artwork" loading="lazy"></div><h3>L'Heure Dorée | French Touch &amp; Chic Grooves</h3><div class="ameta">1:36:06</div></a>
+    <a class="acard" href="../mix/winnies-birthday-party/"><div class="acover"><img src="../photos/mix-winnies-birthday-party.jpg" alt="A Soulful Celebration Mix @ Winnie&#x27;s Birthday Party artwork" loading="lazy"></div><h3>A Soulful Celebration Mix @ Winnie's Birthday Party</h3><div class="ameta">0:56:22</div></a>
+    <a class="acard" href="../mix/organic-dream/"><div class="acover"><img src="../photos/mix-organic-dream.jpg" alt="Organic Dream @ ResonanceXone 20260110 artwork" loading="lazy"></div><h3>Organic Dream @ ResonanceXone 20260110</h3><div class="ameta">1:05:40</div></a>
+    <a class="acard" href="../mix/a-wash-of-verdant-haze/"><div class="acover"><img src="../photos/mix-a-wash-of-verdant-haze.jpg" alt="A Wash of Verdant Haze artwork" loading="lazy"></div><h3>A Wash of Verdant Haze</h3><div class="ameta">0:54:04</div></a>
+    <a class="acard" href="../mix/bonne-soiree/"><div class="acover"><img src="../photos/mix-bonne-soiree.jpg" alt="BONNE SOIRÉE (From Chanson Française to French House) artwork" loading="lazy"></div><h3>BONNE SOIRÉE (From Chanson Française to French House)</h3><div class="ameta">1:07:01</div></a>
+    <a class="acard" href="../mix/my-first-set/"><div class="acover"><img src="../photos/mix-my-first-set.jpg" alt="My First Set (House, Nu-Disco, Jazz) artwork" loading="lazy"></div><h3>My First Set (House, Nu-Disco, Jazz)</h3><div class="ameta">0:50:40</div></a>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
+    <div class="fine" id="year-line">© GeneYao</div>
+  </div>
+</footer>
+</div>
+
+<script>
+  try{ document.getElementById('year-line').textContent = '© ' + new Date().getFullYear() + ' GeneYao'; }catch(e){}
+  try{
+    const page = document.getElementById('page');
+    const btnZh = document.getElementById('langZh');
+    const btnEn = document.getElementById('langEn');
+    function setLang(lang){
+      page.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.classList.toggle('active', lang === 'en');
+      try{ localStorage.setItem('geneyao-lang', lang); }catch(e){}
+    }
+    btnZh.addEventListener('click', ()=> setLang('zh'));
+    btnEn.addEventListener('click', ()=> setLang('en'));
+    try{ if(localStorage.getItem('geneyao-lang') === 'en') setLang('en'); }catch(e){}
+  }catch(e){}
+</script>
+</body>
+</html>

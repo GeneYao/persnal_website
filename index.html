@@ -217,6 +217,16 @@
     .latest-card img{ width:100%; height:auto; aspect-ratio:1/1; }
   }
 
+  .archive-link{
+    display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top: 14px;
+    padding: 16px 22px; border:1px solid var(--line); border-radius: 999px; text-decoration:none; color: var(--ink);
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    transition: border-color .2s ease, color .2s ease, transform .18s ease;
+  }
+  .archive-link:hover{ border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .archive-link .sub{ color: var(--ink-soft); letter-spacing:.04em; text-transform:none; font-size:12px; }
+  .archive-link svg{ width:14px; height:14px; flex:0 0 auto; }
+
   /* ---- music ---- */
   .card-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
   .card{
@@ -370,6 +380,10 @@
         </div>
         <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpotenyzr1nma%2Flultimo-tuffo-from&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
       </div>
+      <a class="archive-link" href="archive/">
+        <span>Archive Mix <span class="sub"><span class="lang-zh">· 收錄所有 set</span><span class="lang-en">· Browse all sets</span></span></span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </a>
     </div>
     <div class="card-row">
       <a class="card" href="https://soundcloud.com/potenyzr1nma" target="_blank" rel="noopener">
