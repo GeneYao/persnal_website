@@ -23,6 +23,9 @@ def vibe_html(m):
         return ''
     if v is True:
         return vibe
+    if isinstance(v, dict) and 'trio' in v:
+        imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v['trio'])
+        return f'\n  <section class="vibe">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n  </section>\n'
     if isinstance(v, dict):
         def col(items, cls):
             body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in items)

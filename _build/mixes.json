@@ -336,7 +336,22 @@
    "zh": "2026.05.16 SAT · 初見咖啡·藝文委託行 · 基隆",
    "en": "2026.05.16 SAT · Chujian Café (Arts & Culture Consignment) · Keelung"
   },
-  "vibe": false,
+  "vibe": {
+   "trio": [
+    {
+     "file": "yuye-1.jpg",
+     "alt": "Gene 在霓虹燈招牌下低頭笑著操作控台"
+    },
+    {
+     "file": "yuye-2.jpg",
+     "alt": "Gene 在霓虹燈招牌前坐在 DJ 台後微笑"
+    },
+    {
+     "file": "yuye-3.jpg",
+     "alt": "Gene 戴著耳機專注混音，背景是粉紅霓虹燈"
+    }
+   ]
+  },
   "wave": [
    82,
    90,
