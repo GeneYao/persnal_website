@@ -28,9 +28,9 @@ def vibe_html(m):
         return f'\n  <section class="vibe">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n  </section>\n'
     if isinstance(v, dict):
         def col(items, cls):
-            body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in items)
+            body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}"' + (' class="wide"' if i.get('wide') else '') + ' loading="lazy">' for i in items)
             return f'      <div class="{cls}">\n{body}\n      </div>'
-        mid_cls = 'vcol mid' + (' mid2' if len(v['mid']) == 2 else '')
+        mid_cls = 'vcol mid' + (' mid2' if len(v['mid']) == 2 else (' midg' if len(v['mid']) >= 3 else ''))
         return ('\n  <section class="vibe">\n    <div class="vibe-grid">\n'
                 + col(v['left'], 'vcol') + '\n' + col(v['mid'], mid_cls) + '\n' + col(v['right'], 'vcol')
                 + '\n    </div>\n  </section>\n')

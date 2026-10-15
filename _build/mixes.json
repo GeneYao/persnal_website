@@ -454,26 +454,73 @@
   "sc_url": "https://soundcloud.com/potenyzr1nma/the-indigo-blueprint",
   "dur": "1:09:43",
   "cover": "mix-the-indigo-blueprint.jpg",
-  "tracks": [],
+  "tracks": [
+   "Cymande - The Message",
+   "Donald Byrd - Dominoes",
+   "Khruangbin - Time (You and I)",
+   "Kikagaku Moyo - Dripping Sun",
+   "Haruomi Hosono - 薔薇と野獣 (New ver.)",
+   "Cortex - Troupeau bleu",
+   "Tommy Guerrero - The Endless Road",
+   "El Michels Affair - C.R.E.A.M.",
+   "Nujabes, Shing02 - Luv(sic.) pt3 (feat. Shing02)",
+   "Soft Lipa - 收斂水",
+   "cero - Summer Soul",
+   "Suchmos - MINT",
+   "Sunny Day Service - In the sun again",
+   "Yogee New Waves - Bluemin' Days",
+   "LUCKY TAPES - Peace and Magic",
+   "Kan Sano - On My Way Home"
+  ],
   "desc_en": [
-   "\"The Indigo Blueprint\" is an afternoon set inspired by the craftsmanship and heritage of raw denim. The journey begins with the heavy, unwashed textures of 70s roots Funk and Soul, a nod to the authentic history of vintage workwear. As the afternoon sunlight hits the room, the mix seamlessly fades into the breezy streets of Tokyo, blending Jazzy Hip-Hop, Shibuya-kei influences, and modern Neo-City Pop."
+   "Beginning with the heavy, unwashed textures of 70s roots Funk and Soul, a nod to the authentic history of vintage workwear. As the afternoon sunlight spills into the room, the music gradually fades into the light-footed streets of Tokyo, blending Jazzy Hip-Hop, Shibuya-kei influences and modern Neo-City Pop."
   ],
   "desc_zh": [
-   "「The Indigo Blueprint」是一場受原色丹寧工藝與傳承啟發的午後 set。旅程從七〇年代根源 Funk 與 Soul 厚重、未洗的質地開始，向復古工裝的真實歷史致意。隨著午後陽光灑進空間，音樂漸漸淡入東京輕盈的街頭，融合爵士嘻哈、澀谷系影響與現代 Neo-City Pop。"
+   "從七〇年代根源 Funk 與 Soul 厚重、未洗的質地開始，向復古工裝的真實歷史致意。隨後午後陽光灑進空間，音樂漸漸淡入東京輕盈的街頭，融合爵士嘻哈、澀谷系影響與現代 Neo-City Pop。"
   ],
-  "credits": [
-   {
-    "en": "A special thanks to The UNCLES’ for the invitation",
-    "zh": "特別感謝 The UNCLES’ 的邀請"
-   },
-   {
-    "en": "Cover credit to @_em.red_",
-    "zh": "封面：@_em.red_"
-   }
-  ],
+  "credits": [],
   "spotify": "https://open.spotify.com/playlist/5VdETNmMjHv8C2Zg0LsVSq?si=ee3f7112f2564fd6",
-  "when": null,
-  "vibe": false,
+  "when": {
+   "zh": "2026.04.11 SAT · The UNCLES · 台北",
+   "en": "2026.04.11 SAT · The UNCLES · Taipei"
+  },
+  "vibe": {
+   "left": [
+    {
+     "file": "indigo-1.jpg",
+     "alt": "Gene 在吧檯操作控台，後方的朋友驚喜地笑著"
+    },
+    {
+     "file": "indigo-7.jpg",
+     "alt": "攤在木地板上的丹寧外套，領口有 New Manual 的標籤"
+    }
+   ],
+   "mid": [
+    {
+     "file": "indigo-2.jpg",
+     "alt": "桌上展示丹寧外套，兩位背對鏡頭的人欣賞懸掛的外套"
+    },
+    {
+     "file": "indigo-5.jpg",
+     "alt": "活動結束後全體在 New Manual 背景布前的大合照",
+     "wide": true
+    },
+    {
+     "file": "indigo-4.jpg",
+     "alt": "現場眾人圍著長桌，天花板懸掛著一整套丹寧外套與牛仔褲"
+    }
+   ],
+   "right": [
+    {
+     "file": "indigo-3.jpg",
+     "alt": "Gene 戴著耳機與墨鏡專注混音"
+    },
+    {
+     "file": "indigo-6.jpg",
+     "alt": "店內擠滿試穿與挑選丹寧外套的來賓"
+    }
+   ]
+  },
   "wave": [
    108,
    113,
