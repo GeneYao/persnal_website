@@ -228,6 +228,7 @@
   .archive-link .ico{ flex:0 0 auto; width:44px; height:44px; border-radius:50%; background:#1A1A17; box-shadow: 0 0 0 1px rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; transition: transform .6s ease; }
   .archive-link:hover .ico{ transform: rotate(90deg); }
   .archive-link .ico svg{ width:44px; height:44px; }
+  .archive-link .ico .lbl{ fill: #D1432F; }
   .archive-link .txt{ flex:1; min-width:0; }
   .archive-link .sub{ display:block; margin-top:2px; color: var(--ink-soft); letter-spacing:.03em; text-transform:none; font-size:12px; }
   .archive-link .arrow{ width:16px; height:16px; flex:0 0 auto; color: var(--accent); transition: transform .2s ease; }
@@ -388,10 +389,10 @@
       </div>
       <a class="archive-link" href="archive/">
         <span class="ico" aria-hidden="true">
-          <svg viewBox="0 0 44 44"><g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1"><circle cx="22" cy="22" r="18.5"/><circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="11.8"/></g><circle cx="22" cy="22" r="7.4" fill="#D1432F"/><circle cx="22" cy="22" r="1.6" fill="#1A1A17"/></svg>
+          <svg viewBox="0 0 44 44"><g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1"><circle cx="22" cy="22" r="18.5"/></g><circle class="lbl" cx="22" cy="22" r="7.4"/><circle cx="22" cy="22" r="1.6" fill="#1A1A17"/></svg>
         </span>
         <span class="txt">Archive Mix
-          <span class="sub"><span class="lang-zh">收錄所有 set，點進去選一個聽</span><span class="lang-en">Browse every set and pick one to play</span></span>
+          <span class="sub"><span class="lang-zh">收錄所有 set</span><span class="lang-en">Browse all sets</span></span>
         </span>
         <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </a>
