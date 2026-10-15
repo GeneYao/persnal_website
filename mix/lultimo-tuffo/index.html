@@ -73,8 +73,8 @@
   .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
   .btn svg{ width:16px; height:16px; }
 
-  .player-box{ display:none; flex:1 1 270px; min-width:0; margin:0; padding: 12px 14px 34px; background: var(--surface); border:1px solid var(--line); border-radius:22px; }
-  .player-box.ready{ display:block; }
+  .player-box{ display:none; flex:1 1 330px; min-width:0; margin:0; height:46px; padding: 0 16px 0 6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; }
+  .player-box.ready{ display:flex; align-items:center; }
   .mix-player{ display:none; align-items:center; gap:16px; }
   .player-box.ready .mix-player{ display:flex; }
   .mix-play{
@@ -97,6 +97,15 @@
   .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
   .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
 
+  /* compact one-line player */
+  .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
+  .player-box .mix-play{ width:34px; height:34px; }
+  .player-box .mix-play svg{ width:14px; height:14px; }
+  .player-box .mix-bar{ display:flex; align-items:center; gap:12px; }
+  .player-box .wave{ flex:1; min-width:0; height:24px; }
+  .player-box .mix-time{ position:static; flex:0 0 auto; font-size:11.5px; }
+  .player-box #mixDur{ display:none; }
+  .action-row .btn{ height:46px; padding: 0 16px; }
   .tracklist{ padding-block: 8px 80px; }
   .tracklist h2{ font-size: 32px; }
   .tracklist ol{ list-style:none; margin: 28px 0 0; padding:0; border-top:1px solid var(--line); }
