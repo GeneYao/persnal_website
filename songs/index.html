@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Five Songs for This Week | GeneYao</title>
+<meta name="description" content="Five songs I&#x27;m listening to, shared with you every Monday.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeneYao">
+<meta property="og:title" content="Five Songs for This Week">
+<meta property="og:description" content="Five songs I&#x27;m listening to, shared with you every Monday.">
+<meta property="og:url" content="https://geneyao.com/songs/">
+<meta property="og:image" content="https://geneyao.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F6142'/%3E%3Crect x='4' y='13' width='3' height='9' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='9' y='8' width='3' height='16' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='14' y='4' width='3' height='24' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='19' y='10' width='3' height='14' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='24' y='14' width='3' height='8' rx='1.5' fill='%23D8D6CB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{ color-scheme: light dark; }
+  *{box-sizing:border-box;}
+  html,body{ margin:0; padding:0; }
+  img{ max-width:100%; display:block; }
+  :root{
+    --bg: #D8D6CB; --surface: #E8E6DA; --ink: #24261F; --ink-soft: #62644F;
+    --accent: #4F6142; --accent-soft: #4F614224; --line: rgba(36,38,31,.15);
+    --shadow: 0 18px 40px -24px rgba(36,38,31,.4);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #14150F; --surface: #1D1F16; --ink: #E6E7DA; --ink-soft: #9EA089;
+      --accent: #9FAE79; --accent-soft: #9FAE7924; --line: rgba(230,231,218,.14);
+      --shadow: 0 18px 40px -24px rgba(0,0,0,.65);
+    }
+  }
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; position: relative;
+  }
+  body::before{
+    content:''; position: fixed; inset:0; z-index:0; pointer-events:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px; mix-blend-mode: overlay; opacity: .06;
+  }
+  body > *{ position: relative; z-index: 1; }
+  h1,h2,h3{ font-family:'Instrument Serif', 'Noto Serif TC', serif; font-weight:400; text-wrap:balance; margin:0; }
+  a{ color:inherit; }
+  .wrap{ max-width: 1040px; margin:0 auto; padding-inline: 24px; }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color: var(--accent); margin:0; }
+
+  .back{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--ink-soft); }
+  .back:hover{ color: var(--accent); }
+  .back svg{ width:14px; height:14px; }
+
+  .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 340px 1fr; gap: 36px; align-items:center; }
+  .cover{ width:100%; aspect-ratio:1/1; }
+  .cover img{ width:100%; height:100%; object-fit:cover; border-radius:22px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .mix-hero h1{ font-size: clamp(30px, 3.8vw, 42px); line-height: 1.08; margin-top: 10px; }
+  .meta{ margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; color: var(--ink-soft); }
+  .meta.when{ color: var(--accent); }
+  .meta.dur{ margin-top:6px; }
+  .desc{ margin: 14px 0 0; font-size: 16px; line-height: 1.8; max-width: 56ch; }
+  .credit{ margin: 8px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .links{ display:flex; gap:10px; flex:0 0 auto; }
+  .action-row{ margin-top: 20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .action-row .btn{ padding: 11px 15px; font-size:12px; }
+  .action-row .btn svg{ width:15px; height:15px; }
+  .player-box .mix-play{ width:46px; height:46px; }
+  .player-box .mix-play svg{ width:17px; height:17px; }
+  .player-box .wave{ height:38px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; padding:13px 20px; border-radius:999px; text-decoration:none; border:1px solid var(--line); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+  .btn:hover{ transform: translateY(-2px); border-color: var(--accent); }
+  .btn.solid{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn.solid:hover{ background: var(--accent); border-color: var(--accent); }
+  .btn svg{ width:16px; height:16px; }
+
+  .player-box{ display:none; flex:1 1 330px; min-width:0; margin:0; height:46px; padding: 0 16px 0 6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; }
+  .player-box.ready{ display:flex; align-items:center; }
+  .mix-player{ display:none; align-items:center; gap:16px; }
+  .player-box.ready .mix-player{ display:flex; }
+  .mix-play{
+    flex:0 0 auto; width:56px; height:56px; border-radius:50%; border:1px solid var(--ink);
+    background: var(--ink); color: var(--bg); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .2s ease, border-color .2s ease, transform .18s ease;
+  }
+  .mix-play:hover{ background: var(--accent); border-color: var(--accent); transform: scale(1.05); }
+  .mix-play svg{ width:20px; height:20px; }
+  .mix-play .ico-pause{ display:none; }
+  .mix-play.playing .ico-play{ display:none; }
+  .mix-play.playing .ico-pause{ display:block; }
+  .mix-bar{ flex:1; min-width:0; position:relative; }
+  .wave{ position:relative; height:46px; --pos:0%; cursor:pointer; }
+  .wave-layer{ position:absolute; inset:0; display:flex; align-items:center; gap:2px; overflow:hidden; }
+  .wave-layer i{ flex:1 1 0; min-width:0; border-radius:2px; background: var(--line); }
+  .wave-fill{ clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .wave-fill i{ background: var(--accent); }
+  .mix-seek{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
+  .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+
+  /* compact one-line player */
+  .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
+  .player-box .mix-play{ width:34px; height:34px; }
+  .player-box .mix-play svg{ width:14px; height:14px; }
+  .player-box .mix-bar{ display:flex; align-items:center; gap:12px; }
+  .player-box .wave{ flex:1; min-width:0; height:24px; }
+  .player-box .mix-time{ position:static; flex:0 0 auto; font-size:11.5px; }
+  .player-box #mixDur{ display:none; }
+  .action-row .btn{ height:46px; padding: 0 16px; }
+  @media (min-width: 861px){
+    .action-row{ flex-wrap:nowrap; gap:10px; }
+    .player-box{ flex:1 1 180px; }
+    .links{ gap:8px; }
+    .action-row .btn{ padding: 0 13px; font-size:11.5px; gap:7px; }
+    .action-row .btn svg{ width:14px; height:14px; }
+  }
+  .tracklist{ padding-block: 8px 80px; }
+  .tracklist h2{ font-size: 32px; }
+  .tracklist ol{ list-style:none; margin: 28px 0 0; padding:0; border-top:1px solid var(--line); }
+  .tracklist li{ display:grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items:baseline; padding: 14px 0; border-bottom:1px solid var(--line); }
+  .tracklist .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .tracklist .tx{ font-size:16px; }
+  .tracklist .tm{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  @media (max-width: 860px){
+    .mix-hero{ grid-template-columns: 1fr; gap: 28px; }
+    .cover{ width:min(100%, 320px); }
+    .action-row{ justify-content:center; }
+    .links{ width:100%; justify-content:center; }
+  }
+
+  .vibe{ padding-block: 8px 88px; }
+  .vibe-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items:center; }
+  .vcol{ display:flex; flex-direction:column; gap:14px; }
+  .vibe-grid img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){
+    .vibe-grid{ grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vcol.mid{ grid-column: 1 / -1; order: 2; gap:10px; }
+    .vibe-grid img{ border-radius:12px; }
+  }
+  @media (max-width: 760px){ .vcol.mid2{ display:flex; flex-direction:column; align-items:center; gap:10px; } .vcol.mid2 img{ width:78%; } }
+  @media (max-width: 760px){ .vcol.midg{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:center; } .vcol.midg img.wide{ grid-column: 1 / -1; order: 3; } }
+  .vibe-trio{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+  .vibe-trio img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){ .vibe-trio{ grid-template-columns: 1fr 1fr; gap:10px; } .vibe-trio img{ border-radius:12px; } .vibe-trio img:nth-child(3){ grid-column: 1 / -1; width:calc(50% - 5px); justify-self:center; } }
+  .vibe-masonry{ column-count: 3; column-gap: 14px; }
+  .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
+  .video-embed{ padding-block: 8px 48px; }
+  .video-embed .frame{ position:relative; aspect-ratio:16/9; border-radius:22px; overflow:hidden; border:1px solid var(--line); box-shadow: var(--shadow); background:#000; }
+  .video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  @media (max-width: 760px){ .video-embed .frame{ width:88%; margin-inline:auto; border-radius:14px; } }
+  .more{ text-align:center; padding-block: 16px 80px; }
+  .more .btn svg{ width:20px; height:20px; }
+  .more .btn svg.arrow{ width:14px; height:14px; }
+  footer{ padding-block: 40px; border-top: 1px solid var(--line); }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition: color .2s ease; }
+  footer .wordmark svg{ width:22px; height:22px; fill: var(--accent); }
+  footer .wordmark:hover{ color: var(--accent); }
+  footer .fine{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); letter-spacing:.04em; }
+
+  #page:not([data-lang="en"]) .lang-en{ display:none; }
+  #page[data-lang="en"] .lang-zh{ display:none; }
+  .lang-switch{ position:fixed; top:calc(16px + env(safe-area-inset-top,0px)); right:16px; z-index:20; display:flex; align-items:center; gap:6px; background: var(--surface); border:1px solid var(--line); border-radius:999px; padding:7px 12px; box-shadow: var(--shadow); font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em; }
+  .lang-btn{ background:none; border:none; padding:2px 3px; margin:0; cursor:pointer; color: var(--ink-soft); font-family:inherit; font-size:inherit; }
+  .lang-btn.active{ color: var(--accent); font-weight:600; }
+  .lang-sep{ color: var(--ink-soft); opacity:.5; }
+
+  .songs-head{ padding-block: 28px 8px; }
+  .songs-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; }
+  .songs-head .meta{ margin-top:12px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.06em; color: var(--accent); }
+  .songs-head .intro{ margin: 16px 0 0; max-width: 56ch; color: var(--ink-soft); font-size:16px; line-height:1.8; }
+  .song-list{ margin: 36px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
+  .song{ display:grid; grid-template-columns: 36px 132px 1fr; gap: 20px; align-items:center; padding: 22px 0; border-bottom:1px solid var(--line); }
+  .song .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); }
+  .song img{ width:132px; height:132px; object-fit:cover; border-radius:14px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .song h3{ font-size: 26px; line-height:1.15; }
+  .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
+  .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
+  .song .go{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
+  .song .go svg{ width:13px; height:13px; transition: transform .2s ease; }
+  .song .go:hover svg{ transform: translate(2px,-2px); }
+  .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
+  .week-nav a{ text-decoration:none; color: var(--ink-soft); }
+  .week-nav a:hover{ color: var(--accent); }
+  .week-list{ margin: 32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
+  .week-row{ display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:center; padding: 20px 0; border-bottom:1px solid var(--line); text-decoration:none; color: var(--ink); }
+  .week-row:hover .wd{ color: var(--ink); }
+  .week-row .wd{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); transition: color .2s ease; }
+  .week-row .strip{ display:flex; gap:8px; flex-wrap:wrap; }
+  .week-row .names{ margin-top:8px; font-size:14px; color: var(--ink-soft); }
+  .week-row .strip img{ width:56px; height:56px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
+  @media (max-width: 640px){
+    .song{ grid-template-columns: 96px 1fr; gap: 14px; align-items:start; }
+    .song .no{ display:none; }
+    .song img{ width:96px; height:96px; border-radius:10px; }
+    .song h3{ font-size: 21px; }
+    .week-row{ grid-template-columns: 1fr; gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button type="button" class="lang-btn active" id="langZh">中</button>
+  <span class="lang-sep">/</span>
+  <button type="button" class="lang-btn" id="langEn">EN</button>
+</div>
+
+<div id="page" data-lang="zh">
+<div class="wrap">
+  <a class="back" href="../">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    <span>GeneYao</span>
+  </a>
+  <header class="songs-head">
+    <h1>Five Songs for This Week</h1>
+    <p class="intro lang-zh">每週一與您分享我正在聆聽的五首歌</p>
+    <p class="intro lang-en">Five songs I&#39;m listening to, shared with you every Monday.</p>
+  </header>
+  <ul class="week-list">
+    <li><a class="week-row" href="2026-10-19/"><div class="wd">2026.10.19 MON</div><div><div class="strip"><img src="../photos/songs/gabor-szabo-song-of-injured-love.jpg" alt="" loading="lazy"><img src="../photos/songs/thee-marloes-id-be-lost.jpg" alt="" loading="lazy"><img src="../photos/songs/carthago-hanen.jpg" alt="" loading="lazy"><img src="../photos/songs/nick-drake-one-of-these-things-first.jpg" alt="" loading="lazy"><img src="../photos/songs/ebi-kaze.jpg" alt="" loading="lazy"></div><div class="names">Song of Injured Love · I'd Be Lost · Hanen · One Of These Things First · Kaze</div></div></a></li>
+  </ul>
+  <div style="height:80px"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
+    <div class="fine" id="year-line">© GeneYao</div>
+  </div>
+</footer>
+</div>
+
+<script>
+  try{ document.getElementById('year-line').textContent = '© ' + new Date().getFullYear() + ' GeneYao'; }catch(e){}
+  try{
+    const page = document.getElementById('page');
+    const btnZh = document.getElementById('langZh');
+    const btnEn = document.getElementById('langEn');
+    function setLang(lang){
+      page.dataset.lang = lang;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+      btnZh.classList.toggle('active', lang === 'zh');
+      btnEn.classList.toggle('active', lang === 'en');
+      try{ localStorage.setItem('geneyao-lang', lang); }catch(e){}
+    }
+    btnZh.addEventListener('click', ()=> setLang('zh'));
+    btnEn.addEventListener('click', ()=> setLang('en'));
+    try{ if(localStorage.getItem('geneyao-lang') === 'en') setLang('en'); }catch(e){}
+  }catch(e){}
+</script>
+</body>
+</html>
