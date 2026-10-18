@@ -184,6 +184,10 @@
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
   .week-nav a{ text-decoration:none; color: var(--ink-soft); }
   .week-nav a:hover{ color: var(--accent); }
+  .week-nav a.all{ display:inline-flex; align-items:center; gap:6px; padding: 9px 16px; border:1px solid var(--line); border-radius:999px; color: var(--accent); transition: border-color .2s ease; }
+  .week-nav a.all:hover{ border-color: var(--accent); }
+  .week-nav a.all svg{ width:13px; height:13px; transition: transform .2s ease; }
+  .week-nav a.all:hover svg{ transform: translate(2px,-2px); }
   .week-list{ margin: 32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
   .week-row{ display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:center; padding: 20px 0; border-bottom:1px solid var(--line); text-decoration:none; color: var(--ink); }
   .week-row:hover .wd{ color: var(--ink); }

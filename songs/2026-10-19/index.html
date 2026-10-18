@@ -184,6 +184,10 @@
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
   .week-nav a{ text-decoration:none; color: var(--ink-soft); }
   .week-nav a:hover{ color: var(--accent); }
+  .week-nav a.all{ display:inline-flex; align-items:center; gap:6px; padding: 9px 16px; border:1px solid var(--line); border-radius:999px; color: var(--accent); transition: border-color .2s ease; }
+  .week-nav a.all:hover{ border-color: var(--accent); }
+  .week-nav a.all svg{ width:13px; height:13px; transition: transform .2s ease; }
+  .week-nav a.all:hover svg{ transform: translate(2px,-2px); }
   .week-list{ margin: 32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
   .week-row{ display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:center; padding: 20px 0; border-bottom:1px solid var(--line); text-decoration:none; color: var(--ink); }
   .week-row:hover .wd{ color: var(--ink); }
@@ -217,9 +221,6 @@
   <header class="songs-head">
     <p class="eyebrow">Five Songs for This Week</p>
     <h1>2026.10.19 MON</h1>
-    <div class="meta">5 SONGS</div>
-    <p class="intro lang-zh">新的一週，先從這五首歌開始。</p>
-    <p class="intro lang-en">Starting the new week with these five songs.</p>
   </header>
   <ol class="song-list">
     <li class="song">
@@ -230,6 +231,7 @@
       <div class="artist">Gábor Szabó</div>
       <p class="blurb lang-zh">無意間在獨處的時候聽到，帶點憂鬱和迷幻。</p>
       <p class="blurb lang-en">I stumbled on this while I was alone, with a touch of melancholy and psychedelia.</p>
+      <a class="go" href="https://www.youtube.com/watch?v=CwljlSA6v40" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
       </div>
     </li>
     <li class="song">
@@ -240,6 +242,7 @@
       <div class="artist">Thee Marloes</div>
       <p class="blurb lang-zh">得知他們要來台灣巡演，一聽超喜歡，帶有細膩的 Motown 律動，但又有印尼的陽光熱情。</p>
       <p class="blurb lang-en">I heard they are coming to Taiwan on tour, and one listen made me love them. It has a delicate Motown groove, yet also the sunny warmth of Indonesia.</p>
+      <a class="go" href="https://www.youtube.com/watch?v=9zR8uaiXK8o" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
       </div>
     </li>
     <li class="song">
@@ -248,8 +251,9 @@
       <div>
       <h3>Hanen</h3>
       <div class="artist">Carthago</div>
-      <p class="blurb lang-zh">在 IG 短影音聽到，馬上就被這律動吸引，非常有趣好聽。</p>
-      <p class="blurb lang-en">I heard this in a short Instagram video and was instantly drawn in by the groove. It is so much fun and sounds great.</p>
+      <p class="blurb lang-zh">在 IG 聽到別人分享的突尼西亞 Disco，馬上就被這律動吸引，非常有趣好聽。</p>
+      <p class="blurb lang-en">I heard this Tunisian disco track shared by someone on Instagram, and I was instantly drawn in by the groove. It is so much fun and sounds great.</p>
+      <a class="go" href="https://www.youtube.com/watch?v=HAngN0DqwZ8" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
       </div>
     </li>
     <li class="song">
@@ -260,6 +264,7 @@
       <div class="artist">Nick Drake</div>
       <p class="blurb lang-zh">開車從嘉義北上時聽的音樂。一直很喜歡 Nick Drake 的音樂，單純卻有深度。</p>
       <p class="blurb lang-en">This was the music for my drive north from Chiayi. I have always loved Nick Drake, simple yet deep.</p>
+      <a class="go" href="https://www.youtube.com/watch?v=vDtsgVgAx6k" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
       </div>
     </li>
     <li class="song">
@@ -270,12 +275,13 @@
       <div class="artist">Ebi</div>
       <p class="blurb lang-zh">一直很喜歡橫田進的 Ambient 作品，意外在一場活動聽到這首，經過詢問後才知道他有其他化名，做不同風格的音樂。</p>
       <p class="blurb lang-en">I have always loved Susumu Yokota's ambient work. I heard this one by chance at an event, and after asking around, I learned that he has other aliases for making music in different styles.</p>
+      <a class="go" href="https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
       </div>
     </li>
   </ol>
   <nav class="week-nav">
     <span></span>
-    <a href="../">Archive</a>
+    <a class="all" href="../">Archive <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
     <span></span>
   </nav>
 </div>

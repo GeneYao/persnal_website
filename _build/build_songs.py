@@ -75,6 +75,10 @@ CSS = '''
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
   .week-nav a{ text-decoration:none; color: var(--ink-soft); }
   .week-nav a:hover{ color: var(--accent); }
+  .week-nav a.all{ display:inline-flex; align-items:center; gap:6px; padding: 9px 16px; border:1px solid var(--line); border-radius:999px; color: var(--accent); transition: border-color .2s ease; }
+  .week-nav a.all:hover{ border-color: var(--accent); }
+  .week-nav a.all svg{ width:13px; height:13px; transition: transform .2s ease; }
+  .week-nav a.all:hover svg{ transform: translate(2px,-2px); }
   .week-list{ margin: 32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
   .week-row{ display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:center; padding: 20px 0; border-bottom:1px solid var(--line); text-decoration:none; color: var(--ink); }
   .week-row:hover .wd{ color: var(--ink); }
@@ -156,7 +160,8 @@ def build_week(i, w):
             blurb += f'      <p class="blurb lang-zh">{esc(s["blurb_zh"])}</p>\n'
         if s.get('blurb_en'):
             blurb += f'      <p class="blurb lang-en">{esc(s["blurb_en"])}</p>\n'
-        go = ''
+        go = (f'      <a class="go" href="{attr(s["link"])}" target="_blank" rel="noopener">'
+              f'<span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span>{ARROW}</a>\n') if s.get('link') else ''
         lis += (f'    <li class="song">\n      <div class="no">{n:02d}</div>\n'
                 f'      <img src="../../photos/songs/{c}" alt="{attr(s["title"])} album cover" loading="lazy">\n'
                 f'      <div>\n      <h3>{esc(s["title"])}</h3>\n      <div class="artist">{esc(s["artist"])}</div>\n{blurb}{go}      </div>\n    </li>\n')
@@ -169,11 +174,11 @@ def build_week(i, w):
     older = weeks[i + 1] if i + 1 < len(weeks) else None
     nav = '  <nav class="week-nav">\n'
     nav += (f'    <a href="../{older["date"]}/">← {older["date"].replace("-", ".")}</a>\n' if older else '    <span></span>\n')
-    nav += f'    <a href="../">Archive</a>\n'
+    nav += f'    <a class="all" href="../">Archive {ARROW}</a>\n'
     nav += (f'    <a href="../{newer["date"]}/">{newer["date"].replace("-", ".")} →</a>\n' if newer else '    <span></span>\n')
     nav += '  </nav>'
     main = (f'  <header class="songs-head">\n    <p class="eyebrow">Five Songs for This Week</p>\n    <h1>{fmt(w["date"])}</h1>\n'
-            f'    <div class="meta">5 SONGS</div>\n{intro}  </header>\n'
+            f'{intro}  </header>\n'
             f'  <ol class="song-list">\n{lis}  </ol>\n{nav}')
     desc = f"Five Songs for This Week, {w['date'].replace('-', '.')}: " + ', '.join(s['title'] for s in w['songs'])
     out = page_shell(f"Five Songs for This Week {w['date'].replace('-', '.')}", desc, f"songs/{w['date']}/", main, '../../')
@@ -189,8 +194,7 @@ def build_week(i, w):
         lines += [f"![{s['title']}](https://geneyao.com/photos/songs/{c})", '']
         if s.get('blurb_zh'): lines += [s['blurb_zh'], '']
         if s.get('blurb_en'): lines += [s['blurb_en'], '']
-        if s.get('link'): lines += [f"[Listen]({s['link']})", '']
-    lines += ['---', f"All weeks: https://geneyao.com/songs/", '']
+        if s.get('link'): lines += [f"[在 YouTube 收聽]({s['link']})", '']
     nd = os.path.join(OUT, '_build', 'newsletter'); os.makedirs(nd, exist_ok=True)
     open(os.path.join(nd, f"{w['date']}.md"), 'w', encoding='utf-8').write('\n'.join(lines))
     return covers

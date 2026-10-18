@@ -1,8 +1,6 @@
 [
  {
   "date": "2026-10-19",
-  "intro_zh": "新的一週，先從這五首歌開始。",
-  "intro_en": "Starting the new week with these five songs.",
   "songs": [
    {
     "title": "Song of Injured Love",
@@ -10,7 +8,7 @@
     "cover": "gabor-szabo-song-of-injured-love.jpg",
     "blurb_zh": "無意間在獨處的時候聽到，帶點憂鬱和迷幻。",
     "blurb_en": "I stumbled on this while I was alone, with a touch of melancholy and psychedelia.",
-    "link": "https://open.spotify.com/track/2ZKtFwVxK2kf7UCJ0ibJTL"
+    "link": "https://www.youtube.com/watch?v=CwljlSA6v40"
    },
    {
     "title": "I'd Be Lost",
@@ -18,22 +16,22 @@
     "cover": "thee-marloes-id-be-lost.jpg",
     "blurb_zh": "得知他們要來台灣巡演，一聽超喜歡，帶有細膩的 Motown 律動，但又有印尼的陽光熱情。",
     "blurb_en": "I heard they are coming to Taiwan on tour, and one listen made me love them. It has a delicate Motown groove, yet also the sunny warmth of Indonesia.",
-    "link": "https://open.spotify.com/track/1FwwdOrrpVtquS9qe9d7J8"
+    "link": "https://www.youtube.com/watch?v=9zR8uaiXK8o"
    },
    {
     "title": "Hanen",
     "artist": "Carthago",
     "cover": "carthago-hanen.jpg",
-    "blurb_zh": "在 IG 短影音聽到，馬上就被這律動吸引，非常有趣好聽。",
-    "blurb_en": "I heard this in a short Instagram video and was instantly drawn in by the groove. It is so much fun and sounds great.",
-    "link": "https://open.spotify.com/track/3zzzDRCNMQFZcb1y5cbl3b"
+    "blurb_zh": "在 IG 聽到別人分享的突尼西亞 Disco，馬上就被這律動吸引，非常有趣好聽。",
+    "blurb_en": "I heard this Tunisian disco track shared by someone on Instagram, and I was instantly drawn in by the groove. It is so much fun and sounds great.",
+    "link": "https://www.youtube.com/watch?v=HAngN0DqwZ8"
    },
    {
     "title": "One Of These Things First",
     "artist": "Nick Drake",
     "blurb_zh": "開車從嘉義北上時聽的音樂。一直很喜歡 Nick Drake 的音樂，單純卻有深度。",
     "blurb_en": "This was the music for my drive north from Chiayi. I have always loved Nick Drake, simple yet deep.",
-    "link": "https://open.spotify.com/search/Nick%20Drake%20One%20Of%20These%20Things%20First"
+    "link": "https://www.youtube.com/watch?v=vDtsgVgAx6k"
    },
    {
     "title": "Kaze",
@@ -41,7 +39,7 @@
     "cover": "ebi-kaze.jpg",
     "blurb_zh": "一直很喜歡橫田進的 Ambient 作品，意外在一場活動聽到這首，經過詢問後才知道他有其他化名，做不同風格的音樂。",
     "blurb_en": "I have always loved Susumu Yokota's ambient work. I heard this one by chance at an event, and after asking around, I learned that he has other aliases for making music in different styles.",
-    "link": "https://open.spotify.com/track/1CCzedmWQM2OhOPufMpWGP"
+    "link": "https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy"
    }
   ]
  }
