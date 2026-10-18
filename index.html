@@ -308,6 +308,7 @@
   .songs-card .sub-form input[type=email]:focus{ outline:2px solid var(--accent); outline-offset:1px; }
   .songs-card .sub-form button{ flex:0 0 auto; padding: 12px 22px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--bg); background: var(--accent); border:0; border-radius:12px; cursor:pointer; transition: opacity .2s ease; }
   .songs-card .sub-form button:hover{ opacity:.85; }
+  .songs-card .sub-note{ margin:-4px 0 0; font-size:12.5px; color: var(--ink-soft); max-width:300px; line-height:1.6; }
   .songs-card .go{ margin-top:0; text-decoration:none; }
   .songs-card .go:hover svg{ transform: translate(2px,-2px); }
 </style>
@@ -513,6 +514,8 @@
         <input type="hidden" value="1" name="embed">
         <button type="submit"><span class="lang-zh">訂閱</span><span class="lang-en">Subscribe</span></button>
       </form>
+      <p class="sub-note lang-zh">送出後麻煩大家到信箱點擊確認信，感謝！</p>
+      <p class="sub-note lang-en">After submitting, please click the confirmation link in your email. Thank you!</p>
     </div>
   </div>
 </section>
