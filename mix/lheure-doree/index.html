@@ -162,6 +162,8 @@
   .sub-card input[type=email]:focus{ outline:2px solid var(--accent); outline-offset:1px; }
   .sub-card button{ flex:0 0 auto; padding:12px 22px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--bg); background: var(--accent); border:0; border-radius:12px; cursor:pointer; transition: opacity .2s ease; }
   .sub-card button:hover{ opacity:.85; }
+.sub-card .sub-btn{ display:inline-block; padding:13px 34px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--bg); background: var(--accent); border-radius:12px; transition: opacity .2s ease; }
+  .sub-card .sub-btn:hover{ opacity:.85; }
   .sub-card p.sub-note{ margin:-4px 0 0; font-size:12.5px; max-width:300px; line-height:1.6; }
   .more .btn svg{ width:20px; height:20px; }
   .more .btn svg.arrow{ width:14px; height:14px; }
@@ -309,11 +311,7 @@
         <h3>Five Songs for This Week</h3>
         <p class="lang-zh">每週一分享我正在聆聽的五首歌</p>
         <p class="lang-en">Five songs I'm listening to, shared every Monday</p>
-        <form action="https://buttondown.com/api/emails/embed-subscribe/geneyao0302" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/geneyao0302', 'popupwindow')">
-          <input type="email" name="email" required placeholder="Email" aria-label="Email">
-          <input type="hidden" value="1" name="embed">
-          <button type="submit"><span class="lang-zh">訂閱</span><span class="lang-en">Subscribe</span></button>
-        </form>
+        <a class="sub-btn" href="https://buttondown.com/geneyao0302" target="_blank" rel="noopener"><span class="lang-zh">訂閱</span><span class="lang-en">Subscribe</span></a>
         <p class="sub-note lang-zh">送出後麻煩大家到信箱點擊確認信，感謝！</p>
         <p class="sub-note lang-en">After submitting, please click the confirmation link in your email. Thank you!</p>
       </div>
