@@ -143,6 +143,16 @@
   .vibe-trio{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
   .vibe-trio img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-trio{ grid-template-columns: 1fr 1fr; gap:10px; } .vibe-trio img{ border-radius:12px; } .vibe-trio img:nth-child(3){ grid-column: 1 / -1; width:calc(50% - 5px); justify-self:center; } }
+  .vibe-m{ display:none; }
+  .vm-cols{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:start; }
+  .vm-col{ display:flex; flex-direction:column; gap:10px; }
+  .vibe-m img{ width:100%; height:auto; display:block; border-radius:12px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .vibe-m img.vm-band{ margin-top:10px; }
+  .vibe-m img.vm-tall{ width:62%; margin-inline:auto; }
+  @media (max-width: 760px){
+    .vibe-m{ display:block; }
+    .vibe.has-m .vibe-grid, .vibe.has-m .vibe-trio{ display:none; }
+  }
   .vibe-masonry{ column-count: 3; column-gap: 14px; }
   .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
@@ -256,7 +266,7 @@
     <a class="wordmark" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
     <div class="foot-icons">
       <a href="https://www.instagram.com/geneyaooo/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="mailto:geneyao0302@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M4 8l8 5.5L20 8"/></svg></a>
+      <a href="mailto:contact@geneyao.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M4 8l8 5.5L20 8"/></svg></a>
     </div>
     <a class="fine" id="year-line" href="../">© GeneYao</a>
   </div>
