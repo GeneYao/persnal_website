@@ -82,11 +82,12 @@ def vibe_html(m):
         order = [0, 1, 3, 4, 2]  # keep the story order of the desktop columns
         items = [items[i] for i in order if i < len(items)] if len(items) == 5 else items
         mob = '' if m.get('mobile_legacy') else mobile_html(items)
-        return out.replace('  </section>', mob + '  </section>', 1) if mob else out
+        return out.replace('<section class="vibe">', '<section class="vibe has-m">', 1).replace('  </section>', mob + '  </section>', 1) if mob else out
     if isinstance(v, dict) and 'trio' in v:
         imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v['trio'])
         mob = '' if m.get('mobile_legacy') else mobile_html(v['trio'])
-        return f'\n  <section class="vibe">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n{mob}  </section>\n'
+        cls = 'vibe has-m' if mob else 'vibe'
+        return f'\n  <section class="{cls}">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n{mob}  </section>\n'
     if isinstance(v, dict):
         def col(items, cls):
             body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}"' + (' class="wide"' if i.get('wide') else '') + ' loading="lazy">' for i in items)
@@ -98,7 +99,7 @@ def vibe_html(m):
                 if j < len(v[key]):
                     ordered.append(v[key][j])
         mob = '' if m.get('mobile_legacy') else mobile_html(ordered)
-        return ('\n  <section class="vibe">\n    <div class="vibe-grid">\n'
+        return ('\n  <section class="' + ('vibe has-m' if mob else 'vibe') + '">\n    <div class="vibe-grid">\n'
                 + col(v['left'], 'vcol') + '\n' + col(v['mid'], mid_cls) + '\n' + col(v['right'], 'vcol')
                 + '\n    </div>\n' + mob + '  </section>\n')
     imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
