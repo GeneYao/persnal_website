@@ -226,19 +226,28 @@
   .week-nav a.all:hover{ border-color: var(--accent); }
   .week-nav a.all svg{ width:13px; height:13px; transition: transform .2s ease; }
   .week-nav a.all:hover svg{ transform: translate(2px,-2px); }
-  .week-list{ margin: 32px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
-  .week-row{ display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:center; padding: 20px 0; border-bottom:1px solid var(--line); text-decoration:none; color: var(--ink); }
-  .week-row:hover .wd{ color: var(--ink); }
-  .week-row .wd{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); transition: color .2s ease; }
+  .week-list{ margin: 32px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .week-row{ position:relative; display:grid; grid-template-columns: 150px 1fr 44px; gap:20px; align-items:center; padding: 22px 24px; background: var(--surface); border:1px solid var(--line); border-radius:20px; text-decoration:none; color: var(--ink); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .week-row:hover{ transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
+  .week-row .wd{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); }
   .week-row .strip{ display:flex; gap:8px; flex-wrap:wrap; }
-  .week-row .names{ margin-top:8px; font-size:14px; color: var(--ink-soft); }
+  .week-row .names{ margin-top:10px; font-size:14px; color: var(--ink-soft); }
+  .week-row .go{ width:44px; height:44px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color: var(--accent); transition: background .2s ease, color .2s ease, border-color .2s ease; }
+  .week-row .go svg{ width:16px; height:16px; transition: transform .2s ease; }
+  .week-row:hover .go{ background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .week-row:hover .go svg{ transform: translate(2px,-2px); }
   .week-row .strip img{ width:56px; height:56px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
   @media (max-width: 640px){
     .song{ grid-template-columns: 96px 1fr; gap: 14px; align-items:start; }
     .song .no{ display:none; }
     .song img{ width:96px; height:96px; border-radius:10px; }
     .song h3{ font-size: 21px; }
-    .week-row{ grid-template-columns: 1fr; gap:10px; }
+    .week-row{ grid-template-columns: 1fr 40px; gap:10px 14px; padding:18px 16px; }
+    .week-row .wd{ grid-column: 1; grid-row: 1; }
+    .week-row .go{ grid-column: 2; grid-row: 1; width:38px; height:38px; justify-self:end; }
+    .week-row > div:nth-child(2){ grid-column: 1 / -1; grid-row: 2; }
+    .week-row .strip{ flex-wrap:nowrap; }
+    .week-row .strip img{ width: calc((100% - 32px) / 5); height:auto; aspect-ratio:1 / 1; }
   }
 </style>
 <meta name="robots" content="noindex">
