@@ -221,4 +221,22 @@ def build_archive(all_covers):
 
 all_covers = [build_week(i, w) for i, w in enumerate(weeks)]
 build_archive(all_covers)
+def build_404():
+    main = ('  <header class="songs-head">\n'
+            '    <p class="eyebrow">404</p>\n'
+            '    <h1 class="lang-zh">找不到這個頁面</h1>\n    <h1 class="lang-en">Page not found</h1>\n'
+            '    <p class="intro lang-zh">這個網址可能已經更換，或是輸入有誤。可以回到首頁，或聽聽我的 mix。</p>\n'
+            '    <p class="intro lang-en">This page may have moved, or the address may be mistyped. Head back home or listen to a mix.</p>\n'
+            '    <p style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">\n'
+            '      <a class="btn solid" href="/"><span class="lang-zh">回到首頁</span><span class="lang-en">Back to home</span></a>\n'
+            '      <a class="btn" href="/archive/"><span class="lang-zh">所有 mix</span><span class="lang-en">All mixes</span></a>\n'
+            '    </p>\n  </header>\n  <div style="height:80px"></div>')
+    out = page_shell('Page not found', 'Page not found.', '', main, '/')
+    out = out.replace('content="https://geneyao.com/"', 'content="https://geneyao.com/"')
+    out = re.sub(r'<link rel="canonical"[^>]*>\n?', '', out)
+    out = out.replace('</head>', '<meta name="robots" content="noindex">\n</head>', 1)
+    open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(out)
+
+build_404()
+
 print('built', len(weeks), 'week page(s) + archive ->', OUT)

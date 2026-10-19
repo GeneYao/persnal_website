@@ -10,9 +10,12 @@
 <meta property="og:title" content="Five Songs for This Week 2026.10.19">
 <meta property="og:description" content="Five Songs for This Week, 2026.10.19: Song of Injured Love, I&#x27;d Be Lost, Hanen, One Of These Things First, Kaze">
 <meta property="og:url" content="https://geneyao.com/songs/2026-10-19/">
+<link rel="canonical" href="https://geneyao.com/songs/2026-10-19/">
 <meta property="og:image" content="https://geneyao.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F6142'/%3E%3Crect x='4' y='13' width='3' height='9' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='9' y='8' width='3' height='16' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='14' y='4' width='3' height='24' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='19' y='10' width='3' height='14' rx='1.5' fill='%23D8D6CB'/%3E%3Crect x='24' y='14' width='3' height='8' rx='1.5' fill='%23D8D6CB'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -98,6 +101,10 @@
   .mix-seek{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
   .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
   .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+  .mix-frame.open{ position:fixed; left:12px; right:12px; bottom:12px; top:auto; width:auto; height:166px; opacity:1; pointer-events:auto; z-index:60; border-radius:12px; background:#fff; box-shadow:0 12px 40px rgba(0,0,0,.45); }
+  .mix-fb{ position:fixed; left:12px; right:12px; bottom:188px; z-index:60; display:flex; align-items:center; gap:10px; padding:10px 12px; background: var(--surface); color: var(--ink); border:1px solid var(--line); border-radius:12px; font-size:13px; line-height:1.5; box-shadow:0 12px 40px rgba(0,0,0,.35); }
+  .mix-fb span{ flex:1; }
+  .mix-fb button{ flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:transparent; color: var(--ink-soft); cursor:pointer; }
 
   /* compact one-line player */
   .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
