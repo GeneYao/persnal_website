@@ -143,6 +143,16 @@
   .vibe-trio{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
   .vibe-trio img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-trio{ grid-template-columns: 1fr 1fr; gap:10px; } .vibe-trio img{ border-radius:12px; } .vibe-trio img:nth-child(3){ grid-column: 1 / -1; width:calc(50% - 5px); justify-self:center; } }
+  .vibe-m{ display:none; }
+  .vm-cols{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:start; }
+  .vm-col{ display:flex; flex-direction:column; gap:10px; }
+  .vibe-m img{ width:100%; height:auto; display:block; border-radius:12px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .vibe-m img.vm-band{ margin-top:10px; }
+  .vibe-m img.vm-tall{ width:62%; margin-inline:auto; }
+  @media (max-width: 760px){
+    .vibe-m{ display:block; }
+    .vibe-grid, .vibe-trio{ display:none; }
+  }
   .vibe-masonry{ column-count: 3; column-gap: 14px; }
   .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
@@ -300,6 +310,22 @@
         <img src="../../photos/lheure-7.jpg" alt="背對鏡頭的 Gene 與圍著 DJ 台的來賓" loading="lazy">
         <img src="../../photos/lheure-8.jpg" alt="玻璃盤上堆疊的粉色馬卡龍" loading="lazy">
       </div>
+    </div>
+    <div class="vibe-m">
+      <div class="vm-cols">
+        <div class="vm-col">
+          <img src="../../photos/lheure-1.jpg" alt="Gene 穿著粉色襯衫低頭在 DJ 台前" loading="lazy">
+          <img src="../../photos/lheure-4.jpg" alt="特寫 Pioneer DJ 控台上的手部動作" loading="lazy">
+          <img src="../../photos/lheure-6.jpg" alt="Gene 微笑站在 DJ 台後，前方是來賓的背影" loading="lazy">
+        </div>
+        <div class="vm-col">
+          <img src="../../photos/lheure-5.jpg" alt="擺滿蛋糕、法棍與花藝的甜點桌" loading="lazy">
+          <img src="../../photos/lheure-7.jpg" alt="背對鏡頭的 Gene 與圍著 DJ 台的來賓" loading="lazy">
+          <img src="../../photos/lheure-3.jpg" alt="來賓圍繞在 DJ 台旁交談" loading="lazy">
+          <img src="../../photos/lheure-8.jpg" alt="玻璃盤上堆疊的粉色馬卡龍" loading="lazy">
+        </div>
+      </div>
+      <img src="../../photos/lheure-2.jpg" alt="擠滿來賓的店內，窗邊透著自然光" class="vm-band" loading="lazy">
     </div>
   </section>
 

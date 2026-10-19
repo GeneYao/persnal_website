@@ -143,6 +143,16 @@
   .vibe-trio{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
   .vibe-trio img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-trio{ grid-template-columns: 1fr 1fr; gap:10px; } .vibe-trio img{ border-radius:12px; } .vibe-trio img:nth-child(3){ grid-column: 1 / -1; width:calc(50% - 5px); justify-self:center; } }
+  .vibe-m{ display:none; }
+  .vm-cols{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:start; }
+  .vm-col{ display:flex; flex-direction:column; gap:10px; }
+  .vibe-m img{ width:100%; height:auto; display:block; border-radius:12px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .vibe-m img.vm-band{ margin-top:10px; }
+  .vibe-m img.vm-tall{ width:62%; margin-inline:auto; }
+  @media (max-width: 760px){
+    .vibe-m{ display:block; }
+    .vibe-grid, .vibe-trio{ display:none; }
+  }
   .vibe-masonry{ column-count: 3; column-gap: 14px; }
   .vibe-masonry img{ width:100%; height:auto; margin-bottom:14px; break-inside:avoid; border-radius:16px; border:1px solid var(--line); box-shadow: var(--shadow); }
   @media (max-width: 760px){ .vibe-masonry{ column-count: 2; column-gap: 10px; } .vibe-masonry img{ margin-bottom:10px; border-radius:12px; } }
@@ -284,6 +294,19 @@
       <div class="vcol">
         <img src="../../photos/urayama-4.jpg" alt="低頭操作 DJ 控台的特寫，背景是庭園的綠意" loading="lazy">
       </div>
+    </div>
+    <div class="vibe-m">
+      <div class="vm-cols">
+        <div class="vm-col">
+          <img src="../../photos/urayama-6.jpg" alt="雨後的日式庭院，碎石步道與修剪整齊的松樹與灌木" loading="lazy">
+          <img src="../../photos/urayama-5.jpg" alt="Gene 在窗前混音，牆上掛著「裏山」書法" loading="lazy">
+        </div>
+        <div class="vm-col">
+          <img src="../../photos/urayama-4.jpg" alt="低頭操作 DJ 控台的特寫，背景是庭園的綠意" loading="lazy">
+          <img src="../../photos/urayama-2.jpg" alt="Gene 站在窗邊的 DJ 台後，窗外是日式庭園" loading="lazy">
+        </div>
+      </div>
+      <img src="../../photos/urayama-1.jpg" alt="Gene 坐在日式庭院的長椅上，身旁擺著陶壺" class="vm-band" loading="lazy">
     </div>
   </section>
 

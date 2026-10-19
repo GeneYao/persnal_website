@@ -17,23 +17,90 @@ attr = lambda s: html.escape(s, quote=True)
 
 def strip_tags(s): return re.sub(r'<[^>]+>', ' ', s).replace('  ', ' ').strip()
 
+def _ratio(f):
+    # width / height of a photo, read from the file header so the layout can balance column heights
+    import struct
+    with open(os.path.join(ROOT, 'photos', f), 'rb') as fh:
+        d = fh.read(2)
+        fh.seek(0); b = fh.read()
+    i = 2
+    while i < len(b):
+        if b[i] != 0xFF: i += 1; continue
+        mk = b[i + 1]
+        if 0xC0 <= mk <= 0xCF and mk not in (0xC4, 0xC8, 0xCC):
+            h, w = struct.unpack('>HH', b[i + 5:i + 9]); return w / h
+        i += 2 + struct.unpack('>H', b[i + 2:i + 4])[0]
+    return 1.0
+
+def mobile_html(items):
+    """Phone layout: two columns of similar height; landscape or leftover photos become full-width rows."""
+    import itertools
+    n = len(items)
+    if n < 2:
+        return ''
+    ar = [_ratio(it['file']) for it in items]
+    gap = 0.06
+    forced = [i for i, it in enumerate(items) if it.get('wide')]
+    cands = list(range(n))
+    best = None
+    for k in range(len(forced), min(2, len(cands)) + 1):
+        for bands in itertools.combinations(cands, k):
+            if any(f not in bands for f in forced):
+                continue
+            rest = [i for i in range(n) if i not in bands]
+            if len(rest) < 2:
+                continue
+            for mask in range(1, 2 ** len(rest) - 1):
+                if not (mask & 1):
+                    continue
+                a = [rest[j] for j in range(len(rest)) if mask >> j & 1]
+                b = [rest[j] for j in range(len(rest)) if not mask >> j & 1]
+                ha = sum(1 / ar[i] for i in a) + gap * (len(a) - 1)
+                hb = sum(1 / ar[i] for i in b) + gap * (len(b) - 1)
+                cost = (abs(ha - hb) / max(ha, hb) + sum(0.10 if ar[i] >= 1.3 or i in forced else 0.16 for i in bands)
+                        + 0.01 * abs(len(a) - len(b)))
+                if best is None or cost < best[0] - 1e-9:
+                    best = (cost, bands, a, b)
+    if best is None:
+        return ''
+    _, bands, a, b = best
+    img = lambda i, cls='': (f'<img src="../../photos/{items[i]["file"]}" alt="{attr(items[i]["alt"])}"'
+                              + (f' class="{cls}"' if cls else '') + ' loading="lazy">')
+    col = lambda ids: '        <div class="vm-col">\n' + '\n'.join('          ' + img(i) for i in ids) + '\n        </div>'
+    out = '    <div class="vibe-m">\n      <div class="vm-cols">\n' + col(a) + '\n' + col(b) + '\n      </div>\n'
+    for i in bands:
+        out += '      ' + img(i, 'vm-band' if ar[i] >= 1.3 else 'vm-band vm-tall') + '\n'
+    return out + '    </div>\n'
+
 def vibe_html(m):
     v = m.get('vibe')
     if not v:
         return ''
     if v is True:
-        return vibe
+        out = vibe
+        items = [{'file': f, 'alt': a} for f, a in re.findall(r'src="\.\./\.\./photos/([^"]+)" alt="([^"]*)"', vibe)]
+        order = [0, 1, 3, 4, 2]  # keep the story order of the desktop columns
+        items = [items[i] for i in order if i < len(items)] if len(items) == 5 else items
+        mob = '' if m.get('mobile_legacy') else mobile_html(items)
+        return out.replace('  </section>', mob + '  </section>', 1) if mob else out
     if isinstance(v, dict) and 'trio' in v:
         imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v['trio'])
-        return f'\n  <section class="vibe">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n  </section>\n'
+        mob = '' if m.get('mobile_legacy') else mobile_html(v['trio'])
+        return f'\n  <section class="vibe">\n    <div class="vibe-trio">\n{imgs}\n    </div>\n{mob}  </section>\n'
     if isinstance(v, dict):
         def col(items, cls):
             body = '\n'.join(f'        <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}"' + (' class="wide"' if i.get('wide') else '') + ' loading="lazy">' for i in items)
             return f'      <div class="{cls}">\n{body}\n      </div>'
         mid_cls = 'vcol mid' + (' mid2' if len(v['mid']) == 2 else (' midg' if len(v['mid']) >= 3 else ''))
+        ordered = []
+        for j in range(max(len(v['left']), len(v['mid']), len(v['right']))):
+            for key in ('left', 'mid', 'right'):
+                if j < len(v[key]):
+                    ordered.append(v[key][j])
+        mob = '' if m.get('mobile_legacy') else mobile_html(ordered)
         return ('\n  <section class="vibe">\n    <div class="vibe-grid">\n'
                 + col(v['left'], 'vcol') + '\n' + col(v['mid'], mid_cls) + '\n' + col(v['right'], 'vcol')
-                + '\n    </div>\n  </section>\n')
+                + '\n    </div>\n' + mob + '  </section>\n')
     imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
     return f'\n  <section class="vibe">\n    <div class="vibe-masonry">\n{imgs}\n    </div>\n  </section>\n'
 

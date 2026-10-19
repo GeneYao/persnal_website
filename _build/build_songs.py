@@ -199,7 +199,7 @@ def build_week(i, w):
         if s.get('blurb_zh'): lines += [s['blurb_zh'], '']
         if s.get('blurb_en'): lines += [s['blurb_en'], '']
         if s.get('link'): lines += [f"[在 YouTube 收聽 ↗]({s['link']})", '']
-    lines += ['---', '', '<p style="text-align:center; margin:32px 0;"><a href="https://geneyao.com/songs/" style="display:inline-block; padding:12px 28px; background-color:#4F6142; border:1.5px solid #4F6142; border-radius:999px; color:#FFFFFF; font-weight:700; text-decoration:none;">查看過往推薦 ↗</a></p>', '']
+    lines += ['---', '', '<p style="text-align:center; margin:32px 0;"><a href="https://geneyao.com/songs/" style="display:inline-block; padding:12px 28px; background-color:#4F6142; border:1.5px solid #4F6142; border-radius:999px; color:#FFFFFF !important; font-weight:700; text-decoration:none !important;">查看過往推薦 ↗</a></p>', '']
     nd = os.path.join(OUT, '_build', 'newsletter'); os.makedirs(nd, exist_ok=True)
     open(os.path.join(nd, f"{w['date']}.md"), 'w', encoding='utf-8').write('\n'.join(lines))
     return covers
