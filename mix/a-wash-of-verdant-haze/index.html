@@ -98,6 +98,10 @@
   .mix-seek{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; -webkit-appearance:none; appearance:none; }
   .mix-time{ position:absolute; left:0; right:0; top:calc(100% + 8px); display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
   .mix-frame{ position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; border:0; left:0; top:0; }
+  .mix-frame.open{ position:fixed; left:12px; right:12px; bottom:12px; top:auto; width:auto; height:166px; opacity:1; pointer-events:auto; z-index:60; border-radius:12px; background:#fff; box-shadow:0 12px 40px rgba(0,0,0,.45); }
+  .mix-fb{ position:fixed; left:12px; right:12px; bottom:188px; z-index:60; display:flex; align-items:center; gap:10px; padding:10px 12px; background: var(--surface); color: var(--ink); border:1px solid var(--line); border-radius:12px; font-size:13px; line-height:1.5; box-shadow:0 12px 40px rgba(0,0,0,.35); }
+  .mix-fb span{ flex:1; }
+  .mix-fb button{ flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:transparent; color: var(--ink-soft); cursor:pointer; }
 
   /* compact one-line player */
   .player-box .mix-player{ flex:1; min-width:0; gap:12px; }
@@ -377,6 +381,7 @@
       const cur = document.getElementById('mixCur');
       const dur = document.getElementById('mixDur');
       let duration = 0, dragging = false;
+      var failTimer = null;
       function fmt(ms){
         const t = Math.max(0, Math.floor(ms / 1000));
         const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), sec = t % 60;
@@ -412,7 +417,7 @@
         card.classList.add('ready');
         buildWave();
       });
-      widget.bind(SC.Widget.Events.PLAY, function(){ playBtn.classList.add('playing'); });
+      widget.bind(SC.Widget.Events.PLAY, function(){ playBtn.classList.add('playing'); clearTimeout(failTimer); closeFallback(); });
       widget.bind(SC.Widget.Events.PAUSE, function(){ playBtn.classList.remove('playing'); });
       widget.bind(SC.Widget.Events.FINISH, function(){ playBtn.classList.remove('playing'); paint(0); cur.textContent = '0:00'; });
       widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(e){
@@ -420,7 +425,36 @@
         cur.textContent = fmt(e.currentPosition);
         paint(e.relativePosition);
       });
-      playBtn.addEventListener('click', function(){ widget.toggle(); });
+      // Some in-app browsers (e.g. Instagram on Android) block audio that is started from a hidden player.
+      // If nothing plays shortly after a tap, show the real SoundCloud player so a direct tap on it works.
+      const frame = document.getElementById('mixFrame');
+      let fbNote = null;
+      function openFallback(){
+        if(fbNote) return;
+        const zh = (document.getElementById('page').dataset.lang !== 'en');
+        fbNote = document.createElement('div');
+        fbNote.className = 'mix-fb';
+        fbNote.innerHTML = '<span>' + (zh ? '此瀏覽器無法直接播放，請點下方播放器的 ▶，或改用手機瀏覽器開啟。' : 'Playback is blocked in this browser. Tap play below, or open this page in your phone browser.') + '</span><button type="button" aria-label="Close">✕</button>';
+        fbNote.querySelector('button').addEventListener('click', closeFallback);
+        document.body.appendChild(fbNote);
+        frame.classList.add('open');
+        frame.removeAttribute('aria-hidden');
+        frame.removeAttribute('tabindex');
+      }
+      function closeFallback(){
+        if(!fbNote) return;
+        fbNote.remove(); fbNote = null;
+        frame.classList.remove('open');
+        frame.setAttribute('aria-hidden', 'true');
+        frame.setAttribute('tabindex', '-1');
+      }
+      playBtn.addEventListener('click', function(){
+        try{ widget.toggle(); }catch(e){}
+        if(!playBtn.classList.contains('playing')){
+          clearTimeout(failTimer);
+          failTimer = setTimeout(function(){ if(!playBtn.classList.contains('playing')) openFallback(); }, 3000);
+        }
+      });
       seek.addEventListener('pointerdown', function(){ dragging = true; });
       seek.addEventListener('input', function(){
         const ratio = seek.value / 1000;
