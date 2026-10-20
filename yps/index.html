@@ -218,9 +218,9 @@ footer a { color: var(--ink-soft); }
 .chips li { border: 1px solid var(--line); padding: 4px 10px; color: var(--ink); }
 .thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
 .thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
-.links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-size: 12.5px; letter-spacing: .12em; }
-.links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
-.links a:hover { border-color: var(--accent); }
+.p-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-size: 12.5px; letter-spacing: .12em; }
+.p-links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+.p-links a:hover { border-color: var(--accent); }
 blockquote { margin: 6px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 17px; line-height: 1.7; }
 blockquote cite { display: block; margin-top: 6px; font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--ink-soft); letter-spacing: .08em; }
 
@@ -325,6 +325,15 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
 .sl-dots button.on { background: #f6f5f1; }
 .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; }
 
+/* phone layout */
+@media (max-width: 640px) {
+  .hero { padding-block: 48px 40px; }
+  .band { padding-block: 72px; }
+  nav .wrap { gap: 12px; }
+  nav .pill.small { padding: 7px 12px; letter-spacing: .08em; }
+  .hero .ctas { gap: 18px 28px; }
+}
+
 </style>
 </head>
 <body>
@@ -334,7 +343,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
   <div class="wrap">
     <a class="logo" href="#top"><b>YPS</b><span>Your Party Support</span></a>
     <div class="links"><a href="#gear">器材租借</a><a href="#services">服務</a><a href="#how">合作流程</a><a href="#case">案例</a></div>
-    <a class="pill small" href="#contact">告訴我們你的派對</a>
+    <a class="pill small" href="#contact">告訴我們您的派對</a>
   </div>
 </nav>
 
@@ -344,7 +353,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
       <p class="eyebrow">Based in Taipei</p>
       <h1 class="script">Your Party Support</h1>
       <p class="sub lead">派對的大小事，YPS 幫您搞定。</p>
-      <div class="ctas"><a class="pill solid" href="#gear">看器材租借</a><a class="textlink" href="#contact">告訴我們你的派對</a></div>
+      <div class="ctas"><a class="pill solid" href="#gear">看器材租借</a><a class="textlink" href="#contact">告訴我們您的派對</a></div>
     </div>
   </section>
 
@@ -435,7 +444,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
     <div class="wrap">
       <div class="sec-head left"><p class="eyebrow">Key Visual</p><h2>主視覺設計</h2><p>派對海報、邀請卡與社群圖設計。</p></div>
       <div class="feature">
-  <div class="ft"><p class="kind">復古森林系插畫</p><h3>GIGLÉ</h3><p class="about">自學出身的插畫家，擅長溫暖的手繪插畫、圖鑑風格與品牌 Logo。</p><p class="links"><a href="https://www.instagram.com/gigle_illo/" target="_blank" rel="noopener">IG @gigle_illo</a><a href="https://gigle.carrd.co" target="_blank" rel="noopener">網站</a></p></div>
+  <div class="ft"><p class="kind">復古森林系插畫</p><h3>GIGLÉ</h3><p class="about">自學出身的插畫家，擅長溫暖的手繪插畫、圖鑑風格與品牌 Logo。</p><p class="p-links"><a href="https://www.instagram.com/gigle_illo/" target="_blank" rel="noopener">IG @gigle_illo</a><a href="https://gigle.carrd.co" target="_blank" rel="noopener">網站</a></p></div>
   <div class="works single"><figure><img src="img/kv-gigle-ultimo.jpg" alt="L’ultimo Tuffo 夏末派對主視覺" loading="lazy"><figcaption>L’ultimo Tuffo 夏末派對主視覺</figcaption></figure></div>
 </div>
     </div>
@@ -496,7 +505,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
     <ul class="chips"><li>主題與流程企劃</li><li>活動邀請函與 IG 文案</li><li>中英雙語</li><li>品牌故事</li></ul>
     <blockquote>「在 Puglia 海邊與台北之間畫出一扇門，走進去，會有什麼發生？」<cite>L’ultimo Tuffo 邀請文</cite></blockquote>
     
-    <p class="links"><a href="https://www.instagram.com/pwp.perfectweekend/" target="_blank" rel="noopener">IG @pwp.perfectweekend</a></p>
+    <p class="p-links"><a href="https://www.instagram.com/pwp.perfectweekend/" target="_blank" rel="noopener">IG @pwp.perfectweekend</a></p>
   </div>
 </article></div>
   </div>
@@ -514,7 +523,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
     <ul class="chips"><li>L’ultimo Tuffo 初秋蠟燭採收</li><li>第一場自然 DJ 派對</li><li>台東長濱草原滿月派對</li><li>JOY MARKET 聖誕市集</li></ul>
     
     
-    <p class="links"><a href="https://www.instagram.com/thewonderbuds/" target="_blank" rel="noopener">IG @thewonderbuds</a></p>
+    <p class="p-links"><a href="https://www.instagram.com/thewonderbuds/" target="_blank" rel="noopener">IG @thewonderbuds</a></p>
   </div>
 </article></div>
   </div>
@@ -523,7 +532,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
   <section class="band alt" id="how">
     <div class="wrap">
       <div class="sec-head"><p class="eyebrow">How It Works</p><h2>合作流程</h2><p>不需要線上下單。由 YPS 統一聯絡、統一報價。</p></div>
-      <ol class="steps four"><li><span class="n">01</span><h3>告訴我們你的派對</h3><p>日期、人數、地點或想找的場地、預算範圍，還有想要哪些服務。</p></li><li><span class="n">02</span><h3>搭配夥伴、包套報價</h3><p>YPS 依需求挑選合適的夥伴，整理成一份包套報價。</p></li><li><span class="n">03</span><h3>確認後開始準備</h3><p>確認內容與訂金後，主視覺、文案、餐飲與布置同步準備。</p></li><li><span class="n">04</span><h3>派對當天統籌</h3><p>YPS 在現場協調所有夥伴，你只需要好好享受。</p></li></ol>
+      <ol class="steps four"><li><span class="n">01</span><h3>告訴我們您的派對</h3><p>日期、人數、地點或想找的場地、預算範圍，還有想要哪些服務。</p></li><li><span class="n">02</span><h3>搭配夥伴、包套報價</h3><p>YPS 依需求挑選合適的夥伴，整理成一份包套報價。</p></li><li><span class="n">03</span><h3>確認後開始準備</h3><p>確認內容與訂金後，主視覺、文案、餐飲與布置同步準備。</p></li><li><span class="n">04</span><h3>派對當天統籌</h3><p>YPS 在現場協調所有夥伴，你只需要好好享受。</p></li></ol>
       <p class="note">服務範圍：台北、新北、基隆、桃園。其他地區另計車馬費。</p>
     </div>
   </section>
@@ -548,7 +557,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-event
   <section class="band alt contact" id="contact">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h2>告訴我們你的派對</h2>
+      <h2>告訴我們您的派對</h2>
       <p class="sub">傳訊息給 YPS，我們會在兩天內回覆合適的安排與包套報價。</p>
       <div class="ask"><strong>詢問時請附上</strong><span>日期 · 人數 · 地點或想找的場地 · 預算範圍 · 想要的服務</span></div>
       <div class="ctas2">
