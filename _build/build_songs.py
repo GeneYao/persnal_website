@@ -67,6 +67,7 @@ CSS = '''
   .song .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); }
   .song img{ width:132px; height:132px; object-fit:cover; border-radius:14px; border:1px solid var(--line); box-shadow: var(--shadow); }
   .song h3{ font-size: 26px; line-height:1.15; }
+  .song .genre{ display:inline-block; margin-left:10px; padding:2px 10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--accent); border:1px solid var(--line); border-radius:999px; vertical-align:1px; }
   .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
   .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
   .song .go{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
@@ -176,9 +177,10 @@ def build_week(i, w):
             blurb += f'      <p class="blurb lang-en">{esc(s["blurb_en"])}</p>\n'
         go = (f'      <a class="go" href="{attr(s["link"])}" target="_blank" rel="noopener">'
               f'<span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span>{ARROW}</a>\n') if s.get('link') else ''
+        genre_tag = f' <span class="genre">{esc(s["genre"])}</span>' if s.get('genre') else ''
         lis += (f'    <li class="song">\n      <div class="no">{n:02d}</div>\n'
                 f'      <img src="../../photos/songs/{c}" alt="{attr(s["title"])} album cover" loading="lazy">\n'
-                f'      <div>\n      <h3>{esc(s["title"])}</h3>\n      <div class="artist">{esc(s["artist"])}</div>\n{blurb}{go}      </div>\n    </li>\n')
+                f'      <div>\n      <h3>{esc(s["title"])}</h3>\n      <div class="artist">{esc(s["artist"])}{genre_tag}</div>\n{blurb}{go}      </div>\n    </li>\n')
     intro = ''
     if w.get('hook'):
         intro += f'    <p class="intro lang-zh">{esc(w["hook"])}</p>\n'
@@ -208,7 +210,7 @@ def build_week(i, w):
     if w.get('intro_zh'): lines += [w['intro_zh'], '']
     if w.get('intro_en'): lines += [w['intro_en'], '']
     for n, (s, c) in enumerate(zip(w['songs'], covers), 1):
-        lines += [f"## {n}. {s['title']}", f"**{s['artist']}**", '']
+        lines += [f"## {n}. {s['title']}", f"**{s['artist']}**" + (f"<br>*{s['genre']}*" if s.get('genre') else ''), '']
         lines += [f"![{s['title']}](https://geneyao.com/photos/songs/{c})", '']
         if s.get('blurb_zh'): lines += [s['blurb_zh'], '']
         if s.get('blurb_en'): lines += [s['blurb_en'], '']

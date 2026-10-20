@@ -8,7 +8,8 @@
     "cover": "gabor-szabo-song-of-injured-love.jpg",
     "blurb_zh": "無意間在獨處的時候聽到，帶點憂鬱和迷幻。",
     "blurb_en": "I stumbled on this while I was alone, with a touch of melancholy and psychedelia.",
-    "link": "https://www.youtube.com/watch?v=CwljlSA6v40"
+    "link": "https://www.youtube.com/watch?v=CwljlSA6v40",
+    "genre": "Jazz · Psychedelic"
    },
    {
     "title": "I'd Be Lost",
@@ -16,7 +17,8 @@
     "cover": "thee-marloes-id-be-lost.jpg",
     "blurb_zh": "得知他們要來台灣巡演，一聽超喜歡，帶有細膩的 Motown 律動，但又有印尼的陽光熱情。",
     "blurb_en": "I heard they are coming to Taiwan on tour, and one listen made me love them. It has a delicate Motown groove, yet also the sunny warmth of Indonesia.",
-    "link": "https://www.youtube.com/watch?v=9zR8uaiXK8o"
+    "link": "https://www.youtube.com/watch?v=9zR8uaiXK8o",
+    "genre": "Soul · Funk"
    },
    {
     "title": "Hanen",
@@ -24,14 +26,16 @@
     "cover": "carthago-hanen.jpg",
     "blurb_zh": "在 IG 聽到別人分享的突尼西亞 Disco，馬上就被這律動吸引，非常有趣好聽。",
     "blurb_en": "I heard this Tunisian disco track shared by someone on Instagram, and I was instantly drawn in by the groove. It is so much fun and sounds great.",
-    "link": "https://www.youtube.com/watch?v=HAngN0DqwZ8"
+    "link": "https://www.youtube.com/watch?v=HAngN0DqwZ8",
+    "genre": "Disco · Funk"
    },
    {
     "title": "One Of These Things First",
     "artist": "Nick Drake",
     "blurb_zh": "開車從嘉義北上時聽的音樂。一直很喜歡 Nick Drake 的音樂，單純卻有深度。",
     "blurb_en": "This was the music for my drive north from Chiayi. I have always loved Nick Drake, simple yet deep.",
-    "link": "https://www.youtube.com/watch?v=vDtsgVgAx6k"
+    "link": "https://www.youtube.com/watch?v=vDtsgVgAx6k",
+    "genre": "Folk"
    },
    {
     "title": "Kaze",
@@ -39,7 +43,8 @@
     "cover": "ebi-kaze.jpg",
     "blurb_zh": "一直很喜歡橫田進的 Ambient 作品，意外在一場活動聽到這首，經過詢問後才知道他有其他化名，做不同風格的音樂。",
     "blurb_en": "I have always loved Susumu Yokota's ambient work. I heard this one by chance at an event, and after asking around, I learned that he has other aliases for making music in different styles.",
-    "link": "https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy"
+    "link": "https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy",
+    "genre": "Ambient"
    }
   ],
   "hook": "突尼西亞 Disco 與開車北上的 Nick Drake",
