@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>YPS 器材租借</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+TC:wght@300;400&display=swap">
+<style>
+/* Layout: dark boutique catalogue. Products float under a soft spotlight on near-black; serif headlines, hairline rules, champagne accent. Single dark look by design. */
+/* Layout: paper-and-ink party journal after Perfect Weekend Plan. Cream paper, halftone black, Puglia sea blue and peach from the L’ultimo Tuffo poster. Single light look by design. */
+:root {
+  --bg: #efeee9;
+  --band: #e6e3da;
+  --surface: #f6f5f1;
+  --spot: #fbfaf7;
+  --ink: #1f1f1c;
+  --ink-soft: #66655e;
+  --accent: #2c7a90;
+  --accent-ink: #f6f5f1;
+  --peach: #f1dcc6;
+  --coral: #d9603f;
+  --line: rgba(31, 31, 28, .14);
+  --serif-en: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --script: "Pinyon Script", "Snell Roundhand", cursive;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font: 16px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 112px; }
+.band.alt { background: var(--band); }
+.sec-head { display: grid; gap: 14px; margin-bottom: 56px; text-align: center; justify-items: center; }
+.sec-head h2 { font-family: var(--serif); font-size: clamp(30px, 4.4vw, 44px); font-weight: 300; letter-spacing: .06em; }
+.sec-head p { color: var(--ink-soft); }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
+
+/* buttons */
+.pill { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--accent); color: var(--accent); background: transparent; padding: 12px 30px; font: 500 13px var(--sans); letter-spacing: .18em; text-decoration: none; cursor: pointer; white-space: nowrap; transition: background .25s, color .25s; }
+.pill:hover, .pill.solid { background: var(--accent); color: var(--accent-ink); }
+.pill.solid:hover { background: transparent; color: var(--accent); }
+.pill.small { padding: 7px 16px; font-size: 12px; letter-spacing: .14em; }
+.textlink { color: var(--ink); font-size: 13px; letter-spacing: .18em; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.textlink:hover { border-color: var(--accent); }
+
+/* nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
+.logo { display: flex; align-items: baseline; gap: 12px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.logo b { font-family: var(--serif-en); font-weight: 500; font-size: 19px; letter-spacing: .22em; }
+.logo span { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); }
+.links { display: flex; gap: 28px; margin-left: auto; font-size: 13px; letter-spacing: .12em; }
+.links a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+.links a:hover { color: var(--ink); }
+@media (max-width: 760px) { .links { display: none; } nav .pill { margin-left: auto; } .logo span { display: none; } }
+
+/* hero */
+.hero { text-align: center; padding-block: 96px 72px; }
+.hero h1 { margin-top: 22px; font-family: var(--serif); font-size: clamp(38px, 6.6vw, 72px); font-weight: 300; line-height: 1.25; letter-spacing: .06em; }
+.hero .sub { max-width: 30em; margin: 24px auto 0; color: var(--ink-soft); font-size: clamp(15px, 1.8vw, 17px); letter-spacing: .04em; }
+.hero .ctas { display: flex; gap: 32px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 40px; }
+.hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: clamp(6px, 1.6vw, 20px); max-width: 960px; margin: 72px auto 0; padding: 7% 4% 6%; background: radial-gradient(ellipse 58% 62% at 50% 54%, var(--spot), transparent 72%); }
+.hero-art img { min-width: 0; width: 30%; height: auto; filter: drop-shadow(0 34px 34px rgba(0, 0, 0, .65)); }
+.hero .cap { margin-top: 8px; font-size: 12px; letter-spacing: .14em; color: var(--ink-soft); }
+
+/* gear */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.gear { background: var(--surface); display: flex; flex-direction: column; }
+.stage, .d-stage { position: relative; max-width: 100%; overflow: hidden; background: radial-gradient(ellipse 60% 58% at 50% 52%, var(--spot), var(--surface) 74%); }
+.stage { aspect-ratio: 4 / 3; }
+.stage img, .d-stage img { position: absolute; inset: 0; margin: auto; width: 76%; height: 76%; object-fit: contain; filter: drop-shadow(0 26px 28px rgba(0, 0, 0, .6)); transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.stage img.s-mid, .d-stage img.s-mid { width: 64%; height: 64%; }
+.stage img.s-small, .d-stage img.s-small { width: 54%; height: 54%; }
+.gear:hover .stage img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .gear:hover .stage img { transform: none; } }
+.gear-text { padding: 6px 34px 30px; display: grid; gap: 8px; min-width: 0; }
+.gear h3 { display: grid; gap: 2px; }
+.brand { font-family: var(--sans); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-soft); }
+.model { font-family: var(--serif-en); font-size: 36px; font-weight: 500; line-height: 1.15; letter-spacing: .01em; }
+.line { color: var(--ink-soft); }
+.gear-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.qty { font-size: 13px; letter-spacing: .12em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.more { background: none; border: 0; padding: 4px 0; color: var(--accent); font: 500 13px var(--sans); letter-spacing: .18em; cursor: pointer; }
+.more::after { content: "  →"; }
+
+/* dialog */
+dialog { width: min(680px, calc(100% - 24px)); max-height: calc(100% - 48px); border: 1px solid var(--line); border-radius: 2px; padding: 0; background: var(--surface); color: var(--ink); overflow-y: auto; }
+dialog::backdrop { background: rgba(0, 0, 0, .72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.d-body { padding: 8px max(24px, 5%) 34px; }
+dialog .close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--bg); color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; }
+.d-stage { aspect-ratio: 16 / 10; }
+.credit { padding: 10px max(24px, 5%) 0; font-size: 11px; color: var(--ink-soft); }
+dialog h3 { margin-top: 18px; display: grid; gap: 2px; }
+dialog .intro { margin-top: 14px; color: var(--ink-soft); }
+dialog h4 { margin: 32px 0 10px; font-size: 11px; font-weight: 500; letter-spacing: .28em; color: var(--accent); }
+.specs { margin: 0; border-top: 1px solid var(--line); }
+.spec { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.spec dt { color: var(--ink-soft); }
+.spec dd { margin: 0; }
+.box { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; }
+.box li { border: 1px solid var(--line); padding: 5px 12px; }
+.d-foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; letter-spacing: .08em; color: var(--ink-soft); }
+
+/* sets */
+.sets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .sets { grid-template-columns: minmax(0, 1fr); } }
+.set { border: 1px solid var(--line); padding: 38px 32px 32px; display: flex; flex-direction: column; gap: 14px; }
+.set h3 { font-family: var(--serif); font-size: 24px; letter-spacing: .08em; }
+.set p { color: var(--ink-soft); font-size: 15px; }
+.set ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; font-size: 14px; }
+.set li { padding: 11px 0; border-top: 1px solid var(--line); }
+.set .price { margin-top: auto; padding-top: 18px; font-size: 12px; letter-spacing: .22em; color: var(--accent); }
+.note { margin: 36px auto 0; max-width: 40em; font-size: 14px; color: var(--ink-soft); text-align: center; }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.steps li { display: grid; gap: 10px; align-content: start; padding-top: 22px; border-top: 1px solid var(--line); }
+.steps .n { font-family: var(--serif-en); font-size: 40px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.steps h3 { font-family: var(--serif); font-size: 21px; letter-spacing: .06em; margin-top: 8px; }
+.steps p { color: var(--ink-soft); font-size: 15px; }
+
+/* faq */
+.faq { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; padding: 24px 40px 24px 0; font-size: 17px; letter-spacing: .03em; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--serif-en); font-size: 28px; color: var(--accent); }
+details[open] summary::after { content: "−"; }
+details p { padding: 0 0 24px; color: var(--ink-soft); max-width: 40em; font-size: 15px; }
+
+/* contact */
+.contact { text-align: center; }
+.contact h2 { margin-top: 18px; font-family: var(--serif); font-size: clamp(32px, 5vw, 50px); font-weight: 300; letter-spacing: .06em; }
+.contact .sub { margin: 18px auto 0; max-width: 32em; color: var(--ink-soft); }
+.ask { display: inline-grid; gap: 6px; margin: 40px auto 0; padding: 20px 30px; border: 1px solid var(--line); font-size: 14px; letter-spacing: .06em; }
+.ask strong { font-size: 11px; font-weight: 500; letter-spacing: .28em; color: var(--accent); }
+.ctas2 { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 36px; }
+.mail { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line); padding: 5px 5px 5px 18px; font-size: 14px; letter-spacing: .06em; }
+.mail code { font: inherit; user-select: all; }
+.copy { border: 0; background: var(--surface); color: var(--ink); padding: 8px 14px; font: 500 12px var(--sans); letter-spacing: .14em; cursor: pointer; }
+
+footer { padding-block: 32px 44px; font-size: 11px; letter-spacing: .06em; color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 22px; }
+footer a { color: var(--ink-soft); }
+
+/* ---- gear catalogue on the YPS paper palette ---- */
+body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: .07; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.pill { border-color: var(--ink); color: var(--ink); }
+.pill:hover, .pill.solid { background: var(--ink); color: var(--surface); }
+.pill.solid:hover { background: transparent; color: var(--ink); }
+.logo b { letter-spacing: .3em; }
+.hero h1 { font-weight: 400; }
+.hero-art { background: radial-gradient(ellipse 58% 62% at 50% 54%, #ffffff, transparent 72%); }
+.hero-art img { filter: drop-shadow(0 26px 26px rgba(31, 31, 28, .3)); }
+.stage, .d-stage { background: radial-gradient(ellipse 60% 58% at 50% 52%, #ffffff, var(--surface) 74%); }
+.stage img, .d-stage img { filter: drop-shadow(0 20px 22px rgba(31, 31, 28, .28)); }
+.band.alt .gear { background: var(--surface); }
+.steps .n { color: var(--coral); }
+dialog::backdrop { background: rgba(31, 31, 28, .45); }
+.back { color: var(--ink-soft); text-decoration: none; }
+.back:hover { color: var(--ink); }
+
+</style>
+</head>
+<body>
+
+
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="../index.html"><b>YPS</b><span>器材租借</span></a>
+    <div class="links"><a class="back" href="../index.html">← 回到 YPS</a><a href="#gear">器材</a><a href="#sets">套組</a><a href="#how">租借流程</a><a href="#faq">常見問題</a></div>
+    <a class="pill small" href="#contact">詢問檔期</a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">DJ Equipment Rental</p>
+      <h1>專業 DJ 器材，<br>整組帶走。</h1>
+      <p class="sub">黑膠唱盤、數位播放器、混音器、監聽喇叭。每一台都由 Gene Yao 親自保養與測試。</p>
+      <div class="ctas"><a class="pill solid" href="#gear">看器材</a><a class="textlink" href="#contact">詢問檔期</a></div>
+      <div class="hero-art" role="img" aria-label="兩台 Pioneer DJ XDJ-1000 播放器，中間是 Allen &amp; Heath Xone:96 混音器">
+  <img src="img/xdj-top.png" alt=""><img src="img/xone-top.png" alt=""><img src="img/xdj-top.png" alt="">
+</div>
+      <p class="cap">數位組：Pioneer DJ XDJ-1000 × 2 ＋ Allen &amp; Heath Xone:96</p>
+    </div>
+  </section>
+
+  <section class="band alt" id="gear">
+    <div class="wrap">
+      <div class="sec-head"><h2>器材一覽</h2><p>點「看規格」，查看每台器材的重點與租借內容。</p></div>
+      <div class="grid">
+        <article class="gear">
+  <div class="stage"><img src="img/sl1200.png" alt="Technics SL-1200 黑膠唱盤" loading="lazy"></div>
+  <div class="gear-text">
+    <p class="eyebrow">Turntable　黑膠唱盤</p>
+    <h3><span class="brand">Technics</span><span class="model">SL-1200MK3D</span></h3>
+    <p class="line">黑膠 DJ 最常見的標準唱盤。</p>
+    <div class="gear-foot">
+      <span class="qty">共 2 台</span>
+      <button class="more" type="button" data-open="d-sl1200" id="btn-sl1200">看規格</button>
+    </div>
+  </div>
+</article><article class="gear">
+  <div class="stage"><img class="s-mid" src="img/xone-top.png" alt="Allen &amp; Heath Xone:96 混音器俯視圖" loading="lazy"></div>
+  <div class="gear-text">
+    <p class="eyebrow">Mixer　混音器</p>
+    <h3><span class="brand">Allen & Heath</span><span class="model">Xone:96</span></h3>
+    <p class="line">溫暖的聲音，經典的 Xone 濾波器。</p>
+    <div class="gear-foot">
+      <span class="qty">共 1 台</span>
+      <button class="more" type="button" data-open="d-xone96" id="btn-xone96">看規格</button>
+    </div>
+  </div>
+</article><article class="gear">
+  <div class="stage"><img src="img/xdj-angle.png" alt="Pioneer DJ XDJ-1000 播放器" loading="lazy"></div>
+  <div class="gear-text">
+    <p class="eyebrow">Multi Player　數位播放器</p>
+    <h3><span class="brand">Pioneer DJ</span><span class="model">XDJ-1000</span></h3>
+    <p class="line">插上 USB 隨身碟，就能開始放歌。</p>
+    <div class="gear-foot">
+      <span class="qty">共 2 台</span>
+      <button class="more" type="button" data-open="d-xdj1000" id="btn-xdj1000">看規格</button>
+    </div>
+  </div>
+</article><article class="gear">
+  <div class="stage"><img class="s-small" src="img/genelec-angle.png" alt="Genelec 8040 監聽喇叭" loading="lazy"></div>
+  <div class="gear-text">
+    <p class="eyebrow">Studio Monitor　監聽喇叭</p>
+    <h3><span class="brand">Genelec</span><span class="model">8040</span></h3>
+    <p class="line">芬蘭製主動式喇叭，聲音乾淨準確。</p>
+    <div class="gear-foot">
+      <span class="qty">共 1 對</span>
+      <button class="more" type="button" data-open="d-genelec8040" id="btn-genelec8040">看規格</button>
+    </div>
+  </div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="sets">
+    <div class="wrap">
+      <div class="sec-head"><h2>推薦套組</h2><p>不知道怎麼搭？從這三組開始。</p></div>
+      <div class="sets">
+        <article class="set">
+  <h3>黑膠組</h3>
+  <p>兩台唱盤加一台混音器，帶自己的黑膠來就能放。</p>
+  <ul><li>Technics SL-1200MK3D × 2</li><li>Allen & Heath Xone:96</li></ul>
+  <p class="price">租金請洽詢</p>
+</article><article class="set">
+  <h3>數位組</h3>
+  <p>帶一支存好歌的 USB 隨身碟就能上場。</p>
+  <ul><li>Pioneer DJ XDJ-1000 × 2</li><li>Allen & Heath Xone:96</li></ul>
+  <p class="price">租金請洽詢</p>
+</article><article class="set">
+  <h3>完整派對組</h3>
+  <p>黑膠組或數位組，再加一對喇叭，接上電就有聲音。</p>
+  <ul><li>黑膠組或數位組</li><li>Genelec 8040 × 2</li></ul>
+  <p class="price">租金請洽詢</p>
+</article>
+      </div>
+      <p class="note">混音器只有一台，所以同一時間只能出一組。也可以混搭，例如一台黑膠唱盤加一台 XDJ-1000。</p>
+    </div>
+  </section>
+
+  <section class="band alt" id="how">
+    <div class="wrap">
+      <div class="sec-head"><h2>租借流程</h2><p>三個步驟，不需要線上下單。</p></div>
+      <ol class="steps"><li><span class="n">01</span><h3>詢問檔期</h3><p>用 IG 私訊或 Email 告訴我日期、地點和想租的器材。</p></li><li><span class="n">02</span><h3>確認細節</h3><p>確認租金、押金與取件方式。</p></li><li><span class="n">03</span><h3>取件與歸還</h3><p>取件時當場測試，用完照約定時間歸還。</p></li></ol>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>常見問題</h2></div>
+      <div class="faq"><details id="faq-0"><summary>可以只租一台嗎？</summary><p>可以。每台器材都能單獨租，也可以自由搭配，例如一台黑膠唱盤加一台 XDJ-1000。</p></details><details id="faq-1"><summary>需要押金嗎？</summary><p>需要。金額依器材而定，詢問時會一起說明。</p></details><details id="faq-2"><summary>可以送到現場嗎？</summary><p>可以討論。請在詢問時告訴我活動地點。</p></details><details id="faq-3"><summary>XDJ-1000 可以放 FLAC 檔嗎？</summary><p>建議先把 FLAC 轉成 WAV 或 AIFF，再用 rekordbox 匯出到隨身碟，播放最穩定。</p></details><details id="faq-4"><summary>沒用過這些器材怎麼辦？</summary><p>取件時可以花幾分鐘示範基本接法與操作。</p></details><details id="faq-5"><summary>器材損壞怎麼辦？</summary><p>請馬上告訴我。正常使用的耗損不用擔心，人為損壞會依維修費用處理。</p></details></div>
+    </div>
+  </section>
+
+  <section class="band alt contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>想租器材？</h2>
+      <p class="sub">傳訊息告訴我你的需求，我會盡快回覆檔期和租金。</p>
+      <div class="ask"><strong>詢問時請附上</strong><span>日期與時間 · 活動地點 · 想租的器材或套組</span></div>
+      <div class="ctas2">
+        <a class="pill solid" href="https://www.instagram.com/pwp.perfectweekend/" target="_blank" rel="noopener">IG 私訊 @pwp.perfectweekend</a>
+        <span class="mail"><code id="mail">contact@geneyao.com</code><button class="copy" type="button" id="copy-mail">複製</button></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 YPS Your Party Support · 產品照片來自 Pioneer DJ、Allen &amp; Heath、Genelec 官網；SL-1200 照片 Dydric / 32bitmaschine（CC BY-SA 2.5）</span><a href="https://geneyao.com" target="_blank" rel="noopener">geneyao.com</a></div>
+</footer>
+
+<dialog id="d-sl1200" aria-labelledby="t-sl1200">
+  <button class="close" type="button" aria-label="關閉" data-close>×</button>
+  <div class="d-stage"><img src="img/sl1200.png" alt="Technics SL-1200 黑膠唱盤"></div><p class="credit">示意照片為外觀相同的 SL-1200MK2。Photo: Dydric / 32bitmaschine, CC BY-SA 2.5</p>
+  <div class="d-body">
+  <h3 id="t-sl1200"><span class="brand">Technics</span><span class="model">SL-1200MK3D</span></h3>
+  <p class="intro">1997 年推出的 MK3D 是為 DJ 改良的版本。轉速推桿拿掉了中間的卡點，並加上一鍵歸零的按鈕，對拍更順手。</p>
+  <h4>規格重點</h4>
+  <dl class="specs"><div class="spec"><dt>類型</dt><dd>直接驅動黑膠唱盤</dd></div><div class="spec"><dt>轉速</dt><dd>33⅓ 與 45 轉</dd></div><div class="spec"><dt>轉速調整</dt><dd>±8%，附一鍵歸零</dd></div><div class="spec"><dt>連接</dt><dd>需接混音器的 Phono 輸入。Xone:96 可以直接接兩台</dd></div><div class="spec"><dt>唱頭與唱針</dt><dd>詢問時一併確認</dd></div></dl>
+  <h4>租借內容</h4>
+  <ul class="box"><li>唱盤本體</li><li>防塵蓋</li><li>止滑墊（slipmat）</li></ul>
+  <div class="d-foot"><span>數量：2 台　租金請洽詢</span><a class="pill solid" href="#contact" data-close>詢問這台</a></div>
+  </div>
+</dialog><dialog id="d-xone96" aria-labelledby="t-xone96">
+  <button class="close" type="button" aria-label="關閉" data-close>×</button>
+  <div class="d-stage"><img class="s-mid" src="img/xone-top.png" alt="Allen &amp; Heath Xone:96 混音器俯視圖"></div>
+  <div class="d-body">
+  <h3 id="t-xone96"><span class="brand">Allen & Heath</span><span class="model">Xone:96</span></h3>
+  <p class="intro">Allen & Heath 的旗艦混音器，延續 Xone:92 的聲音與操作方式，再加上兩組 USB 音效卡，兩台筆電可以同時接上，換手不用停音樂。</p>
+  <h4>規格重點</h4>
+  <dl class="specs"><div class="spec"><dt>類型</dt><dd>DJ 混音器</dd></div><div class="spec"><dt>音軌</dt><dd>4 個主要音軌（4 段 EQ），另有 2 個附加音軌</dd></div><div class="spec"><dt>黑膠輸入</dt><dd>4 組 Phono，唱盤可以直接接</dd></div><div class="spec"><dt>音效卡</dt><dd>內建 2 組 USB 音效卡</dd></div><div class="spec"><dt>濾波器</dt><dd>Xone 招牌的雙濾波器</dd></div><div class="spec"><dt>輸出</dt><dd>XLR 主輸出，可直接接 Genelec 喇叭</dd></div><div class="spec"><dt>麥克風</dt><dd>2 組 XLR 麥克風輸入</dd></div></dl>
+  <h4>租借內容</h4>
+  <ul class="box"><li>混音器本體</li><li>電源線</li></ul>
+  <div class="d-foot"><span>數量：1 台　租金請洽詢</span><a class="pill solid" href="#contact" data-close>詢問這台</a></div>
+  </div>
+</dialog><dialog id="d-xdj1000" aria-labelledby="t-xdj1000">
+  <button class="close" type="button" aria-label="關閉" data-close>×</button>
+  <div class="d-stage"><img src="img/xdj-top.png" alt="Pioneer DJ XDJ-1000 播放器俯視圖"></div>
+  <div class="d-body">
+  <h3 id="t-xdj1000"><span class="brand">Pioneer DJ</span><span class="model">XDJ-1000</span></h3>
+  <p class="intro">沒有 CD 槽的 DJ 播放器，操作方式和夜店常見的 CDJ 一樣。用 rekordbox 整理好歌單，存進隨身碟帶來就能用。</p>
+  <h4>規格重點</h4>
+  <dl class="specs"><div class="spec"><dt>類型</dt><dd>USB 數位播放器</dd></div><div class="spec"><dt>螢幕</dt><dd>7 吋彩色觸控螢幕，可看波形與歌單</dd></div><div class="spec"><dt>音樂來源</dt><dd>USB 隨身碟或外接硬碟</dd></div><div class="spec"><dt>建議格式</dt><dd>MP3、AAC、WAV、AIFF</dd></div><div class="spec"><dt>曲庫軟體</dt><dd>rekordbox</dd></div><div class="spec"><dt>兩台連線</dt><dd>用網路線連接後，兩台可共用一支隨身碟</dd></div></dl>
+  <h4>租借內容</h4>
+  <ul class="box"><li>播放器本體</li><li>電源線</li><li>RCA 訊號線</li></ul>
+  <div class="d-foot"><span>數量：2 台　租金請洽詢</span><a class="pill solid" href="#contact" data-close>詢問這台</a></div>
+  </div>
+</dialog><dialog id="d-genelec8040" aria-labelledby="t-genelec8040">
+  <button class="close" type="button" aria-label="關閉" data-close>×</button>
+  <div class="d-stage"><img class="s-small" src="img/genelec-front.png" alt="Genelec 8040 監聽喇叭正面"></div>
+  <div class="d-body">
+  <h3 id="t-genelec8040"><span class="brand">Genelec</span><span class="model">8040</span></h3>
+  <p class="intro">Genelec 是錄音室常見的監聽喇叭品牌。8040 內建擴大機，接上電源和訊號線就能出聲，適合小型派對、工作室與居家活動。</p>
+  <h4>規格重點</h4>
+  <dl class="specs"><div class="spec"><dt>類型</dt><dd>主動式二音路監聽喇叭</dd></div><div class="spec"><dt>單體</dt><dd>6.5 吋低音、¾ 吋高音</dd></div><div class="spec"><dt>內建擴大機</dt><dd>每顆 90 W ＋ 90 W</dd></div><div class="spec"><dt>輸入</dt><dd>XLR 平衡輸入</dd></div><div class="spec"><dt>適合場地</dt><dd>小型室內空間</dd></div></dl>
+  <h4>租借內容</h4>
+  <ul class="box"><li>喇叭 × 2</li><li>電源線 × 2</li><li>XLR 訊號線 × 2</li></ul>
+  <div class="d-foot"><span>數量：1 對　租金請洽詢</span><a class="pill solid" href="#contact" data-close>詢問這台</a></div>
+  </div>
+</dialog>
+
+<script>
+document.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => {
+  const d = document.getElementById(b.dataset.open);
+  if (d && d.showModal) d.showModal();
+}));
+document.querySelectorAll("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.querySelectorAll("[data-close]").forEach(c => c.addEventListener("click", () => d.close()));
+});
+const cb = document.getElementById("copy-mail");
+cb.addEventListener("click", () => {
+  const done = () => { cb.textContent = "已複製"; setTimeout(() => cb.textContent = "複製", 1800); };
+  const pick = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); cb.textContent = "已選取"; };
+  try { navigator.clipboard.writeText("contact@geneyao.com").then(done, pick); } catch (e) { pick(); }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>YPS Your Party Support</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Pinyon+Script&family=IBM+Plex+Mono:wght@400&family=Noto+Serif+TC:wght@300;400&display=swap">
+<style>
+/* Layout: dark boutique catalogue. Products float under a soft spotlight on near-black; serif headlines, hairline rules, champagne accent. Single dark look by design. */
+/* Layout: paper-and-ink party journal after Perfect Weekend Plan. Cream paper, halftone black, Puglia sea blue and peach from the L’ultimo Tuffo poster. Single light look by design. */
+:root {
+  --bg: #efeee9;
+  --band: #e6e3da;
+  --surface: #f6f5f1;
+  --spot: #fbfaf7;
+  --ink: #1f1f1c;
+  --ink-soft: #66655e;
+  --accent: #2c7a90;
+  --accent-ink: #f6f5f1;
+  --peach: #f1dcc6;
+  --coral: #d9603f;
+  --line: rgba(31, 31, 28, .14);
+  --serif-en: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --script: "Pinyon Script", "Snell Roundhand", cursive;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font: 16px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 112px; }
+.band.alt { background: var(--band); }
+.sec-head { display: grid; gap: 14px; margin-bottom: 56px; text-align: center; justify-items: center; }
+.sec-head h2 { font-family: var(--serif); font-size: clamp(30px, 4.4vw, 44px); font-weight: 300; letter-spacing: .06em; }
+.sec-head p { color: var(--ink-soft); }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
+
+/* buttons */
+.pill { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--accent); color: var(--accent); background: transparent; padding: 12px 30px; font: 500 13px var(--sans); letter-spacing: .18em; text-decoration: none; cursor: pointer; white-space: nowrap; transition: background .25s, color .25s; }
+.pill:hover, .pill.solid { background: var(--accent); color: var(--accent-ink); }
+.pill.solid:hover { background: transparent; color: var(--accent); }
+.pill.small { padding: 7px 16px; font-size: 12px; letter-spacing: .14em; }
+.textlink { color: var(--ink); font-size: 13px; letter-spacing: .18em; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.textlink:hover { border-color: var(--accent); }
+
+/* nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(160%) blur(18px); -webkit-backdrop-filter: saturate(160%) blur(18px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
+.logo { display: flex; align-items: baseline; gap: 12px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.logo b { font-family: var(--serif-en); font-weight: 500; font-size: 19px; letter-spacing: .22em; }
+.logo span { font-size: 12px; letter-spacing: .2em; color: var(--ink-soft); }
+.links { display: flex; gap: 28px; margin-left: auto; font-size: 13px; letter-spacing: .12em; }
+.links a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
+.links a:hover { color: var(--ink); }
+@media (max-width: 760px) { .links { display: none; } nav .pill { margin-left: auto; } .logo span { display: none; } }
+
+/* hero */
+.hero { text-align: center; padding-block: 96px 72px; }
+.hero h1 { margin-top: 22px; font-family: var(--serif); font-size: clamp(38px, 6.6vw, 72px); font-weight: 300; line-height: 1.25; letter-spacing: .06em; }
+.hero .sub { max-width: 30em; margin: 24px auto 0; color: var(--ink-soft); font-size: clamp(15px, 1.8vw, 17px); letter-spacing: .04em; }
+.hero .ctas { display: flex; gap: 32px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 40px; }
+.hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: clamp(6px, 1.6vw, 20px); max-width: 960px; margin: 72px auto 0; padding: 7% 4% 6%; background: radial-gradient(ellipse 58% 62% at 50% 54%, var(--spot), transparent 72%); }
+.hero-art img { min-width: 0; width: 30%; height: auto; filter: drop-shadow(0 34px 34px rgba(0, 0, 0, .65)); }
+.hero .cap { margin-top: 8px; font-size: 12px; letter-spacing: .14em; color: var(--ink-soft); }
+
+/* gear */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.gear { background: var(--surface); display: flex; flex-direction: column; }
+.stage, .d-stage { position: relative; max-width: 100%; overflow: hidden; background: radial-gradient(ellipse 60% 58% at 50% 52%, var(--spot), var(--surface) 74%); }
+.stage { aspect-ratio: 4 / 3; }
+.stage img, .d-stage img { position: absolute; inset: 0; margin: auto; width: 76%; height: 76%; object-fit: contain; filter: drop-shadow(0 26px 28px rgba(0, 0, 0, .6)); transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.stage img.s-mid, .d-stage img.s-mid { width: 64%; height: 64%; }
+.stage img.s-small, .d-stage img.s-small { width: 54%; height: 54%; }
+.gear:hover .stage img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .gear:hover .stage img { transform: none; } }
+.gear-text { padding: 6px 34px 30px; display: grid; gap: 8px; min-width: 0; }
+.gear h3 { display: grid; gap: 2px; }
+.brand { font-family: var(--sans); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-soft); }
+.model { font-family: var(--serif-en); font-size: 36px; font-weight: 500; line-height: 1.15; letter-spacing: .01em; }
+.line { color: var(--ink-soft); }
+.gear-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.qty { font-size: 13px; letter-spacing: .12em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.more { background: none; border: 0; padding: 4px 0; color: var(--accent); font: 500 13px var(--sans); letter-spacing: .18em; cursor: pointer; }
+.more::after { content: "  →"; }
+
+/* dialog */
+dialog { width: min(680px, calc(100% - 24px)); max-height: calc(100% - 48px); border: 1px solid var(--line); border-radius: 2px; padding: 0; background: var(--surface); color: var(--ink); overflow-y: auto; }
+dialog::backdrop { background: rgba(0, 0, 0, .72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.d-body { padding: 8px max(24px, 5%) 34px; }
+dialog .close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--bg); color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; }
+.d-stage { aspect-ratio: 16 / 10; }
+.credit { padding: 10px max(24px, 5%) 0; font-size: 11px; color: var(--ink-soft); }
+dialog h3 { margin-top: 18px; display: grid; gap: 2px; }
+dialog .intro { margin-top: 14px; color: var(--ink-soft); }
+dialog h4 { margin: 32px 0 10px; font-size: 11px; font-weight: 500; letter-spacing: .28em; color: var(--accent); }
+.specs { margin: 0; border-top: 1px solid var(--line); }
+.spec { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.spec dt { color: var(--ink-soft); }
+.spec dd { margin: 0; }
+.box { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; }
+.box li { border: 1px solid var(--line); padding: 5px 12px; }
+.d-foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; letter-spacing: .08em; color: var(--ink-soft); }
+
+/* sets */
+.sets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .sets { grid-template-columns: minmax(0, 1fr); } }
+.set { border: 1px solid var(--line); padding: 38px 32px 32px; display: flex; flex-direction: column; gap: 14px; }
+.set h3 { font-family: var(--serif); font-size: 24px; letter-spacing: .08em; }
+.set p { color: var(--ink-soft); font-size: 15px; }
+.set ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; font-size: 14px; }
+.set li { padding: 11px 0; border-top: 1px solid var(--line); }
+.set .price { margin-top: auto; padding-top: 18px; font-size: 12px; letter-spacing: .22em; color: var(--accent); }
+.note { margin: 36px auto 0; max-width: 40em; font-size: 14px; color: var(--ink-soft); text-align: center; }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); gap: 36px; } }
+.steps li { display: grid; gap: 10px; align-content: start; padding-top: 22px; border-top: 1px solid var(--line); }
+.steps .n { font-family: var(--serif-en); font-size: 40px; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.steps h3 { font-family: var(--serif); font-size: 21px; letter-spacing: .06em; margin-top: 8px; }
+.steps p { color: var(--ink-soft); font-size: 15px; }
+
+/* faq */
+.faq { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; padding: 24px 40px 24px 0; font-size: 17px; letter-spacing: .03em; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--serif-en); font-size: 28px; color: var(--accent); }
+details[open] summary::after { content: "−"; }
+details p { padding: 0 0 24px; color: var(--ink-soft); max-width: 40em; font-size: 15px; }
+
+/* contact */
+.contact { text-align: center; }
+.contact h2 { margin-top: 18px; font-family: var(--serif); font-size: clamp(32px, 5vw, 50px); font-weight: 300; letter-spacing: .06em; }
+.contact .sub { margin: 18px auto 0; max-width: 32em; color: var(--ink-soft); }
+.ask { display: inline-grid; gap: 6px; margin: 40px auto 0; padding: 20px 30px; border: 1px solid var(--line); font-size: 14px; letter-spacing: .06em; }
+.ask strong { font-size: 11px; font-weight: 500; letter-spacing: .28em; color: var(--accent); }
+.ctas2 { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 36px; }
+.mail { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line); padding: 5px 5px 5px 18px; font-size: 14px; letter-spacing: .06em; }
+.mail code { font: inherit; user-select: all; }
+.copy { border: 0; background: var(--surface); color: var(--ink); padding: 8px 14px; font: 500 12px var(--sans); letter-spacing: .14em; cursor: pointer; }
+
+footer { padding-block: 32px 44px; font-size: 11px; letter-spacing: .06em; color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 22px; }
+footer a { color: var(--ink-soft); }
+
+/* ---- YPS additions on top of the gear catalogue style ---- */
+.sec-head.left { text-align: left; justify-items: start; margin-bottom: 44px; }
+.sec-head.left p { max-width: 36em; }
+
+/* hero mosaic */
+.mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 1000px; margin: 64px auto 0; }
+.mosaic img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; filter: saturate(.92); }
+.mosaic img:nth-child(even) { transform: translateY(28px); }
+@media (max-width: 640px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mosaic img:nth-child(even) { transform: none; } }
+
+/* service tiles */
+.svcs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (max-width: 860px) { .svcs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.svc { display: grid; gap: 8px; align-content: start; padding: 30px 26px 28px; background: var(--band); color: var(--ink); text-decoration: none; transition: background .25s; min-width: 0; }
+.svc:hover { background: var(--surface); }
+.svc strong { font-family: var(--serif); font-weight: 400; font-size: 22px; letter-spacing: .08em; }
+.svc .note { font-size: 13px; color: var(--ink-soft); }
+.svc::after { content: "→"; color: var(--accent); margin-top: 6px; }
+
+/* featured case */
+.case { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+@media (max-width: 820px) { .case { grid-template-columns: minmax(0, 1fr); } }
+.case-img img { width: 100%; display: block; box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .8); }
+.case-text { display: grid; gap: 16px; min-width: 0; }
+.case-title { font-family: var(--serif-en); font-size: clamp(40px, 6vw, 64px); font-weight: 500; line-height: 1.05; }
+.case-sub { font-family: var(--serif); font-size: 19px; letter-spacing: .1em; color: var(--ink-soft); }
+.about { color: var(--ink-soft); font-size: 15px; }
+.lineup { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--line); font-size: 14px; }
+.lineup li { padding: 11px 0; border-bottom: 1px solid var(--line); }
+
+/* partner cards */
+.partners { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.partner { background: var(--surface); display: flex; flex-direction: column; min-width: 0; }
+.band.alt .partner { background: var(--bg); }
+.ph { aspect-ratio: 4 / 3; overflow: hidden; background: var(--band); }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.partner:hover .ph img { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) { .partner:hover .ph img, .mosaic img { transform: none; } }
+.pt { padding: 24px 26px 26px; display: grid; gap: 10px; align-content: start; flex: 1; }
+.kind { font-size: 11px; letter-spacing: .22em; color: var(--accent); }
+.partner h3 { font-family: var(--serif-en); font-size: 30px; font-weight: 500; line-height: 1.15; }
+.facts { margin: 4px 0 0; border-top: 1px solid var(--line); font-size: 14px; }
+.facts div { display: grid; grid-template-columns: 3.5em minmax(0, 1fr); gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--ink-soft); }
+.facts dd { margin: 0; }
+.chips { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; font-size: 12.5px; }
+.chips li { border: 1px solid var(--line); padding: 4px 10px; color: var(--ink); }
+.thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 8px; font-size: 12.5px; letter-spacing: .12em; }
+.links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+.links a:hover { border-color: var(--accent); }
+blockquote { margin: 6px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 17px; line-height: 1.7; }
+blockquote cite { display: block; margin-top: 6px; font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--ink-soft); letter-spacing: .08em; }
+
+/* key visual feature */
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 820px) { .feature { grid-template-columns: minmax(0, 1fr); } }
+.feature .ft { display: grid; gap: 12px; }
+.feature h3 { font-family: var(--serif-en); font-size: 44px; font-weight: 500; }
+.works { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.works figure { margin: 0; }
+.works img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.works figcaption { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); letter-spacing: .04em; }
+
+/* gear summary */
+.gear-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 760px) { .gear-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.gear-row li { display: grid; gap: 4px; justify-items: center; text-align: center; background: var(--surface); padding: 0 0 22px; }
+.gs { width: 100%; aspect-ratio: 1; display: grid; place-items: center; background: radial-gradient(ellipse 60% 58% at 50% 52%, var(--spot), var(--surface) 74%); }
+.gs img { width: 70%; height: 70%; object-fit: contain; filter: drop-shadow(0 20px 22px rgba(0, 0, 0, .6)); }
+.gear-row strong { font-family: var(--serif-en); font-size: 24px; font-weight: 500; }
+.gear-cta { margin-top: 36px; text-align: center; }
+
+.steps.four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+@media (max-width: 900px) { .steps.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .steps.four { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---- PWP paper palette overrides ---- */
+body::after { content: ""; position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: .07; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.pill { border-color: var(--ink); color: var(--ink); }
+.pill:hover, .pill.solid { background: var(--ink); color: var(--surface); }
+.pill.solid:hover { background: transparent; color: var(--ink); }
+.logo b { letter-spacing: .3em; }
+.hero h1 { font-weight: 400; }
+.hero h1.script { font-family: var(--script); font-weight: 400; font-size: clamp(60px, 11vw, 132px); line-height: 1.05; letter-spacing: 0; color: var(--coral); margin-top: 18px; transform: rotate(-3deg); }
+.hero .sub.lead { margin-top: 30px; font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); color: var(--ink); letter-spacing: .08em; }
+.steps .n { color: var(--coral); }
+.case-img img { box-shadow: 0 30px 50px -28px rgba(31, 31, 28, .45); }
+.mosaic img { filter: none; box-shadow: 0 24px 40px -26px rgba(31, 31, 28, .5); }
+.partner { box-shadow: 0 1px 0 var(--line); }
+.svc.main { grid-column: span 2; background: var(--ink); color: var(--surface); }
+.svc.main .eyebrow { color: var(--peach); }
+.svc.main .note { color: rgba(246, 245, 241, .7); }
+.svc.main::after { color: var(--peach); }
+.svc.main:hover { background: #33332f; }
+
+/* featured gear block */
+.gear-feature { background: var(--peach); }
+.gear-feature .gear-row li { background: var(--surface); padding: 0 16px 24px; gap: 6px; }
+.gear-feature .gs { background: radial-gradient(ellipse 60% 58% at 50% 52%, #ffffff, var(--surface) 74%); }
+.gs img { width: 76%; height: 76%; filter: drop-shadow(0 18px 18px rgba(31, 31, 28, .28)); }
+.gline { font-size: 13px; color: var(--ink-soft); }
+.gear-feature .qty { color: var(--accent); letter-spacing: .1em; }
+.gear-sets { margin: 40px auto 0; max-width: 820px; text-align: center; }
+.gear-sets ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (max-width: 680px) { .gear-sets ul { grid-template-columns: minmax(0, 1fr); } }
+.gear-sets li { background: var(--peach); padding: 18px 16px; display: grid; gap: 4px; font-size: 13.5px; }
+.gear-sets strong { font-family: var(--serif); font-weight: 400; font-size: 19px; letter-spacing: .08em; }
+.gear-cta { justify-content: center; margin-top: 36px; }
+.gs { position: relative; display: block; }
+.gs img { position: absolute; inset: 0; margin: auto; }
+
+/* DJ cards: text left, round avatar right */
+.partner.dj { flex-direction: row-reverse; align-items: flex-start; gap: 0; }
+.partner.dj .ph { flex: none; width: clamp(96px, 22%, 150px); aspect-ratio: 1; border-radius: 50%; margin: 28px 26px 0 0; }
+.partner.dj .ph img { object-position: 50% 30%; }
+.partner.dj .pt { min-width: 0; }
+@media (max-width: 420px) { .partner.dj .ph { width: 84px; margin: 22px 18px 0 0; } }
+
+/* DJ list, after the Five Songs layout on geneyao.com */
+.djlist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.djlist li { display: grid; grid-template-columns: 3.2em 180px minmax(0, 1fr); gap: 36px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--line); }
+.dj-n { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 20px; color: var(--ink-soft); }
+.dj-ph { width: 180px; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; border-radius: 14px; box-shadow: 0 22px 34px -18px rgba(31, 31, 28, .55); }
+.dj-t { display: grid; gap: 10px; }
+.dj-t h3 { font-family: var(--serif-en); font-size: clamp(32px, 4vw, 44px); font-weight: 500; line-height: 1.05; }
+.dj-genre { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 14px; letter-spacing: .08em; color: var(--ink-soft); }
+.dj-blurb { font-size: 17px; line-height: 1.8; max-width: 34em; }
+.dj-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 4px; }
+.dj-links a { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; }
+.dj-links a:hover { color: var(--accent); }
+@media (max-width: 640px) {
+  .djlist li { grid-template-columns: 96px minmax(0, 1fr); gap: 20px; align-items: start; padding: 28px 0; }
+  .dj-n { display: none; }
+  .dj-ph { width: 96px; border-radius: 10px; }
+}
+.dj-links { gap: 14px; }
+.dj-links a { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); transition: color .2s, border-color .2s; }
+.dj-links a:hover { color: var(--accent); border-color: var(--accent); }
+.dj-links svg { width: 20px; height: 20px; }
+.works.single { grid-template-columns: minmax(0, 1fr); max-width: 440px; }
+
+/* Past Party slideshow */
+.slides { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--band); box-shadow: 0 30px 50px -28px rgba(31, 31, 28, .45); }
+.slides img.sl { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .9s ease; box-shadow: none; }
+.slides img.sl.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .slides img.sl { transition: none; } }
+.sl-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(246, 245, 241, .85); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; z-index: 2; }
+.sl-btn.prev { left: 12px; } .sl-btn.next { right: 12px; }
+.sl-dots { position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 6px; z-index: 2; }
+.sl-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(246, 245, 241, .55); cursor: pointer; }
+.sl-dots button.on { background: #f6f5f1; }
+.ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; }
+
+</style>
+</head>
+<body>
+
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>YPS</b><span>Your Party Support</span></a>
+    <div class="links"><a href="#gear">器材租借</a><a href="#services">服務</a><a href="#how">合作流程</a><a href="#case">案例</a></div>
+    <a class="pill small" href="#contact">告訴我們你的派對</a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Based in Taipei</p>
+      <h1 class="script">Your Party Support</h1>
+      <p class="sub lead">派對的大小事，YPS 幫您搞定。</p>
+      <div class="ctas"><a class="pill solid" href="#gear">看器材租借</a><a class="textlink" href="#contact">告訴我們你的派對</a></div>
+    </div>
+  </section>
+
+  <section class="band alt gear-feature" id="gear">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Signature Service</p><h2>DJ 器材租借</h2><p>YPS 的主打服務。Gene Yao 親自保養的黑膠唱盤、數位播放器、混音器與監聽喇叭，可以單獨租借，也能搭配整場派對一起安排。</p></div>
+      <ul class="gear-row"><li><div class="gs"><img src="img/sl1200.png" alt="Technics SL-1200MK3D" loading="eager"></div><span class="brand">Technics</span><strong>SL-1200MK3D</strong><span class="qty">黑膠唱盤 × 2</span><span class="gline">黑膠 DJ 的標準唱盤</span></li><li><div class="gs"><img src="img/xone-top.png" alt="Allen &amp; Heath Xone:96" loading="eager"></div><span class="brand">Allen &amp; Heath</span><strong>Xone:96</strong><span class="qty">混音器 × 1</span><span class="gline">溫暖的聲音，經典的 Xone 濾波器</span></li><li><div class="gs"><img src="img/xdj-angle.png" alt="Pioneer DJ XDJ-1000" loading="eager"></div><span class="brand">Pioneer DJ</span><strong>XDJ-1000</strong><span class="qty">數位播放器 × 2</span><span class="gline">插上 USB 隨身碟就能放歌</span></li><li><div class="gs"><img src="img/genelec-angle.png" alt="Genelec 8040" loading="eager"></div><span class="brand">Genelec</span><strong>8040</strong><span class="qty">監聽喇叭 1 對</span><span class="gline">接上電就有乾淨的聲音</span></li></ul>
+      <div class="gear-sets"><p class="eyebrow">推薦套組</p><ul><li><strong>黑膠組</strong><span>SL-1200MK3D × 2 ＋ Xone:96</span></li><li><strong>數位組</strong><span>XDJ-1000 × 2 ＋ Xone:96</span></li><li><strong>完整派對組</strong><span>任一組 ＋ Genelec 8040 一對</span></li></ul></div>
+      <div class="ctas gear-cta"><a class="pill solid" href="#contact">詢問器材檔期</a><a class="textlink" href="gear/index.html">看完整器材型錄與規格</a></div>
+    </div>
+  </section>
+
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Services</p><h2>一站式派對服務</h2><p>可以全部交給 YPS，也可以只挑需要的部分。</p></div>
+      <div class="svcs"><a class="svc main" href="#gear"><span class="eyebrow">Equipment</span><strong>器材租借</strong><span class="note">主打服務：DJ 器材與監聽喇叭</span></a><a class="svc" href="#venues"><span class="eyebrow">Venue</span><strong>場地媒合</strong><span class="note">3 個合作場地</span></a><a class="svc" href="#djs"><span class="eyebrow">DJ</span><strong>合作 DJ</strong><span class="note">2 位 DJ</span></a><a class="svc" href="#visual"><span class="eyebrow">Key Visual</span><strong>主視覺設計</strong><span class="note">插畫與海報</span></a><a class="svc" href="#catering"><span class="eyebrow">Catering</span><strong>餐飲</strong><span class="note">甜點、咖啡、小點</span></a><a class="svc" href="#planning"><span class="eyebrow">Planning & Copy</span><strong>企劃與文案</strong><span class="note">主題流程、邀請函與社群</span></a><a class="svc" href="#art"><span class="eyebrow">Event Art</span><strong>活動美術</strong><span class="note">燭光與自然布置</span></a></div>
+    </div>
+  </section>
+
+  <section class="band alt" id="venues">
+  <div class="wrap">
+    <div class="sec-head left"><p class="eyebrow">Venue</p><h2>場地媒合</h2><p>也可以依需求代尋場地。</p></div>
+    <div class="partners"><article class="partner">
+  <div class="ph"><img src="img/venue-acta.jpg" alt="ACTA Academy" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">藝廊・多功能空間</p>
+    <h3>ACTA Academy</h3>
+    <p class="about"></p>
+    <dl class="facts"><div><dt>地區</dt><dd>台北士林・天母</dd></div><div><dt>人數</dt><dd>50 人</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article><article class="partner">
+  <div class="ph"><img src="img/venue-chujian.jpg" alt="曙‧初見咖啡" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">咖啡廳・夜間酒廊</p>
+    <h3>曙‧初見咖啡</h3>
+    <p class="about"></p>
+    <dl class="facts"><div><dt>地區</dt><dd>基隆仁愛區</dd></div><div><dt>人數</dt><dd>約 30 人</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article><article class="partner">
+  <div class="ph"><img src="img/venue-riviera.jpg" alt="歐華酒店 宴會廳" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">飯店宴會廳</p>
+    <h3>歐華酒店 宴會廳</h3>
+    <p class="about"></p>
+    <dl class="facts"><div><dt>地區</dt><dd>台北中山區</dd></div><div><dt>人數</dt><dd>約 100 人</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article></div>
+  </div>
+</section>
+  <section class="band" id="djs">
+  <div class="wrap">
+    <div class="sec-head left"><p class="eyebrow">DJ</p><h2>合作 DJ</h2></div>
+    <ol class="djlist"><li>
+  <span class="dj-n">01</span>
+  <img class="dj-ph" src="img/dj-gene.jpg" alt="Gene Yao" loading="lazy">
+  <div class="dj-t">
+    <h3>Gene Yao</h3>
+    <p class="dj-genre">Disco · Funk · Nu-Disco · French Touch · Italo · 80s 港台流行</p>
+    <p class="dj-blurb">從 Disco、Funk 到法式與義式律動，擅長為品牌活動和私人派對帶出溫暖又好跳的氣氛。</p>
+    <p class="dj-links"><a href="https://soundcloud.com/geneyao" target="_blank" rel="noopener" aria-label="Gene Yao 的 SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17.5V9.2a5 5 0 0 1 9.3 2.3 3 3 0 0 1 .7 6H10"/><path d="M7.5 17.5v-6.5M5 17.5v-5M2.5 17.5v-3"/></svg></a><a href="https://www.instagram.com/geneyaooo/" target="_blank" rel="noopener" aria-label="Gene Yao 的 Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></p>
+  </div>
+</li><li>
+  <span class="dj-n">02</span>
+  <img class="dj-ph" src="img/dj-roger.jpg" alt="Roger" loading="lazy">
+  <div class="dj-t">
+    <h3>Roger</h3>
+    <p class="dj-genre">Deep House · French House · House</p>
+    <p class="dj-blurb">House lover。用 Deep House 與 French House 細膩的律動，陪派對慢慢升溫。</p>
+    <p class="dj-links"><a href="https://soundcloud.com/rddjrogertpe" target="_blank" rel="noopener" aria-label="Roger 的 SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17.5V9.2a5 5 0 0 1 9.3 2.3 3 3 0 0 1 .7 6H10"/><path d="M7.5 17.5v-6.5M5 17.5v-5M2.5 17.5v-3"/></svg></a><a href="https://www.instagram.com/soul_vector_/" target="_blank" rel="noopener" aria-label="Roger 的 Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></p>
+  </div>
+</li></ol>
+  </div>
+</section>
+
+  <section class="band alt" id="visual">
+    <div class="wrap">
+      <div class="sec-head left"><p class="eyebrow">Key Visual</p><h2>主視覺設計</h2><p>派對海報、邀請卡與社群圖設計。</p></div>
+      <div class="feature">
+  <div class="ft"><p class="kind">復古森林系插畫</p><h3>GIGLÉ</h3><p class="about">自學出身的插畫家，擅長溫暖的手繪插畫、圖鑑風格與品牌 Logo。</p><p class="links"><a href="https://www.instagram.com/gigle_illo/" target="_blank" rel="noopener">IG @gigle_illo</a><a href="https://gigle.carrd.co" target="_blank" rel="noopener">網站</a></p></div>
+  <div class="works single"><figure><img src="img/kv-gigle-ultimo.jpg" alt="L’ultimo Tuffo 夏末派對主視覺" loading="lazy"><figcaption>L’ultimo Tuffo 夏末派對主視覺</figcaption></figure></div>
+</div>
+    </div>
+  </section>
+
+  <section class="band" id="catering">
+  <div class="wrap">
+    <div class="sec-head left"><p class="eyebrow">Catering</p><h2>餐飲</h2><p>法式甜點、精品咖啡與在地小點，也能準備賓客伴手禮。</p></div>
+    <div class="partners"><article class="partner">
+  <div class="ph"><img src="img/food-mho-box.jpg" alt="MHO 甜點工作室" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">法式甜點・客製馬卡龍</p>
+    <h3>MHO 甜點工作室</h3>
+    <p class="about">在巴黎學甜點、工作後回台成立的工作室。可做印上品牌 Logo 的客製馬卡龍、品牌開幕茶會與活動甜點外燴。</p>
+    <dl class="facts"><div><dt>地區</dt><dd>台北士林</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article><article class="partner">
+  <div class="ph"><img src="img/food-wingman-show.jpg" alt="Wingman® 咖啡" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">精品咖啡・咖啡派對</p>
+    <h3>Wingman® 咖啡</h3>
+    <p class="about">精品咖啡烘焙店，固定舉辦「派對咖」咖啡派對，例如牙買加藍山暢飲、COE 競標藝伎。也有瓶裝冰滴咖啡。</p>
+    <dl class="facts"><div><dt>地區</dt><dd>台北中山（復興北路）</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article><article class="partner">
+  <div class="ph"><img src="img/food-gufriends.jpg" alt="菇Friends" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">派對小點・伴手禮</p>
+    <h3>菇Friends</h3>
+    <p class="about">在地菇農的香菇，低溫烘烤、非油炸的香菇脆片，全素可食。適合當派對小點或賓客伴手禮。</p>
+    <dl class="facts"><div><dt>地區</dt><dd>電商</dd></div></dl>
+    
+    
+    
+    
+  </div>
+</article></div>
+  </div>
+</section>
+  <section class="band alt" id="planning">
+  <div class="wrap">
+    <div class="sec-head left"><p class="eyebrow">Planning &amp; Copy</p><h2>企劃與文案</h2><p>從主題發想、當天流程，到中英雙語的邀請函、IG 貼文與品牌故事。</p></div>
+    <div class="partners"><article class="partner">
+  <div class="ph"><img src="img/copy-pwp-intro.jpg" alt="Perfect Weekend Plan" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">企劃・文案</p>
+    <h3>Perfect Weekend Plan</h3>
+    <p class="about">由 Wonder 和 Roger 經營的派對品牌。從主題發想、當天流程，到中英雙語的邀請函與 IG 文案，L’ultimo Tuffo 就是他們從頭企劃與撰寫的派對。</p>
+    
+    <ul class="chips"><li>主題與流程企劃</li><li>活動邀請函與 IG 文案</li><li>中英雙語</li><li>品牌故事</li></ul>
+    <blockquote>「在 Puglia 海邊與台北之間畫出一扇門，走進去，會有什麼發生？」<cite>L’ultimo Tuffo 邀請文</cite></blockquote>
+    
+    <p class="links"><a href="https://www.instagram.com/pwp.perfectweekend/" target="_blank" rel="noopener">IG @pwp.perfectweekend</a></p>
+  </div>
+</article></div>
+  </div>
+</section>
+  <section class="band" id="art">
+  <div class="wrap">
+    <div class="sec-head left"><p class="eyebrow">Event Art</p><h2>活動美術</h2><p>用季節蔬果、蜂蠟燭光與自然媒材布置現場。</p></div>
+    <div class="partners"><article class="partner">
+  <div class="ph"><img src="img/art-wonder-party.jpg" alt="WONDER" loading="lazy"></div>
+  <div class="pt">
+    <p class="kind">自然風格活動美術・蔬果蜂蠟蠟燭</p>
+    <h3>WONDER</h3>
+    <p class="about">由加州新創人發起的生活品牌，和青農合作，用純淨蜂蠟與生態染料做成蔬果造型的豐收蠟燭。成員有設計週展場的執行經驗，擅長用自然媒材、季節蔬果和燭光布置餐桌與派對現場。</p>
+    
+    <ul class="chips"><li>L’ultimo Tuffo 初秋蠟燭採收</li><li>第一場自然 DJ 派對</li><li>台東長濱草原滿月派對</li><li>JOY MARKET 聖誕市集</li></ul>
+    
+    
+    <p class="links"><a href="https://www.instagram.com/thewonderbuds/" target="_blank" rel="noopener">IG @thewonderbuds</a></p>
+  </div>
+</article></div>
+  </div>
+</section>
+
+  <section class="band alt" id="how">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">How It Works</p><h2>合作流程</h2><p>不需要線上下單。由 YPS 統一聯絡、統一報價。</p></div>
+      <ol class="steps four"><li><span class="n">01</span><h3>告訴我們你的派對</h3><p>日期、人數、地點或想找的場地、預算範圍，還有想要哪些服務。</p></li><li><span class="n">02</span><h3>搭配夥伴、包套報價</h3><p>YPS 依需求挑選合適的夥伴，整理成一份包套報價。</p></li><li><span class="n">03</span><h3>確認後開始準備</h3><p>確認內容與訂金後，主視覺、文案、餐飲與布置同步準備。</p></li><li><span class="n">04</span><h3>派對當天統籌</h3><p>YPS 在現場協調所有夥伴，你只需要好好享受。</p></li></ol>
+      <p class="note">服務範圍：台北、新北、基隆、桃園。其他地區另計車馬費。</p>
+    </div>
+  </section>
+
+  <section class="band" id="case">
+    <div class="wrap case">
+      <div class="case-img slides" id="party-slides" aria-roledescription="carousel" aria-label="L’ultimo Tuffo 派對照片">
+        <img class="sl on" src="img/party-ultimo-01.jpg" alt="L’ultimo Tuffo 派對現場 1" loading="eager"><img class="sl" src="img/party-ultimo-02.jpg" alt="L’ultimo Tuffo 派對現場 2" loading="eager"><img class="sl" src="img/party-ultimo-03.jpg" alt="L’ultimo Tuffo 派對現場 3" loading="lazy"><img class="sl" src="img/party-ultimo-04.jpg" alt="L’ultimo Tuffo 派對現場 4" loading="lazy"><img class="sl" src="img/party-ultimo-05.jpg" alt="L’ultimo Tuffo 派對現場 5" loading="lazy"><img class="sl" src="img/party-ultimo-06.jpg" alt="L’ultimo Tuffo 派對現場 6" loading="lazy"><img class="sl" src="img/party-ultimo-07.jpg" alt="L’ultimo Tuffo 派對現場 7" loading="lazy"><img class="sl" src="img/party-ultimo-08.jpg" alt="L’ultimo Tuffo 派對現場 8" loading="lazy"><img class="sl" src="img/party-ultimo-09.jpg" alt="L’ultimo Tuffo 派對現場 9" loading="lazy"><img class="sl" src="img/party-ultimo-10.jpg" alt="L’ultimo Tuffo 派對現場 10" loading="lazy"><img class="sl" src="img/party-ultimo-11.jpg" alt="L’ultimo Tuffo 派對現場 11" loading="lazy"><img class="sl" src="img/party-ultimo-12.jpg" alt="L’ultimo Tuffo 派對現場 12" loading="lazy">
+        <button class="sl-btn prev" type="button" aria-label="上一張">‹</button>
+        <button class="sl-btn next" type="button" aria-label="下一張">›</button>
+        <div class="sl-dots"><button type="button" class="on" aria-label="第 1 張"></button><button type="button" class="" aria-label="第 2 張"></button><button type="button" class="" aria-label="第 3 張"></button><button type="button" class="" aria-label="第 4 張"></button><button type="button" class="" aria-label="第 5 張"></button><button type="button" class="" aria-label="第 6 張"></button><button type="button" class="" aria-label="第 7 張"></button><button type="button" class="" aria-label="第 8 張"></button><button type="button" class="" aria-label="第 9 張"></button><button type="button" class="" aria-label="第 10 張"></button><button type="button" class="" aria-label="第 11 張"></button><button type="button" class="" aria-label="第 12 張"></button></div>
+      </div>
+      <div class="case-text">
+        <p class="eyebrow">Past Party · 2026.09.12</p>
+        <h2 class="case-title">L’ultimo Tuffo</h2>
+        <p class="case-sub">音樂、甜點與初秋採收</p>
+        <p class="about">在士林的甜點工作室裡，一個橘紅色的初秋午後。從企劃、邀請函、主視覺、音樂、甜點到桌上的蔬果蠟燭，都由 YPS 的夥伴一起完成。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>告訴我們你的派對</h2>
+      <p class="sub">傳訊息給 YPS，我們會在兩天內回覆合適的安排與包套報價。</p>
+      <div class="ask"><strong>詢問時請附上</strong><span>日期 · 人數 · 地點或想找的場地 · 預算範圍 · 想要的服務</span></div>
+      <div class="ctas2">
+        <a class="pill solid" href="https://www.instagram.com/pwp.perfectweekend/" target="_blank" rel="noopener">IG 私訊 @pwp.perfectweekend</a>
+        <span class="mail"><code id="mail">contact@geneyao.com</code><button class="copy" type="button" id="copy-mail">複製</button></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 YPS Your Party Support · 預覽版：照片取自各夥伴的 IG 與官網，正式上線前會換成授權照片</span><a href="https://geneyao.com" target="_blank" rel="noopener">geneyao.com</a></div>
+</footer>
+
+<script>
+const cb = document.getElementById("copy-mail");
+cb.addEventListener("click", () => {
+  const done = () => { cb.textContent = "已複製"; setTimeout(() => cb.textContent = "複製", 1800); };
+  const pick = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); cb.textContent = "已選取"; };
+  try { navigator.clipboard.writeText("contact@geneyao.com").then(done, pick); } catch (e) { pick(); }
+});
+(() => {
+  const box = document.getElementById("party-slides");
+  if (!box) return;
+  const imgs = [...box.querySelectorAll("img.sl")];
+  const dots = [...box.querySelectorAll(".sl-dots button")];
+  let i = 0, timer = null;
+  const show = n => {
+    i = (n + imgs.length) % imgs.length;
+    imgs.forEach((im, k) => im.classList.toggle("on", k === i));
+    dots.forEach((d, k) => d.classList.toggle("on", k === i));
+  };
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const play = () => { if (!still) { clearInterval(timer); timer = setInterval(() => show(i + 1), 4000); } };
+  box.querySelector(".prev").addEventListener("click", () => { show(i - 1); play(); });
+  box.querySelector(".next").addEventListener("click", () => { show(i + 1); play(); });
+  dots.forEach((d, k) => d.addEventListener("click", () => { show(k); play(); }));
+  box.addEventListener("mouseenter", () => clearInterval(timer));
+  box.addEventListener("mouseleave", play);
+  play();
+})();
+</script>
+
+</body>
+</html>
