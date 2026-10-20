@@ -83,6 +83,7 @@ CSS = '''
   .week-row{ position:relative; display:grid; grid-template-columns: 150px 1fr 44px; gap:20px; align-items:center; padding: 22px 24px; background: var(--surface); border:1px solid var(--line); border-radius:20px; text-decoration:none; color: var(--ink); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
   .week-row:hover{ transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); }
   .week-row .wd{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); }
+  .week-row .hook{ margin-bottom:12px; font-size:15px; line-height:1.5; color: var(--ink-soft); }
   .week-row .strip{ display:flex; gap:8px; flex-wrap:wrap; }
   .week-row .names{ margin-top:10px; font-size:14px; color: var(--ink-soft); }
   .week-row .go{ width:44px; height:44px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color: var(--accent); transition: background .2s ease, color .2s ease, border-color .2s ease; }
@@ -179,6 +180,9 @@ def build_week(i, w):
                 f'      <img src="../../photos/songs/{c}" alt="{attr(s["title"])} album cover" loading="lazy">\n'
                 f'      <div>\n      <h3>{esc(s["title"])}</h3>\n      <div class="artist">{esc(s["artist"])}</div>\n{blurb}{go}      </div>\n    </li>\n')
     intro = ''
+    if w.get('hook'):
+        intro += f'    <p class="intro lang-zh">{esc(w["hook"])}</p>\n'
+        intro += f'    <p class="intro lang-en">{esc(w.get("hook_en") or w["hook"])}</p>\n'
     if w.get('intro_zh'):
         intro += f'    <p class="intro lang-zh">{esc(w["intro_zh"])}</p>\n'
     if w.get('intro_en'):
@@ -194,12 +198,13 @@ def build_week(i, w):
             f'{intro}  </header>\n'
             f'  <ol class="song-list">\n{lis}  </ol>\n{nav}')
     desc = f"Five Songs for This Week, {w['date'].replace('-', '.')}: " + ', '.join(s['title'] for s in w['songs'])
-    out = page_shell(f"Five Songs for This Week {w['date'].replace('-', '.')}", desc, f"songs/{w['date']}/", main, '../../')
+    page_title = f"Five Songs for This Week {w['date'].replace('-', '.')}"
+    out = page_shell(page_title, desc, f"songs/{w['date']}/", main, '../../')
     d = os.path.join(OUT, 'songs', w['date']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
 
     # newsletter text (markdown, paste into Buttondown)
-    lines = [f"# Five Songs for This Week {w['date'].replace('-', '.')}", '']
+    lines = [f"<!-- Subject: Five Songs for This Week {w['date'].replace('-', '.')}" + (f" | {w['hook']}" if w.get('hook') else '') + " -->", '']
     if w.get('intro_zh'): lines += [w['intro_zh'], '']
     if w.get('intro_en'): lines += [w['intro_en'], '']
     for n, (s, c) in enumerate(zip(w['songs'], covers), 1):
@@ -217,9 +222,13 @@ def build_archive(all_covers):
     rows = ''
     for w, covers in zip(weeks, all_covers):
         names = ' · '.join(esc(s['title']) for s in w['songs'])
+        hook = ''
+        if w.get('hook'):
+            hook = (f'<div class="hook lang-zh">{esc(w["hook"])}</div>'
+                    f'<div class="hook lang-en">{esc(w.get("hook_en") or w["hook"])}</div>')
         strip = ''.join(f'<img src="../photos/songs/{c}" alt="" loading="lazy">' for c in covers)
         rows += (f'    <li><a class="week-row" href="{w["date"]}/"><div class="wd">{fmt(w["date"])}</div>'
-                 f'<div><div class="strip">{strip}</div><div class="names">{names}</div></div><span class="go" aria-hidden="true">{ARROW}</span></a></li>\n')
+                 f'<div>{hook}<div class="strip">{strip}</div><div class="names">{names}</div></div><span class="go" aria-hidden="true">{ARROW}</span></a></li>\n')
     main = ('  <header class="songs-head">\n    <h1>Five Songs for This Week</h1>\n'
             '    <p class="intro lang-zh">每週一與您分享我正在聆聽的五首歌</p>\n'
             '    <p class="intro lang-en">Five songs I&#39;m listening to, shared with you every Monday.</p>\n  </header>\n'
