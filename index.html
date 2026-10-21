@@ -253,6 +253,10 @@
   @media (max-width: 760px){ .home-video .frame{ width:88%; margin-inline:auto; border-radius:14px; } }
 
   /* ---- music ---- */
+  .plat-row{ display:flex; justify-content:center; gap:20px; margin-top:40px; }
+  .plat-row a{ width:64px; height:64px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:50%; color: var(--ink-soft); background: var(--surface); transition: transform .18s ease, color .2s ease, border-color .2s ease; }
+  .plat-row a:hover{ transform: translateY(-3px); color: var(--accent); border-color: var(--accent); }
+  .plat-row svg{ width:28px; height:28px; }
   .card-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
   .card{
     background: var(--surface); border:1px solid var(--line); border-radius: 22px;
@@ -306,7 +310,8 @@
   footer a.fine{ text-decoration:none; transition: color .2s ease; }
   footer a.fine:hover{ color: var(--accent); }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; }
+  footer .wordmark{ font-size:16px; font-family:'Instrument Serif', serif; display:inline-flex; align-items:center; gap:10px; }
+  footer .wordmark svg{ width:22px; height:22px; fill: var(--accent); }
   footer .fine{ font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); letter-spacing:.04em; }
 
   /* ---- language switch ---- */
@@ -442,43 +447,10 @@
         <iframe src="https://www.youtube-nocookie.com/embed/K5APPaG6ncg" title="雨夜初見 | 80s Cantopop &amp; Mandopop Mix (YouTube)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
-    <div class="card-row">
-      <a class="card" href="https://soundcloud.com/geneyao" target="_blank" rel="noopener">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15.5v-3M4.5 16.5v-5.5M7 17v-8M9.5 17V8"/><path d="M9.5 17h8.2a3.8 3.8 0 0 0 .4-7.58 5 5 0 0 0-9.28-1.8"/></svg>
-        </div>
-        <h3>SoundCloud</h3>
-        <p class="lang-zh">收聽混音作品與 DJ Set 錄音</p>
-        <p class="lang-en">Listen to mixes and DJ set recordings</p>
-        <span class="go">
-          <span class="lang-zh">前往收聽</span><span class="lang-en">Listen</span>
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
-        </span>
-      </a>
-      <a class="card" href="https://www.youtube.com/@geneyao0302" target="_blank" rel="noopener">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5.5" width="19.6" height="13" rx="4"/><path d="M10.3 9.6l5 2.4-5 2.4z" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <h3>YouTube</h3>
-        <p class="lang-zh">觀看現場演出紀錄與影像作品</p>
-        <p class="lang-en">Watch live performance footage and videos</p>
-        <span class="go">
-          <span class="lang-zh">前往觀看</span><span class="lang-en">Watch</span>
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
-        </span>
-      </a>
-      <a class="card" href="https://open.spotify.com/user/11155477447?si=9ef655306c0a4640" target="_blank" rel="noopener">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M6.8 10.2c3.3-1 7.2-.7 9.9 1M7 13.2c2.7-.8 6-.6 8.3.9M7.3 16c2.2-.6 4.7-.5 6.6.7"/></svg>
-        </div>
-        <h3>Spotify</h3>
-        <p class="lang-zh">收聽我的精選歌單與播放清單</p>
-        <p class="lang-en">Listen to my curated playlists</p>
-        <span class="go">
-          <span class="lang-zh">前往收聽</span><span class="lang-en">Listen</span>
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
-        </span>
-      </a>
+    <div class="plat-row">
+      <a href="https://soundcloud.com/geneyao" target="_blank" rel="noopener" aria-label="SoundCloud" title="SoundCloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15.5v-3M4.5 16.5v-5.5M7 17v-8M9.5 17V8"/><path d="M9.5 17h8.2a3.8 3.8 0 0 0 .4-7.58 5 5 0 0 0-9.28-1.8"/></svg></a>
+      <a href="https://www.youtube.com/@geneyao0302" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5.5" width="19.6" height="13" rx="4"/><path d="M10.3 9.6l5 2.4-5 2.4z" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://open.spotify.com/user/11155477447?si=9ef655306c0a4640" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M6.8 10.2c3.3-1 7.2-.7 9.9 1M7 13.2c2.7-.8 6-.6 8.3.9M7.3 16c2.2-.6 4.7-.5 6.6.7"/></svg></a>
     </div>
   </div>
 </section>
@@ -569,7 +541,7 @@
 
 <footer>
   <div class="wrap">
-    <a class="wordmark" href="./">GeneYao</a>
+    <a class="wordmark" href="./"><svg aria-hidden="true" viewBox="0 0 32 32"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg><span>GeneYao</span></a>
     <div class="foot-icons">
       <a href="https://www.instagram.com/geneyaooo/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a href="mailto:contact@geneyao.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M4 8l8 5.5L20 8"/></svg></a>
