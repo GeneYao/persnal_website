@@ -57,6 +57,7 @@ CSS = '''
   .art-body a{ color: var(--accent); text-underline-offset: 3px; }
   .art-body ol, .art-body ul{ margin: 14px 0 0; padding-left: 1.4em; line-height: 2; font-size:16.5px; }
   .art-body .star{ color: var(--accent); margin-left: 6px; }
+  .art-body + .more{ padding-top: 40px; }
   .art-when{ font-size:15px; color: var(--ink-soft); }
   .art-list{ margin: 32px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px; }
   .art-row{ position:relative; display:grid; grid-template-columns: 148px 1fr 44px; gap:24px; align-items:center; padding: 20px 24px; background: var(--surface); border:1px solid var(--line); border-radius:20px; text-decoration:none; color: var(--ink); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
@@ -164,11 +165,14 @@ def collect():
             if fol == '20 Published' and meta.get('status') == 'draft': continue
             body = re.sub(r'%%.*?%%', '', body, flags=re.S)
             img = re.search(r'!\[\[([^\]]+)\]\]', body)
+            if not img:
+                img = re.search(r'!\[[^\]]*\]\(https://geneyao\.com/photos/albums/([^)\s]+)\)', body)
             links = {}
             for href, alt in re.findall(r'<a href="([^"]+)"[^>]*><img[^>]*alt="([^"]+)"', body):
                 if href.startswith('http'): links[alt] = href
             parts = re.split(r'\n---\s*\n', body, maxsplit=1)
             content = parts[1] if len(parts) > 1 else body
+            content = '\n'.join(l for l in content.split('\n') if not l.lstrip().startswith('<'))
             tags = meta.get('tags', []) if isinstance(meta.get('tags'), list) else []
             genres = [t.split('/', 1)[1] for t in tags if t.startswith('曲風/')]
             region = [t.split('/', 1)[1].replace('-', ' ') for t in tags if t.startswith('地區/')]
@@ -213,7 +217,7 @@ def build_article(a):
             + (f'    <div class="art-links">{links}</div>\n' if links else '')
             + (f'    <div class="chips">{chips}</div>\n' if chips else '')
             + '  </header>\n')
-    body = f'  <article class="art-body">\n{md_to_html(a["content"])}\n    <p class="art-when">{fmtdate(m.get("date", ""))}</p>\n  </article>\n  <div style="height:56px"></div>\n{SUBSCRIBE}'
+    body = f'  <article class="art-body">\n{md_to_html(a["content"])}\n    <p class="art-when">{fmtdate(m.get("date", ""))}</p>\n  </article>\n  <section class="more">\n    <a class="btn solid" href="../../">\n      <span class="lang-zh">看其他文章</span>\n      <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg>\n    </a>\n  </section>\n{SUBSCRIBE}'
     title = m.get('title') or f'{m.get("album", "")} · {m.get("artist", "")}'
     desc = f'{m.get("artist", "")} - {m.get("album", "")}: ' + re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', md_to_html(a['content']).split('</p>')[0]))[:120]
     og = f'https://geneyao.com/photos/albums/{cover}' if cover else None
