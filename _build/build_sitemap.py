@@ -17,10 +17,14 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'mix', '*', 'index.html'))):
 for f in sorted(glob.glob(os.path.join(ROOT, 'songs', '*', 'index.html'))):
     d = f.split(os.sep)[-2]; pages.append((f'songs/{d}/index.html', f'/songs/{d}/', '0.6'))
 
-for f in sorted(glob.glob(os.path.join(ROOT, 'albums', '*', 'index.html'))):
-    d = f.split(os.sep)[-2]; pages.append((f'albums/{d}/index.html', f'/albums/{d}/', '0.6'))
-if os.path.exists(os.path.join(ROOT, 'albums', 'index.html')):
-    pages.insert(3, ('albums/index.html', '/albums/', '0.8'))
+for f in sorted(glob.glob(os.path.join(ROOT, 'articles', '*', '*', 'index.html'))):
+    parts = f.split(os.sep); cat, slug = parts[-3], parts[-2]
+    pages.append((f'articles/{cat}/{slug}/index.html', f'/articles/{cat}/{slug}/', '0.6'))
+for f in sorted(glob.glob(os.path.join(ROOT, 'articles', '*', 'index.html'))):
+    cat = f.split(os.sep)[-2]
+    pages.insert(3, (f'articles/{cat}/index.html', f'/articles/{cat}/', '0.7'))
+if os.path.exists(os.path.join(ROOT, 'articles', 'index.html')):
+    pages.insert(3, ('articles/index.html', '/articles/', '0.8'))
 
 out = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for path, url, prio in pages:

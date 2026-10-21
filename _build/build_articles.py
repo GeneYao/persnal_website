@@ -24,6 +24,12 @@ ap.add_argument('--include-drafts', action='store_true')
 args = ap.parse_args()
 OUT, VAULT = args.out, args.vault
 SERIES = 'Albums & Mixes I Listened Through'
+CAT = 'albums'   # URL folder for this series: /articles/albums/<slug>/
+
+SUBSCRIBE = ''
+_m = re.search(r'  <div class="sub-divider".*?</section>\n', open(os.path.join(B, 'template.html'), encoding='utf-8').read(), re.S)
+if _m:
+    SUBSCRIBE = _m.group(0)
 
 ICONS = {
     'Spotify': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M6.8 10.2c3.3-1 7.2-.7 9.9 1M7 13.2c2.7-.8 6-.6 8.3.9M7.3 16c2.2-.6 4.7-.5 6.6.7"/></svg>',
@@ -200,39 +206,63 @@ def build_article(a):
     sub = ' · '.join(x for x in [label, m.get('year', '')] if x)
     head = ('  <header class="art-head">\n'
             f'    <p class="eyebrow">{esc(SERIES)}</p>\n'
-            + (f'    <img class="art-cover" src="../../photos/albums/{cover}" alt="{attr(m.get("album", ""))} album cover">\n' if cover else '')
+            + (f'    <img class="art-cover" src="../../../photos/albums/{cover}" alt="{attr(m.get("album", ""))} album cover">\n' if cover else '')
             + f'    <h1>{esc(m.get("album", ""))}</h1>\n'
             f'    <div class="art-artist">{esc(m.get("artist", ""))}</div>\n'
             + (f'    <div class="art-sub">{esc(sub)}</div>\n' if sub else '')
             + (f'    <div class="art-links">{links}</div>\n' if links else '')
             + (f'    <div class="chips">{chips}</div>\n' if chips else '')
             + '  </header>\n')
-    body = f'  <article class="art-body">\n{md_to_html(a["content"])}\n    <p class="art-when">{fmtdate(m.get("date", ""))}</p>\n  </article>\n  <div style="height:80px"></div>'
+    body = f'  <article class="art-body">\n{md_to_html(a["content"])}\n    <p class="art-when">{fmtdate(m.get("date", ""))}</p>\n  </article>\n  <div style="height:56px"></div>\n{SUBSCRIBE}'
     title = m.get('title') or f'{m.get("album", "")} · {m.get("artist", "")}'
     desc = f'{m.get("artist", "")} - {m.get("album", "")}: ' + re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', md_to_html(a['content']).split('</p>')[0]))[:120]
     og = f'https://geneyao.com/photos/albums/{cover}' if cover else None
-    out = shell(title, desc, f'albums/{a["slug"]}/', head + body, '../../', og)
-    d = os.path.join(OUT, 'albums', a['slug']); os.makedirs(d, exist_ok=True)
+    out = shell(title, desc, f'articles/{CAT}/{a["slug"]}/', head + body, '../../../', og)
+    d = os.path.join(OUT, 'articles', CAT, a['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
     return cover
 
-def build_index(arts, covers):
+def rows_html(arts, covers, link_prefix, img_prefix):
     rows = ''
     for a, cover in zip(arts, covers):
         m = a['meta']
         chips = ''.join(f'<span class="chip">{esc(x)}</span>' for x in a['genres'])
         card_title = '<br>'.join(esc(x) for x in (m.get('title') or m.get('album', '')).split(' | '))
-        rows += (f'    <li><a class="art-row" href="{a["slug"]}/">'
-                 + (f'<img src="../photos/albums/{cover}" alt="" loading="lazy">' if cover else '<span></span>')
+        rows += (f'    <li><a class="art-row" href="{link_prefix}{a["slug"]}/">'
+                 + (f'<img src="{img_prefix}photos/albums/{cover}" alt="" loading="lazy">' if cover else '<span></span>')
                  + f'<div class="txt"><h3>{card_title}</h3><div class="who">{fmtdate(m.get("date", ""))}</div>'
                  + (f'<p class="ex">{esc(excerpt(a))}</p>' if excerpt(a) else '')
                  + (f'<div class="chips">{chips}</div>' if chips else '')
                  + f'</div><span class="go" aria-hidden="true">{ARROW}</span></a></li>\n')
+    return rows
+
+def write(path, text):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, 'w', encoding='utf-8').write(text)
+
+def redirect_page(target):
+    return ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
+            f'<title>Redirecting…</title><meta name="robots" content="noindex">'
+            f'<link rel="canonical" href="https://geneyao.com{target}">'
+            f'<meta http-equiv="refresh" content="0; url={target}">'
+            f'<script>location.replace("{target}");</script></head>'
+            f'<body><a href="{target}">{target}</a></body></html>\n')
+
+def build_index(arts, covers):
+    # /articles/  : latest articles of every series
     main = ('  <header class="art-top">\n    <h1>最新文章</h1>\n  </header>\n'
-            f'  <ul class="art-list">\n{rows}  </ul>\n  <div style="height:80px"></div>')
-    out = shell('最新文章', 'GeneYao 的文章：聽過的專輯與 Mix，以及怎麼遇見它們。', 'albums/', main, '../')
-    d = os.path.join(OUT, 'albums'); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
+            f'  <ul class="art-list">\n{rows_html(arts, covers, CAT + "/", "../")}  </ul>\n  <div style="height:80px"></div>')
+    write(os.path.join(OUT, 'articles', 'index.html'),
+          shell('最新文章', 'GeneYao 的文章：聽過的專輯與 Mix，以及怎麼遇見它們。', 'articles/', main, '../'))
+    # /articles/albums/ : this series only
+    main = ('  <header class="art-top">\n    <h1>Albums &amp; Mixes I Listened Through</h1>\n  </header>\n'
+            f'  <ul class="art-list">\n{rows_html(arts, covers, "", "../../")}  </ul>\n  <div style="height:80px"></div>')
+    write(os.path.join(OUT, 'articles', CAT, 'index.html'),
+          shell(SERIES, 'GeneYao 聽過的專輯與 Mix，以及怎麼遇見它們。', f'articles/{CAT}/', main, '../../'))
+    # the first addresses (/albums/...) now forward to the new ones
+    write(os.path.join(OUT, 'albums', 'index.html'), redirect_page('/articles/'))
+    for a in arts:
+        write(os.path.join(OUT, 'albums', a['slug'], 'index.html'), redirect_page(f'/articles/{CAT}/{a["slug"]}/'))
 
 arts = collect()
 if not arts:
