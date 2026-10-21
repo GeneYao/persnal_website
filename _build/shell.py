@@ -7,12 +7,13 @@ tpl = open(os.path.join(B, 'template.html'), encoding='utf-8').read()
 HEAD = tpl[:tpl.index('<body>')]
 ICON = re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0)
 ICON_BACK = ICON.replace('<svg ', '<svg class="logo" aria-hidden="true" ', 1)
+CONTACT = re.search(r'<section class="ct-block">.*?</section>\n\n', tpl, re.S).group(0)
 ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
 esc = lambda s: html.escape(s, quote=False)
 attr = lambda s: html.escape(s, quote=True)
 
 
-def page_shell(title, desc, url, body_main, back_href, CSS='', top_href=None, top_label='GeneYao'):
+def page_shell(title, desc, url, body_main, back_href, CSS='', top_href=None, top_label='GeneYao', contact=False):
     head = HEAD
     for k, v in {'TITLE_SHORT': esc(title), 'META_DESC': attr(desc), 'TITLE_ATTR': attr(title), 'OG_DESC': attr(desc)}.items():
         head = head.replace('{{' + k + '}}', v)
@@ -37,7 +38,7 @@ def page_shell(title, desc, url, body_main, back_href, CSS='', top_href=None, to
 {body_main}
 </div>
 
-<footer>
+{CONTACT if contact else ''}<footer>
   <div class="wrap">
     <a class="wordmark" href="{back_href}">{ICON}<span>GeneYao</span></a>
     <div class="foot-icons">

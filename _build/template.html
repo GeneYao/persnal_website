@@ -187,6 +187,17 @@
   .sub-card p.sub-note{ margin:-4px 0 0; font-size:12.5px; max-width:300px; line-height:1.6; }
   .more .btn svg{ width:20px; height:20px; }
   .more .btn svg.arrow{ width:14px; height:14px; }
+  /* ---- contact block ---- */
+  .ct-block{ text-align:center; padding: 24px 0 48px; }
+  .ct-block .sub-divider{ padding-block: 0 32px; }
+  .ct-eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color: var(--ink-soft); margin:0; }
+  .ct-email{ margin: 14px 0 0; }
+  .ct-email a{ font-family:'IBM Plex Mono', monospace; font-size:16px; letter-spacing:.01em; text-decoration:none; color: var(--ink); border-bottom:1px solid var(--line); padding-bottom:2px; transition: color .2s ease, border-color .2s ease; }
+  .ct-email a:hover{ color: var(--accent); border-color: var(--accent); }
+  .ct-ig{ display:inline-flex; align-items:center; gap:8px; margin-top:22px; padding:11px 18px; border:1px solid var(--line); border-radius:999px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color: var(--ink); transition: border-color .2s ease, color .2s ease; }
+  .ct-ig svg{ width:16px; height:16px; }
+  .ct-ig:hover{ border-color: var(--accent); color: var(--accent); }
+
   footer{ padding-block: 40px; border-top: 1px solid var(--line); }
   footer .foot-icons{ display:flex; gap:12px; }
   footer .foot-icons a{ width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:50%; color: var(--ink-soft); transition: color .2s ease, border-color .2s ease; }
@@ -286,6 +297,17 @@
     </div>
   </section>
 </div>
+
+<section class="ct-block">
+  <div class="wrap">
+    <div class="sub-divider" aria-hidden="true">
+    <svg viewBox="0 0 96 18" fill="none"><path d="M2 9c6-10 12 10 18 0s12-10 18 0 12 10 18 0 12-10 18 0 12 10 20 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </div>
+    <p class="ct-eyebrow">Contact/Bookings</p>
+    <p class="ct-email"><a href="mailto:contact@geneyao.com">contact@geneyao.com</a></p>
+    <a class="ct-ig" href="https://www.instagram.com/geneyaooo/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
