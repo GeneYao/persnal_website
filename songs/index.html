@@ -52,9 +52,10 @@
   .wrap{ max-width: 1040px; margin:0 auto; padding-inline: 24px; }
   .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color: var(--accent); margin:0; }
 
-  .back{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--ink-soft); }
+  .back{ display:inline-flex; align-items:center; gap:12px; margin-top: 28px; font-family:'IBM Plex Mono', monospace; font-size:17px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color: var(--ink-soft); }
   .back:hover{ color: var(--accent); }
   .back svg{ width:14px; height:14px; }
+  .back .logo{ width:36px; height:36px; fill: var(--accent); }
 
   .mix-hero{ padding-block: 32px 48px; display:grid; grid-template-columns: 340px 1fr; gap: 36px; align-items:center; }
   .cover{ width:100%; aspect-ratio:1/1; }
@@ -267,6 +268,7 @@
 <div class="wrap">
   <a class="back" href="../">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    <svg class="logo" aria-hidden="true" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="13" width="3.4" height="9" rx="1.7"/><rect x="9.6" y="8" width="3.4" height="16" rx="1.7"/><rect x="15.3" y="4" width="3.4" height="24" rx="1.7"/><rect x="21" y="10" width="3.4" height="14" rx="1.7"/><rect x="26.6" y="14" width="3.4" height="8" rx="1.7"/></svg>
     <span>GeneYao</span>
   </a>
   <header class="songs-head">

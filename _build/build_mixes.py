@@ -207,6 +207,7 @@ def build_archive():
 <div class="wrap">
   <a class="back" href="../#music">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    {re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0).replace('<svg ', '<svg class="logo" aria-hidden="true" ', 1)}
     <span>GeneYao</span>
   </a>
 

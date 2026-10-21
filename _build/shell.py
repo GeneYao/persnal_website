@@ -6,6 +6,7 @@ B = os.path.join(ROOT, '_build')
 tpl = open(os.path.join(B, 'template.html'), encoding='utf-8').read()
 HEAD = tpl[:tpl.index('<body>')]
 ICON = re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0)
+ICON_BACK = ICON.replace('<svg ', '<svg class="logo" aria-hidden="true" ', 1)
 ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
 esc = lambda s: html.escape(s, quote=False)
 attr = lambda s: html.escape(s, quote=True)
@@ -30,6 +31,7 @@ def page_shell(title, desc, url, body_main, back_href, CSS=''):
 <div class="wrap">
   <a class="back" href="{back_href}">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
+    {ICON_BACK}
     <span>GeneYao</span>
   </a>
 {body_main}

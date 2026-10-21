@@ -10,7 +10,7 @@ Reads  <vault>/20 Published/*.md  (and <vault>/10 Drafts/*.md with --include-dra
 whose front matter has  series: Albums & Mixes I Listened Through.
 Writes albums/index.html, albums/<slug>/index.html and photos/albums/<cover>.
 """
-import argparse, glob, os, re, subprocess, sys
+import argparse, glob, html, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = os.path.join(ROOT, '_build')
@@ -171,12 +171,14 @@ def collect():
             for href, alt in re.findall(r'<a href="([^"]+)"[^>]*><img[^>]*alt="([^"]+)"', body):
                 if href.startswith('http'): links[alt] = href
             parts = re.split(r'\n---\s*\n', body, maxsplit=1)
+            hm = re.search(r'<p style="font-size:0\.9em; opacity:0\.6; margin:0;">(.*?)</p>', parts[0], re.S)
+            header_sub = html.unescape(hm.group(1).strip()) if hm else ''
             content = parts[1] if len(parts) > 1 else body
             content = '\n'.join(l for l in content.split('\n') if not l.lstrip().startswith('<'))
             tags = meta.get('tags', []) if isinstance(meta.get('tags'), list) else []
             genres = [t.split('/', 1)[1] for t in tags if t.startswith('曲風/')]
             region = [t.split('/', 1)[1].replace('-', ' ') for t in tags if t.startswith('地區/')]
-            arts.append(dict(meta=meta, img=img.group(1) if img else None, links=links, content=content,
+            arts.append(dict(header_sub=header_sub, meta=meta, img=img.group(1) if img else None, links=links, content=content,
                              genres=genres, region=region, slug=meta.get('slug') or slugify(meta.get('album', os.path.basename(p)))))
     arts.sort(key=lambda a: a['meta'].get('date', ''), reverse=True)
     return arts
@@ -207,7 +209,7 @@ def build_article(a):
     links = ''.join(f'<a href="{attr(a["links"][k])}" target="_blank" rel="noopener" aria-label="{k}" title="{k}">{ICONS[k]}{go_icon}</a>'
                     for k in ('Spotify', 'YouTube', 'Bandcamp') if k in a['links'])
     label = (m.get('label', '').replace('（', ' (').replace('）', ')').replace('再版', 'reissue').replace('  ', ' ').strip())
-    sub = ' · '.join(x for x in [label, m.get('year', '')] if x)
+    sub = a.get('header_sub') or ' · '.join(x for x in [label, m.get('year', '')] if x)
     head = ('  <header class="art-head">\n'
             f'    <p class="eyebrow">{"<br>".join(esc(x) for x in SERIES.split(" I ", 1)[0:1])}<br>I {esc(SERIES.split(" I ", 1)[1])}</p>\n'
             + (f'    <img class="art-cover" src="../../../photos/albums/{cover}" alt="{attr(m.get("album", ""))} album cover">\n' if cover else '')
