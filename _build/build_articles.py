@@ -85,8 +85,8 @@ CSS = '''
   }
 '''
 
-def shell(title, desc, url, main, back, og=None):
-    out = _shell(title, desc, url, main, back, CSS)
+def shell(title, desc, url, main, back, og=None, top_href=None, top_label='GeneYao'):
+    out = _shell(title, desc, url, main, back, CSS, top_href, top_label)
     # Article pages are Chinese only: no language switch, no English variants, ignore a saved English choice
     out = re.sub(r'<div class="lang-switch">.*?</div>\s*', '', out, count=1, flags=re.S)
     out = re.sub(r'<(p|h1|h2|div|span)[^>]*class="[^"]*lang-en[^"]*"[^>]*>.*?</\1>\s*', '', out, flags=re.S)
@@ -223,7 +223,7 @@ def build_article(a):
     title = m.get('title') or f'{m.get("album", "")} · {m.get("artist", "")}'
     desc = f'{m.get("artist", "")} - {m.get("album", "")}: ' + re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', md_to_html(a['content']).split('</p>')[0]))[:120]
     og = f'https://geneyao.com/photos/albums/{cover}' if cover else None
-    out = shell(title, desc, f'articles/{CAT}/{a["slug"]}/', head + body, '../../../', og)
+    out = shell(title, desc, f'articles/{CAT}/{a["slug"]}/', head + body, '../../../', og, top_href='../../', top_label='Articles')
     d = os.path.join(OUT, 'articles', CAT, a['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
     return cover
@@ -264,7 +264,7 @@ def build_index(arts, covers):
     main = ('  <header class="art-top">\n    <h1>Albums &amp; Mixes I Listened Through</h1>\n  </header>\n'
             f'  <ul class="art-list">\n{rows_html(arts, covers, "", "../../")}  </ul>\n  <div style="height:80px"></div>')
     write(os.path.join(OUT, 'articles', CAT, 'index.html'),
-          shell(SERIES, 'GeneYao 聽過的專輯與 Mix，以及怎麼遇見它們。', f'articles/{CAT}/', main, '../../'))
+          shell(SERIES, 'GeneYao 聽過的專輯與 Mix，以及怎麼遇見它們。', f'articles/{CAT}/', main, '../../', top_href='../', top_label='Articles'))
     # the first addresses (/albums/...) now forward to the new ones
     write(os.path.join(OUT, 'albums', 'index.html'), redirect_page('/articles/'))
     for a in arts:

@@ -12,7 +12,7 @@ esc = lambda s: html.escape(s, quote=False)
 attr = lambda s: html.escape(s, quote=True)
 
 
-def page_shell(title, desc, url, body_main, back_href, CSS=''):
+def page_shell(title, desc, url, body_main, back_href, CSS='', top_href=None, top_label='GeneYao'):
     head = HEAD
     for k, v in {'TITLE_SHORT': esc(title), 'META_DESC': attr(desc), 'TITLE_ATTR': attr(title), 'OG_DESC': attr(desc)}.items():
         head = head.replace('{{' + k + '}}', v)
@@ -29,10 +29,10 @@ def page_shell(title, desc, url, body_main, back_href, CSS=''):
 
 <div id="page" data-lang="zh">
 <div class="wrap">
-  <a class="back" href="{back_href}">
+  <a class="back" href="{top_href or back_href}">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
     {ICON_BACK}
-    <span>GeneYao</span>
+    <span>{top_label}</span>
   </a>
 {body_main}
 </div>
