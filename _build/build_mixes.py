@@ -147,8 +147,8 @@ def build_detail(m, idx):
     sub = {
         'TITLE_SHORT': esc(short), 'META_DESC': attr(meta_desc), 'TITLE_ATTR': attr(title), 'OG_DESC': attr(og_desc),
         'SLUG': m['slug'], 'COVER': m['cover'],
-        'BACK_HREF': '../../#music' if is_latest else '../../archive/',
-        'BACK_LABEL': 'GeneYao' if is_latest else 'Archive Mix',
+        'BACK_HREF': '../../archive/',
+        'BACK_LABEL': 'Archive Mixes',
         'EYEBROW': 'Latest Mix' if is_latest else 'Archive Mix',
         'TITLE': esc(title), 'WHEN_BLOCK': when, 'DUR_LINE': dur_line, 'DESC_BLOCK': desc,
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
@@ -182,8 +182,8 @@ ARCHIVE_CSS = '''
 def build_archive():
     head = tpl[:tpl.index('<body>')]
     head = head.replace('mix/{{SLUG}}/', 'archive/').replace('photos/{{COVER}}', 'og-image.jpg')
-    for k, v in {'TITLE_SHORT': 'Archive Mix', 'META_DESC': 'Archive Mix. Every DJ set by GeneYao, collected in one place.',
-                 'TITLE_ATTR': 'Archive Mix', 'OG_DESC': 'Every DJ set by GeneYao, collected in one place.'}.items():
+    for k, v in {'TITLE_SHORT': 'Archive Mixes', 'META_DESC': 'Archive Mixes. Every DJ set by GeneYao, collected in one place.',
+                 'TITLE_ATTR': 'Archive Mixes', 'OG_DESC': 'Every DJ set by GeneYao, collected in one place.'}.items():
         head = head.replace('{{' + k + '}}', v)
     assert '{{' not in head
     head = head.replace('</style>', ARCHIVE_CSS + '</style>', 1)
@@ -212,7 +212,7 @@ def build_archive():
   </a>
 
   <header class="arch-head">
-    <h1>Archive Mix</h1>
+    <h1>Archive Mixes</h1>
   </header>
 
   <section class="arch-grid">
