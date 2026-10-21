@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://geneyao.com/</loc><lastmod>2026-10-19</lastmod><priority>1.0</priority></url>
+  <url><loc>https://geneyao.com/</loc><lastmod>2026-10-20</lastmod><priority>1.0</priority></url>
   <url><loc>https://geneyao.com/archive/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
-  <url><loc>https://geneyao.com/songs/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
-  <url><loc>https://geneyao.com/mix/a-wash-of-verdant-haze/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/bonne-soiree/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/lheure-doree/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/lultimo-tuffo/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/my-first-set/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/organic-dream/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/the-indigo-blueprint/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/winnies-birthday-party/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/yes-fil-we-can-boogie/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/mix/yu-ye-chu-jian/</loc><lastmod>2026-10-19</lastmod><priority>0.7</priority></url>
-  <url><loc>https://geneyao.com/songs/2026-10-19/</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://geneyao.com/songs/</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://geneyao.com/albums/</loc><priority>0.8</priority></url>
+  <url><loc>https://geneyao.com/mix/a-wash-of-verdant-haze/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/bonne-soiree/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/lheure-doree/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/lultimo-tuffo/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/my-first-set/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/organic-dream/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/the-indigo-blueprint/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/winnies-birthday-party/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/yes-fil-we-can-boogie/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/mix/yu-ye-chu-jian/</loc><lastmod>2026-10-20</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/songs/2026-10-19/</loc><lastmod>2026-10-20</lastmod><priority>0.6</priority></url>
+  <url><loc>https://geneyao.com/albums/wede-harer-guzo/</loc><priority>0.6</priority></url>
 </urlset>
