@@ -39,7 +39,7 @@ ICONS = {   # official brand icons in their original colors (simple-icons, CC0)
 
 CSS = '''
   .art-head{ padding-block: 28px 8px; text-align:center; }
-  .art-head .eyebrow{ margin-bottom: 20px; }
+  .art-head .eyebrow{ margin-bottom: 24px; font-size: clamp(18px, 4.8vw, 30px); letter-spacing:.12em; line-height:1.5; color: var(--ink); }
   .art-cover{ width: min(420px, 100%); aspect-ratio: 1/1; object-fit: cover; border-radius: 20px; border:1px solid var(--line); box-shadow: var(--shadow); margin: 0 auto; display:block; }
   .art-head h1{ margin-top: 28px; font-size: clamp(36px, 6vw, 60px); line-height:1.05; }
   .art-artist{ margin-top: 10px; font-size: 20px; }
@@ -205,7 +205,7 @@ def build_article(a):
     label = (m.get('label', '').replace('（', ' (').replace('）', ')').replace('再版', 'reissue').replace('  ', ' ').strip())
     sub = ' · '.join(x for x in [label, m.get('year', '')] if x)
     head = ('  <header class="art-head">\n'
-            f'    <p class="eyebrow">{esc(SERIES)}</p>\n'
+            f'    <p class="eyebrow">{"<br>".join(esc(x) for x in SERIES.split(" I ", 1)[0:1])}<br>I {esc(SERIES.split(" I ", 1)[1])}</p>\n'
             + (f'    <img class="art-cover" src="../../../photos/albums/{cover}" alt="{attr(m.get("album", ""))} album cover">\n' if cover else '')
             + f'    <h1>{esc(m.get("album", ""))}</h1>\n'
             f'    <div class="art-artist">{esc(m.get("artist", ""))}</div>\n'
