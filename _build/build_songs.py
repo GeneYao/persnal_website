@@ -104,8 +104,14 @@ CSS = '''
   }
 '''
 
-def page_shell(title, desc, url, body_main, back_href):
-    return _shell(title, desc, url, body_main, back_href, CSS)
+def page_shell(title, desc, url, body_main, back_href, zh_only=True):
+    out = _shell(title, desc, url, body_main, back_href, CSS)
+    if zh_only:
+        # Songs pages are Chinese only (same as the articles): no language switch, no English variants
+        out = re.sub(r'<div class="lang-switch">.*?</div>\s*', '', out, count=1, flags=re.S)
+        out = re.sub(r'<(p|h1|h2|div|span)[^>]*class="[^"]*lang-en[^"]*"[^>]*>.*?</\1>\s*', '', out, flags=re.S)
+        out = out.replace("try{ if(localStorage.getItem('geneyao-lang') === 'en') setLang('en'); }catch(e){}", '')
+    return out
 
 ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
 
@@ -155,7 +161,6 @@ def build_week(i, w):
         lines += [f"## {n}. {s['title']}", f"**{s['artist']}**" + (f"<br>*{s['genre']}*" if s.get('genre') else ''), '']
         lines += [f"![{s['title']}](https://geneyao.com/photos/songs/{c})", '']
         if s.get('blurb_zh'): lines += [s['blurb_zh'], '']
-        if s.get('blurb_en'): lines += [s['blurb_en'], '']
         if s.get('link'): lines += [f"[在 YouTube 收聽 ↗]({s['link']})", '']
     lines += ['---', '', '<p style="text-align:center; margin:32px 0;"><a href="https://geneyao.com/songs/" style="display:inline-block; padding:12px 28px; background-color:#4F6142; border:1.5px solid #4F6142; border-radius:999px; color:#FFFFFF !important; font-weight:700; text-decoration:none !important;">查看過往推薦 ↗</a></p>', '']
     nd = os.path.join(OUT, '_build', 'newsletter'); os.makedirs(nd, exist_ok=True)
@@ -177,7 +182,7 @@ def build_archive(all_covers):
             '    <p class="intro lang-zh">每週一與您分享我正在聆聽的五首歌</p>\n'
             '    <p class="intro lang-en">Five songs I&#39;m listening to, shared with you every Monday.</p>\n  </header>\n'
             f'  <ul class="week-list">\n{rows}  </ul>\n  <div style="height:80px"></div>')
-    out = page_shell('Five Songs for This Week', "Five songs I'm listening to, shared with you every Monday.", 'songs/', main, '../')
+    out = page_shell('Five Songs for This Week', '每週一分享我正在聆聽的五首歌', 'songs/', main, '../')
     d = os.path.join(OUT, 'songs'); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
 
@@ -193,7 +198,7 @@ def build_404():
             '      <a class="btn solid" href="/"><span class="lang-zh">回到首頁</span><span class="lang-en">Back to home</span></a>\n'
             '      <a class="btn" href="/archive/"><span class="lang-zh">所有 mix</span><span class="lang-en">All mixes</span></a>\n'
             '    </p>\n  </header>\n  <div style="height:80px"></div>')
-    out = page_shell('Page not found', 'Page not found.', '', main, '/')
+    out = page_shell('Page not found', 'Page not found.', '', main, '/', zh_only=False)
     out = out.replace('content="https://geneyao.com/"', 'content="https://geneyao.com/"')
     out = re.sub(r'<link rel="canonical"[^>]*>\n?', '', out)
     out = out.replace('</head>', '<meta name="robots" content="noindex">\n</head>', 1)
