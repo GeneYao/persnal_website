@@ -1,5 +1,59 @@
 [
  {
+  "date": "2026-10-26",
+  "songs": [
+   {
+    "title": "First Breath After Coma",
+    "artist": "Explosions In The Sky",
+    "cover": "explosions-in-the-sky-first-breath-after-coma.jpg",
+    "blurb_zh": "上週去北海岸溯溪，回程在車上聽的音樂。好久沒聽這首了，午後夕陽下的山林配上它真的好棒。",
+    "blurb_en": "I listened to this in the car on the way back from river tracing on the north coast last week. I had not played it in a long time, and it sounds wonderful with the mountain forest under the afternoon sunset.",
+    "link": "https://www.youtube.com/watch?v=mEDj4LaCcSk",
+    "genre": "Post-Rock"
+   },
+   {
+    "title": "October",
+    "artist": "Okonski",
+    "cover": "okonski-october.jpg",
+    "blurb_zh": "颱風天窩在家準備演出時聽到的音樂，鋼琴的聲音很溫暖，像雨天裡的一杯熱茶，安靜卻很有層次。",
+    "blurb_en": "I heard this at home during the typhoon while preparing for my performance. The piano sounds so warm, like a cup of hot tea on a rainy day, quiet yet full of layers.",
+    "link": "https://www.youtube.com/watch?v=250pyFr2Mrg",
+    "genre": "Jazz · Ambient"
+   },
+   {
+    "title": "High-Flying",
+    "artist": "鈴木宏昌 Hiromasa Suzuki",
+    "cover": "hiromasa-suzuki-high-flying.jpg",
+    "blurb_zh": "在 IG 上看到別人分享的音樂，有點 Psychedelic Soul 的味道，很快就把我吸進去。",
+    "blurb_en": "I saw this shared by someone on Instagram. It has a touch of psychedelic soul and pulled me in right away.",
+    "link": "https://www.youtube.com/watch?v=Q-SNSKa0KmM",
+    "genre": "Jazz · Fusion"
+   },
+   {
+    "title": "Free",
+    "artist": "Deniece Williams",
+    "cover": "deniece-williams-free.jpg",
+    "blurb_zh": "偶然被 Spotify 的演算法推到，帶點暖意的律動，非常舒服好聽。",
+    "blurb_en": "Spotify's algorithm happened to recommend this to me. The groove carries a gentle warmth, and it is so comfortable and nice to listen to.",
+    "link": "https://www.youtube.com/watch?v=_JQjOG8KljQ",
+    "genre": "Soul · R&B"
+   },
+   {
+    "title": "出航 SASURAI",
+    "artist": "寺尾聰 Akira Terao",
+    "cover": "akira-terao-sasurai.jpg",
+    "blurb_zh": "去 Costco 採買完，回程在市區開車時聽的音樂，這首歌配上夜晚台北的霓虹燈，好魔幻、好有感覺。",
+    "blurb_en": "I listened to this while driving through the city after shopping at Costco. Paired with the neon lights of Taipei at night, it feels so surreal and so evocative.",
+    "link": "https://www.youtube.com/watch?v=Iw0jwnq4PX0",
+    "genre": "City Pop"
+   }
+  ],
+  "hook": "颱風天的心流與北海岸夕陽",
+  "hook_en": "Flow state in a typhoon, and a north coast sunset",
+  "intro_zh": "颱風來襲的一週，有太陽的日子結束了。最近都在準備下一場演出，雨天反而讓我更容易進入心流模式。",
+  "intro_en": "A typhoon swept through this week, and the sunny days are over. I am preparing for my next performance, and the rain actually makes it easier for me to slip into a flow state."
+ },
+ {
   "date": "2026-10-19",
   "songs": [
    {
