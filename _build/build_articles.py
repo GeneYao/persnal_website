@@ -163,6 +163,8 @@ def collect():
         for p in sorted(glob.glob(os.path.join(VAULT, fol, '*.md'))):
             meta, body = parse(p)
             if meta.get('series') != SERIES: continue
+            if meta.get('title'):   # the 🎧 prefix lives in the Obsidian title only, not on the site
+                meta['title'] = re.sub(r'^\s*🎧\s*', '', meta['title'])
             if fol == '20 Published' and meta.get('status') == 'draft': continue
             body = re.sub(r'%%.*?%%', '', body, flags=re.S)
             img = re.search(r'!\[\[([^\]]+)\]\]', body)
