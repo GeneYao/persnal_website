@@ -77,7 +77,7 @@ CSS = '''
   .art-top p{ margin: 14px 0 0; max-width: 56ch; color: var(--ink-soft); line-height:1.8; }
   @media (max-width: 640px){
     .art-row h3{ font-size:20px; }
-    .art-row{ grid-template-columns: 92px 1fr; gap:14px; padding:14px; align-items:start; }
+    .art-row{ grid-template-columns: 92px 1fr; gap:14px; padding:14px; align-items:center; }
     .art-row img{ width:92px; height:92px; }
     .art-row .go{ display:none; }
     .art-row h3{ font-size:18px; }
