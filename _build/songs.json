@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-02",
+  "songs": [
+   {
+    "title": "Love In The Afternoon",
+    "artist": "Jerry Garcia Band",
+    "cover": "jerry-garcia-band-love-in-the-afternoon.jpg",
+    "blurb_zh": "很適合午後的一首歌。在古著店看到一件團 T 上的圖案覺得很可愛，回家一聽，有點 Eric Clapton 的感覺，加上雷鬼的律動，整個人都放鬆下來，好可惜當初沒把那件衣服買下來。",
+    "link": "https://www.youtube.com/watch?v=zy5gyy4vx94",
+    "genre": "Rock · Jam Band"
+   },
+   {
+    "title": "打錯了",
+    "artist": "王菲 Faye Wong",
+    "cover": "faye-wong-da-cuo-le.jpg",
+    "blurb_zh": "某天搭車時在我的按讚歌曲裡隨機播到，有一陣子沒聽王菲了，有點 City Pop 俏皮可愛的感覺。",
+    "link": "https://www.youtube.com/watch?v=4WtGchEAg2A",
+    "genre": "Mandopop"
+   },
+   {
+    "title": "Daytime's For Sleeping",
+    "artist": "Rob Galbraith",
+    "cover": "rob-galbraith-daytimes-for-sleeping.jpg",
+    "blurb_zh": "這是上次在 L'ultimo Tuffo 放的歌，歌名有夠讚，溫暖、慵懶又放鬆的聲音，我最近沒事都會拿出來聽。",
+    "link": "https://www.youtube.com/watch?v=OGkrjiQycUE",
+    "genre": "Country Funk · Soft Rock"
+   },
+   {
+    "title": "In Your Room",
+    "artist": "Airiel",
+    "cover": "airiel-in-your-room.jpg",
+    "blurb_zh": "九分多鐘的 Shoegaze，一層層的吉他噪音把人包圍住，大清早戴著耳機聽，整個人好像還在夢裡。",
+    "link": "https://www.youtube.com/watch?v=f4zM49AcfLg",
+    "genre": "Shoegaze · Dream Pop"
+   },
+   {
+    "title": "Dream",
+    "artist": "坂本龍一 Ryuichi Sakamoto",
+    "cover": "ryuichi-sakamoto-dream.jpg",
+    "blurb_zh": "週日去了北美館看坂本龍一的展，應景分享一首我喜歡的 Ambient，短短一分多鐘，很安靜，就像一場夢。",
+    "link": "https://www.youtube.com/watch?v=uWKh_7vYaqE",
+    "genre": "Ambient · Electronic"
+   }
+  ],
+  "hook": "感冒閉關與坂本龍一的夢",
+  "intro_zh": "颱風過後的天氣意外比想像中好，但日夜溫差讓我重感冒，在家閉關聽了兩天音樂。還好過幾天就康復了，出門跟一些老朋友見面，週末看了 MONO 的現場演出，還去看了坂本龍一的展，蠻開心的。"
+ },
+ {
   "date": "2026-10-26",
   "songs": [
    {

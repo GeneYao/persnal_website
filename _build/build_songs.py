@@ -156,7 +156,7 @@ def build_week(i, w):
 
     # newsletter text (markdown, paste into Buttondown)
     lines = [f"<!-- Subject: 🎧 Five Songs for This Week {w['date'].replace('-', '.')}" + (f" | {w['hook']}" if w.get('hook') else '') + " -->", '']
-    if w.get('intro_zh'): lines += [f"<center>{w['intro_zh']}</center>", '', '---', '']
+    if w.get('intro_zh'): lines += [f"<br><center>{w['intro_zh']}</center>", '', '---', '']   # leading <br> adds the gap above the intro in the email
     for n, (s, c) in enumerate(zip(w['songs'], covers), 1):
         lines += [f"## {n}. {s['title']}", f"**{s['artist']}**" + (f"<br>*{s['genre']}*" if s.get('genre') else ''), '']
         lines += [f"![{s['title']}](https://geneyao.com/photos/songs/{c})", '']
