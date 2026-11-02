@@ -8,7 +8,7 @@ Usage (from repo root):
 Data file: a list of weeks, newest first or any order:
   {"date": "2026-10-23", "intro_zh": "...", "intro_en": "...",
    "songs": [{"title": "...", "artist": "...", "blurb_zh": "...", "blurb_en": "...",
-              "link": "https://open.spotify.com/track/...", "cover": "optional file name"}]}
+              "link": "https://www.youtube.com/watch?v=...", "spotify": "https://open.spotify.com/track/...", "cover": "optional file name"}]}
 Album covers are fetched from the public iTunes search and saved to photos/songs/.
 """
 import argparse, datetime, html, json, os, re, subprocess, urllib.parse, urllib.request
@@ -68,7 +68,8 @@ CSS = '''
   .song .genre{ display:inline-block; margin-left:10px; padding:2px 10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--accent); border:1px solid var(--line); border-radius:999px; vertical-align:1px; }
   .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
   .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
-  .song .go{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
+  .song .go-row{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px 22px; }
+  .song .go{ display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
   .song .go svg{ width:13px; height:13px; transition: transform .2s ease; }
   .song .go:hover svg{ transform: translate(2px,-2px); }
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
@@ -124,8 +125,10 @@ def build_week(i, w):
             blurb += f'      <p class="blurb lang-zh">{esc(s["blurb_zh"])}</p>\n'
         if s.get('blurb_en'):
             blurb += f'      <p class="blurb lang-en">{esc(s["blurb_en"])}</p>\n'
-        go = (f'      <a class="go" href="{attr(s["link"])}" target="_blank" rel="noopener">'
-              f'<span class="lang-zh">在 YouTube 收聽</span><span class="lang-en">Listen on YouTube</span>{ARROW}</a>\n') if s.get('link') else ''
+        def go_link(url, name):
+            return (f'<a class="go" href="{attr(url)}" target="_blank" rel="noopener">'
+                    f'<span class="lang-zh">在 {name} 收聽</span><span class="lang-en">Listen on {name}</span>{ARROW}</a>')
+        go = ('      <div class="go-row">' + ''.join(go_link(s[k], nm) for k, nm in (('spotify', 'Spotify'), ('link', 'YouTube')) if s.get(k)) + '</div>\n') if (s.get('link') or s.get('spotify')) else ''
         genre_tag = f' <span class="genre">{esc(s["genre"])}</span>' if s.get('genre') else ''
         lis += (f'    <li class="song">\n      <div class="no">{n:02d}</div>\n'
                 f'      <img src="../../photos/songs/{c}" alt="{attr(s["title"])} album cover" loading="lazy">\n'
@@ -161,7 +164,8 @@ def build_week(i, w):
         lines += [f"## {n}. {s['title']}", f"**{s['artist']}**" + (f"<br>*{s['genre']}*" if s.get('genre') else ''), '']
         lines += [f"![{s['title']}](https://geneyao.com/photos/songs/{c})", '']
         if s.get('blurb_zh'): lines += [s['blurb_zh'], '']
-        if s.get('link'): lines += [f"[在 YouTube 收聽 ↗]({s['link']})", '']
+        ls = [f"[在 {nm} 收聽 ↗]({s[k]})" for k, nm in (('spotify', 'Spotify'), ('link', 'YouTube')) if s.get(k)]
+        if ls: lines += ['&emsp;'.join(ls), '']
     lines += ['---', '', '<p style="text-align:center; margin:32px 0;"><a href="https://geneyao.com/songs/" style="display:inline-block; padding:12px 28px; background-color:#4F6142; border:1.5px solid #4F6142; border-radius:999px; color:#FFFFFF !important; font-weight:700; text-decoration:none !important;">查看過往推薦 ↗</a></p>', '']
     nd = os.path.join(OUT, '_build', 'newsletter'); os.makedirs(nd, exist_ok=True)
     open(os.path.join(nd, f"{w['date']}.md"), 'w', encoding='utf-8').write('\n'.join(lines))

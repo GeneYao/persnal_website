@@ -232,7 +232,8 @@
   .song .genre{ display:inline-block; margin-left:10px; padding:2px 10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--accent); border:1px solid var(--line); border-radius:999px; vertical-align:1px; }
   .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
   .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
-  .song .go{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
+  .song .go-row{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px 22px; }
+  .song .go{ display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
   .song .go svg{ width:13px; height:13px; transition: transform .2s ease; }
   .song .go:hover svg{ transform: translate(2px,-2px); }
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
@@ -291,7 +292,7 @@
       <h3>First Breath After Coma</h3>
       <div class="artist">Explosions In The Sky <span class="genre">Post-Rock</span></div>
       <p class="blurb lang-zh">上週去北海岸溯溪，回程在車上聽的音樂。好久沒聽這首了，午後夕陽下的山林配上它真的好棒。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=mEDj4LaCcSk" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/0QZms9dxoA0QlAjno2WHgb" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=mEDj4LaCcSk" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -301,7 +302,7 @@
       <h3>October</h3>
       <div class="artist">Okonski <span class="genre">Jazz · Ambient</span></div>
       <p class="blurb lang-zh">颱風天窩在家準備演出時聽到的音樂，鋼琴的聲音很溫暖，像雨天裡的一杯熱茶，安靜卻很有層次。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=250pyFr2Mrg" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/2H5IEbMZnikxlbHki7m3Su" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=250pyFr2Mrg" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -311,7 +312,7 @@
       <h3>High-Flying</h3>
       <div class="artist">鈴木宏昌 Hiromasa Suzuki <span class="genre">Jazz · Fusion</span></div>
       <p class="blurb lang-zh">在 IG 上看到別人分享的音樂，有點 Psychedelic Soul 的味道，很快就把我吸進去。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=Q-SNSKa0KmM" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/2TWaCVWZjMbXIegJ7UZNqT" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=Q-SNSKa0KmM" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -321,7 +322,7 @@
       <h3>Free</h3>
       <div class="artist">Deniece Williams <span class="genre">Soul · R&amp;B</span></div>
       <p class="blurb lang-zh">偶然被 Spotify 的演算法推到，帶點暖意的律動，非常舒服好聽。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=_JQjOG8KljQ" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/5pANOgOr3fv1DxyxULU7Mh" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=_JQjOG8KljQ" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -331,7 +332,7 @@
       <h3>出航 SASURAI</h3>
       <div class="artist">寺尾聰 Akira Terao <span class="genre">City Pop</span></div>
       <p class="blurb lang-zh">去 Costco 採買完，回程在市區開車時聽的音樂，這首歌配上夜晚台北的霓虹燈，好魔幻、好有感覺。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=Iw0jwnq4PX0" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/search/%E5%87%BA%E8%88%AA%20SASURAI%20%E5%AF%BA%E5%B0%BE%E8%81%B0" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=Iw0jwnq4PX0" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
   </ol>

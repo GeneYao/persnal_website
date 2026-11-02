@@ -232,7 +232,8 @@
   .song .genre{ display:inline-block; margin-left:10px; padding:2px 10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--accent); border:1px solid var(--line); border-radius:999px; vertical-align:1px; }
   .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
   .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
-  .song .go{ margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
+  .song .go-row{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px 22px; }
+  .song .go{ display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
   .song .go svg{ width:13px; height:13px; transition: transform .2s ease; }
   .song .go:hover svg{ transform: translate(2px,-2px); }
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
@@ -291,7 +292,7 @@
       <h3>Song of Injured Love</h3>
       <div class="artist">Gábor Szabó <span class="genre">Jazz · Psychedelic</span></div>
       <p class="blurb lang-zh">無意間在獨處的時候聽到，帶點憂鬱和迷幻。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=CwljlSA6v40" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/2JRO6EIAEtBu9Cedn4VVzN" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=CwljlSA6v40" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -301,7 +302,7 @@
       <h3>I'd Be Lost</h3>
       <div class="artist">Thee Marloes <span class="genre">Soul · Funk</span></div>
       <p class="blurb lang-zh">得知他們要來台灣巡演，一聽超喜歡，帶有細膩的 Motown 律動，但又有印尼的陽光熱情。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=9zR8uaiXK8o" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/1FwwdOrrpVtquS9qe9d7J8" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=9zR8uaiXK8o" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -311,7 +312,7 @@
       <h3>Hanen</h3>
       <div class="artist">Carthago <span class="genre">Disco · Funk</span></div>
       <p class="blurb lang-zh">在 IG 聽到別人分享的突尼西亞 Disco，馬上就被這律動吸引，非常有趣好聽。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=HAngN0DqwZ8" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/3zzzDRCNMQFZcb1y5cbl3b" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=HAngN0DqwZ8" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -321,7 +322,7 @@
       <h3>One Of These Things First</h3>
       <div class="artist">Nick Drake <span class="genre">Folk</span></div>
       <p class="blurb lang-zh">開車從嘉義北上時聽的音樂。一直很喜歡 Nick Drake 的音樂，單純卻有深度。</p>
-      <a class="go" href="https://www.youtube.com/watch?v=vDtsgVgAx6k" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/search/One%20Of%20These%20Things%20First%20Nick%20Drake" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/watch?v=vDtsgVgAx6k" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
     <li class="song">
@@ -331,7 +332,7 @@
       <h3>Kaze</h3>
       <div class="artist">Ebi <span class="genre">Ambient</span></div>
       <p class="blurb lang-zh">一直很喜歡橫田進的 Ambient 作品，意外在一場活動聽到這首，經過詢問後才知道他有其他化名，做不同風格的音樂。</p>
-      <a class="go" href="https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <div class="go-row"><a class="go" href="https://open.spotify.com/track/1CCzedmWQM2OhOPufMpWGP" target="_blank" rel="noopener"><span class="lang-zh">在 Spotify 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a><a class="go" href="https://www.youtube.com/results?search_query=Ebi+Kaze+Space+Teddy" target="_blank" rel="noopener"><span class="lang-zh">在 YouTube 收聽</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg></a></div>
       </div>
     </li>
   </ol>
