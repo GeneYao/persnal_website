@@ -232,10 +232,11 @@
   .song .genre{ display:inline-block; margin-left:10px; padding:2px 10px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--accent); border:1px solid var(--line); border-radius:999px; vertical-align:1px; }
   .song .artist{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.05em; color: var(--ink-soft); }
   .song .blurb{ margin: 12px 0 0; font-size:15.5px; line-height:1.8; max-width:60ch; }
-  .song .go-row{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px 22px; }
+  .song .go-row{ margin-top:12px; display:flex; flex-wrap:wrap; gap:10px 22px; }
   .song .go{ display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color: var(--accent); text-decoration:none; }
-  .song .go svg{ width:13px; height:13px; transition: transform .2s ease; }
-  .song .go:hover svg{ transform: translate(2px,-2px); }
+  .song .go svg:first-child{ width:24px; height:24px; }
+  .song .go svg+svg{ width:11px; height:11px; transition: transform .2s ease; }
+  .song .go:hover svg+svg{ transform: translate(2px,-2px); }
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
   .week-nav a{ text-decoration:none; color: var(--ink-soft); }
   .week-nav a:hover{ color: var(--accent); }
