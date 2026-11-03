@@ -114,7 +114,7 @@ def parse(path):
 def inline(t):
     t = esc(t)
     t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
-    t = re.sub(r'\[([^\]]+)\]\((https?://[^)\s]+)\)', lambda m: f'<a href="{attr(m.group(2).replace("&amp;", "&"))}" target="_blank" rel="noopener">{m.group(1)}</a>', t)
+    t = re.sub(r'\[([^\]]+)\]\((https?://(?:[^()\s]|\([^()\s]*\))+)\)', lambda m: f'<a href="{attr(m.group(2).replace("&amp;", "&"))}" target="_blank" rel="noopener">{m.group(1)}</a>', t)
     t = t.replace('⭐', '<span class="star">★</span>')
     return t
 
