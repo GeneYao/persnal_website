@@ -73,6 +73,9 @@ CSS = '''
   .song .go svg:first-child{ width:24px; height:24px; }
   .song .go svg+svg{ width:11px; height:11px; transition: transform .2s ease; }
   .song .go:hover svg+svg{ transform: translate(2px,-2px); }
+  .btn.spotify{ background:#1DB954; border-color:#1DB954; color:#191414; font-weight:700; }
+  .btn.spotify svg:first-child{ fill:#191414; width:18px; height:18px; }
+  .btn.spotify:hover{ background:#1ed760; border-color:#1ed760; }
   .week-nav{ display:flex; justify-content:space-between; gap:16px; padding-block: 28px 80px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; }
   .week-nav a{ text-decoration:none; color: var(--ink-soft); }
   .week-nav a:hover{ color: var(--accent); }
@@ -115,6 +118,7 @@ def page_shell(title, desc, url, body_main, back_href, zh_only=True):
         out = out.replace("try{ if(localStorage.getItem('geneyao-lang') === 'en') setLang('en'); }catch(e){}", '')
     return out
 
+PLAYLIST = {'name': '2026 Autumn 秋收', 'url': 'https://open.spotify.com/playlist/6cM4HZu6cJBbQ8zu0Gxeg0'}   # seasonal Spotify playlist shown on the archive page
 ICONS = {   # brand icons, same as the article pages
     'Spotify': '<svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>',
     'YouTube': '<svg viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
@@ -190,7 +194,9 @@ def build_archive(all_covers):
                  f'<div>{hook}<div class="strip">{strip}</div><div class="names">{names}</div></div><span class="go" aria-hidden="true">{ARROW}</span></a></li>\n')
     main = ('  <header class="songs-head">\n    <h1>Five Songs for This Week</h1>\n'
             '    <p class="intro lang-zh">每週一與您分享我正在聆聽的五首歌</p>\n'
-            '    <p class="intro lang-en">Five songs I&#39;m listening to, shared with you every Monday.</p>\n  </header>\n'
+            '    <p class="intro lang-en">Five songs I&#39;m listening to, shared with you every Monday.</p>\n'
+            f'    <p style="margin-top:20px"><a class="btn spotify" href="{attr(PLAYLIST["url"])}" target="_blank" rel="noopener">'
+            f'{ICONS["Spotify"]}<span class="lang-zh">{esc(PLAYLIST["name"])}歌單</span><span class="lang-en">{esc(PLAYLIST["name"])} playlist</span>{ARROW}</a></p>\n  </header>\n'
             f'  <ul class="week-list">\n{rows}  </ul>\n  <div style="height:80px"></div>')
     out = page_shell('Five Songs for This Week', '每週一分享我正在聆聽的五首歌', 'songs/', main, '../')
     d = os.path.join(OUT, 'songs'); os.makedirs(d, exist_ok=True)
