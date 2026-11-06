@@ -61,7 +61,14 @@ CSS = '''
   .songs-head .intro.recap{ margin-top: 22px; max-width: 62ch; }
   .songs-head .intro{ margin: 16px 0 0; max-width: 56ch; color: var(--ink-soft); font-size:16px; line-height:1.8; }
   .song-list{ margin: 36px 0 0; padding:0; list-style:none; border-top:1px solid var(--line); }
-  .song{ display:grid; grid-template-columns: 36px 132px 1fr; gap: 20px; align-items:center; padding: 22px 0; border-bottom:1px solid var(--line); }
+  .song{ display:grid; grid-template-columns: 36px 132px 1fr; gap: 14px 20px; align-items:center; padding: 22px 0; border-bottom:1px solid var(--line); }
+  /* first row: number, cover, title / artist / genre; second row: blurb and links under the cover, full width */
+  .song .s-text{ display:contents; }
+  .song .no{ grid-column:1; grid-row:1; }
+  .song img{ grid-column:2; grid-row:1; }
+  .song .s-head{ grid-column:3; grid-row:1; min-width:0; }
+  .song .s-body{ grid-column:2 / -1; grid-row:2; min-width:0; }
+  .song .s-body .blurb{ margin-top:0; }
   .song .no{ font-family:'IBM Plex Mono', monospace; font-size:14px; color: var(--accent); }
   .song img{ width:132px; height:132px; object-fit:cover; border-radius:14px; border:1px solid var(--line); box-shadow: var(--shadow); }
   .song h3{ font-size: 26px; line-height:1.15; }
@@ -96,14 +103,12 @@ CSS = '''
   .week-row:hover .go svg{ transform: translate(2px,-2px); }
   .week-row .strip img{ width:56px; height:56px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
   @media (max-width: 640px){
-    /* phone: cover + title/artist share the first row, blurb and links run full width underneath */
-    .song{ grid-template-columns: 96px 1fr; gap: 12px 14px; align-items:center; }
+    /* phone: no number column; cover and title share the first row, blurb and links run full width underneath */
+    .song{ grid-template-columns: 96px 1fr; gap: 12px 14px; }
     .song .no{ display:none; }
-    .song .s-text{ display:contents; }
-    .song img{ width:96px; height:96px; border-radius:10px; grid-column:1; grid-row:1; }
-    .song .s-head{ grid-column:2; grid-row:1; min-width:0; }
-    .song .s-body{ grid-column:1 / -1; grid-row:2; min-width:0; }
-    .song .s-body .blurb{ margin-top:0; }
+    .song img{ width:96px; height:96px; border-radius:10px; grid-column:1; }
+    .song .s-head{ grid-column:2; }
+    .song .s-body{ grid-column:1 / -1; }
     .song h3{ font-size: 21px; }
     .week-row{ grid-template-columns: 1fr 40px; gap:10px 14px; padding:18px 16px; }
     .week-row .wd{ grid-column: 1; grid-row: 1; }
