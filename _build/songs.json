@@ -1,5 +1,62 @@
 [
  {
+  "date": "2026-11-09",
+  "songs": [
+   {
+    "title": "Prayer",
+    "artist": "石川晶 Akira Ishikawa & Count Buffaloes",
+    "cover": "akira-ishikawa-prayer.jpg",
+    "blurb_zh": "開車去保養廠的路上聽到的歌，非常有靈性的爵士聲響再加上非洲的節奏，完全沒想到是一位日本鼓手的作品，非常好聽。",
+    "link": "https://www.youtube.com/watch?v=kkDTWCZ32ko",
+    "spotify": "https://open.spotify.com/track/7ixuT3e1TjOor65m3PeJtF",
+    "apple": "https://music.apple.com/tw/album/prayer/1686634590?i=1686634790",
+    "genre": "Spiritual Jazz · African Rock"
+   },
+   {
+    "title": "Na boca do sol",
+    "artist": "Arthur Verocai",
+    "cover": "arthur-verocai-na-boca-do-sol.jpg",
+    "blurb_zh": "週二從中壢回台北在火車上聽到的音樂，不知道為何適合當下的情緒，有種異國情調，但又有些鄉愁的感覺。",
+    "link": "https://www.youtube.com/watch?v=vEanu1D1CFc",
+    "spotify": "https://open.spotify.com/track/5oiueCPkJCU9wCmQO5HDTj",
+    "apple": "https://music.apple.com/tw/album/na-boca-do-sol/495578530?i=495578539",
+    "genre": "MPB · Jazz-Funk"
+   },
+   {
+    "title": "Stay",
+    "artist": "Freeez",
+    "cover": "freeez-stay.jpg",
+    "blurb_zh": "在中壢挖到一張很便宜的單曲黑膠，回家研究一下，發現那片黑膠的製作人來自 Freeez 這個英國團體，在串流聽到了這首有點 Funky、很陽光的聲音，不知不覺就會跟著律動起來。",
+    "link": "https://www.youtube.com/watch?v=7qQlfnW_ImU",
+    "spotify": "https://open.spotify.com/track/3lK8UA4FR2FiQpvtarLLol",
+    "apple": "https://music.apple.com/tw/album/stay/1585992960?i=1585993032",
+    "genre": "Jazz-Funk · Boogie"
+   },
+   {
+    "title": "Never Gonna Leave You",
+    "artist": "Evans Pyramid",
+    "cover": "evans-pyramid-never-gonna-leave-you.jpg",
+    "blurb_zh": "被 Spotify 的演算法推到，一聽很像日本 Neo City Pop 有點 funk、soul 的律動，發現竟然是美國的音樂家自己一個人錄出來的。",
+    "link": "https://www.youtube.com/watch?v=ZSeO42-keYs",
+    "spotify": "https://open.spotify.com/search/Never%20Gonna%20Leave%20You%20Evans%20Pyramid",
+    "apple": "https://music.apple.com/tw/album/never-gonna-leave-you/880856405?i=880856564",
+    "genre": "Disco · Funk"
+   },
+   {
+    "title": "Wounded",
+    "artist": "Tribal Tech",
+    "cover": "tribal-tech-wounded.jpg",
+    "blurb_zh": "很久沒聽到這首歌了，這好像是大學開始聽 Fusion Jazz 時找到的音樂，有點 Ambient 的 Fusion Jazz 樂器演奏曲，現在聽好像又多了一層不同的理解。",
+    "link": "https://www.youtube.com/watch?v=82-tX8izTsY",
+    "spotify": "https://open.spotify.com/track/4R0ok3Qw9moYcvhJUT9z7K",
+    "apple": "https://music.apple.com/tw/album/wounded/301027642?i=301031733",
+    "genre": "Jazz Fusion"
+   }
+  ],
+  "hook": "中壢挖黑膠與冬藏開張",
+  "intro_zh": "下週末的演出備料備得差不多了，目前正在好好調味中。這週做了好多事情，去了中壢把唱片壓平，花了一些時間去練習黑膠的 DJ 技巧，還在三間唱片行添購了一些新的音樂和書籍，非常充實。"
+ },
+ {
   "date": "2026-11-02",
   "songs": [
    {
