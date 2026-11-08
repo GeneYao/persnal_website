@@ -168,7 +168,7 @@ def build_week(i, w):
     nav += f'    <a class="all" href="../">Archive {ARROW}</a>\n'
     nav += (f'    <a href="../{newer["date"]}/">{newer["date"].replace("-", ".")} →</a>\n' if newer else '    <span></span>\n')
     nav += '  </nav>'
-    main = (f'  <header class="songs-head">\n    <p class="eyebrow">Five Songs for This Week</p>\n    <h1>{fmt(w["date"])}</h1>\n'
+    main = (f'  <header class="songs-head">\n    <h1>{fmt(w["date"])}</h1>\n'
             f'{intro}  </header>\n'
             f'  <ol class="song-list">\n{lis}  </ol>\n{nav}')
     desc = f"Five Songs for This Week, {w['date'].replace('-', '.')}: " + ', '.join(s['title'] for s in w['songs'])
