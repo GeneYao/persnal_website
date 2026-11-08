@@ -119,8 +119,8 @@ CSS = '''
   }
 '''
 
-def page_shell(title, desc, url, body_main, back_href, zh_only=True):
-    out = _shell(title, desc, url, body_main, back_href, CSS)
+def page_shell(title, desc, url, body_main, back_href, zh_only=True, top_href=None, top_label='GeneYao'):
+    out = _shell(title, desc, url, body_main, back_href, CSS, top_href, top_label)
     if zh_only:
         # Songs pages are Chinese only (same as the articles): no language switch, no English variants
         out = re.sub(r'<div class="lang-switch">.*?</div>\s*', '', out, count=1, flags=re.S)
@@ -173,7 +173,7 @@ def build_week(i, w):
             f'  <ol class="song-list">\n{lis}  </ol>\n{nav}')
     desc = f"Five Songs for This Week, {w['date'].replace('-', '.')}: " + ', '.join(s['title'] for s in w['songs'])
     page_title = f"Five Songs for This Week {w['date'].replace('-', '.')}"
-    out = page_shell(page_title, desc, f"songs/{w['date']}/", main, '../../')
+    out = page_shell(page_title, desc, f"songs/{w['date']}/", main, '../../', top_href='../', top_label='Five Songs for This Week')
     d = os.path.join(OUT, 'songs', w['date']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
 
