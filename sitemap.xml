@@ -3,8 +3,8 @@
   <url><loc>https://geneyao.com/</loc><lastmod>2026-11-02</lastmod><priority>1.0</priority></url>
   <url><loc>https://geneyao.com/archive/</loc><lastmod>2026-11-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://geneyao.com/songs/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://geneyao.com/articles/</loc><lastmod>2026-11-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://geneyao.com/articles/albums/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://geneyao.com/articles/</loc><lastmod>2026-11-10</lastmod><priority>0.8</priority></url>
+  <url><loc>https://geneyao.com/articles/albums/</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://geneyao.com/mix/a-wash-of-verdant-haze/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://geneyao.com/mix/bonne-soiree/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://geneyao.com/mix/lheure-doree/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
@@ -21,6 +21,6 @@
   <url><loc>https://geneyao.com/songs/2026-11-09/</loc><lastmod>2026-11-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://geneyao.com/articles/albums/maiden-voyage/</loc><lastmod>2026-11-06</lastmod><priority>0.6</priority></url>
   <url><loc>https://geneyao.com/articles/albums/renaissance-the-masters-series-part-6-volume-2-cd2/</loc><lastmod>2026-11-06</lastmod><priority>0.6</priority></url>
-  <url><loc>https://geneyao.com/articles/albums/valtari/</loc><priority>0.6</priority></url>
+  <url><loc>https://geneyao.com/articles/albums/valtari/</loc><lastmod>2026-11-10</lastmod><priority>0.6</priority></url>
   <url><loc>https://geneyao.com/articles/albums/wede-harer-guzo/</loc><lastmod>2026-11-06</lastmod><priority>0.6</priority></url>
 </urlset>
