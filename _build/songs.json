@@ -1,5 +1,62 @@
 [
  {
+  "date": "2026-11-16",
+  "songs": [
+   {
+    "title": "Milestones (Live)",
+    "artist": "Chet Baker",
+    "cover": "chet-baker-milestones-live.jpg",
+    "blurb_zh": "在一間咖啡店聽到的。之前都聽 Miles Davis 的版本，一開頭 Chet Baker 小號的派頭和口氣非常有特色，馬上就把我吸進去了。",
+    "link": "https://www.youtube.com/watch?v=nN7ItM9PWok",
+    "spotify": "https://open.spotify.com/track/5i50ipuLt7537SH1JRSVpC",
+    "apple": "https://music.apple.com/tw/album/milestones-live/1828765533?i=1828765535",
+    "genre": "Cool Jazz"
+   },
+   {
+    "title": "Textures",
+    "artist": "Herbie Hancock",
+    "cover": "herbie-hancock-textures.jpg",
+    "blurb_zh": "一首很有質地的 Synth Jazz-Funk，在日落的山間播到，很有層次，歌如其名。",
+    "link": "https://www.youtube.com/watch?v=l6CWtD4gfAQ",
+    "spotify": "https://open.spotify.com/track/6wyjGiFFJMNxFyY4h0ttYY",
+    "apple": "https://music.apple.com/tw/album/textures/290229981?i=290229988",
+    "genre": "Jazz-Funk · Synth"
+   },
+   {
+    "title": "Rain",
+    "artist": "Walter Wanderley",
+    "cover": "walter-wanderley-rain.jpg",
+    "blurb_zh": "最近在找一些南美洲的音樂，覺得他把熱帶森林裡濕濕的感覺表達得非常好，聽了也非常放鬆。",
+    "link": "https://www.youtube.com/watch?v=j95AGP6hxnE",
+    "spotify": "https://open.spotify.com/track/5bXGJIOZZ4TwcUpRYqf450",
+    "apple": "https://music.apple.com/tw/album/rain/1434902213?i=1434902222",
+    "genre": "Bossa Nova · Organ"
+   },
+   {
+    "title": "Piano Concerto in G Major: II. Adagio assai",
+    "artist": "Martha Argerich, Berliner Philharmoniker, Claudio Abbado",
+    "cover": "ravel-piano-concerto-g-argerich-abbado.jpg",
+    "blurb_zh": "這週去國家音樂廳看了阿格麗希的現場演出。聽唱片已經超好聽了，現場演出更是非常靈動、有畫面。",
+    "link": "https://www.youtube.com/watch?v=A0fFZndqh20",
+    "spotify": "https://open.spotify.com/track/13sriBx6reARmsPLjpuglX",
+    "apple": "https://music.apple.com/tw/album/piano-concerto-in-g-ii-adagio-assai/1452154273?i=1452154500",
+    "genre": "Classical · Maurice Ravel"
+   },
+   {
+    "title": "Samba",
+    "artist": "Michael White",
+    "cover": "michael-white-samba.jpg",
+    "blurb_zh": "很少會聽到爵士小提琴，還這麼富有靈性和有機的律動，開車聽這個會進入一種心流的狀態。",
+    "link": "https://www.youtube.com/watch?v=yEY6JEAy2AI",
+    "spotify": "https://open.spotify.com/track/5gwWikRcHz3bZ6DbMwiWI4",
+    "apple": "https://music.apple.com/tw/album/samba/1462368528?i=1462368663",
+    "genre": "Spiritual Jazz · Jazz Violin"
+   }
+  ],
+  "hook": "阿格麗希與嘉義的老朋友",
+  "intro_zh": "這週看了阿格麗希的演出，非常震撼。週末南下嘉義演出，認識了一些新朋友，也和很多老朋友見面，是非常溫馨的一週。"
+ },
+ {
   "date": "2026-11-09",
   "songs": [
    {
