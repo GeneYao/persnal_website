@@ -77,11 +77,14 @@ CSS = '''
   .art-top p{ margin: 14px 0 0; max-width: 56ch; color: var(--ink-soft); line-height:1.8; }
   @media (max-width: 640px){
     .art-row h3{ font-size:20px; }
-    .art-row{ grid-template-columns: 92px 1fr; gap:14px; padding:14px; align-items:center; }
-    .art-row img{ width:92px; height:92px; }
+    .art-row{ grid-template-columns: 92px 1fr; gap:14px; padding:14px; align-items:start; }
+    .art-row .txt{ display:contents; }
+    .art-row img, .art-row > span:first-child{ grid-column:1; grid-row:1; width:92px; height:92px; }
+    .art-row .hd{ grid-column:2; grid-row:1; align-self:center; min-width:0; }
+    .art-row .ex{ grid-column:1 / -1; grid-row:2; margin-top:2px; -webkit-line-clamp:4; }
+    .art-row .chips{ grid-column:1 / -1; grid-row:3; margin-top:0; }
     .art-row .go{ display:none; }
     .art-row h3{ font-size:18px; }
-    .art-row .ex{ -webkit-line-clamp:4; }
     .art-body p, .art-body ol, .art-body ul{ font-size:16px; }
   }
 '''
@@ -241,7 +244,7 @@ def rows_html(arts, covers, link_prefix, img_prefix):
         card_title = '<br>'.join(esc(x) for x in (m.get('title') or m.get('album', '')).split(' | '))
         rows += (f'    <li><a class="art-row" href="{link_prefix}{a["slug"]}/">'
                  + (f'<img src="{img_prefix}photos/albums/{cover}" alt="" loading="lazy">' if cover else '<span></span>')
-                 + f'<div class="txt"><h3>{card_title}</h3><div class="who">{fmtdate(m.get("date", ""))}</div>'
+                 + f'<div class="txt"><div class="hd"><h3>{card_title}</h3><div class="who">{fmtdate(m.get("date", ""))}</div></div>'
                  + (f'<p class="ex">{esc(excerpt(a))}</p>' if excerpt(a) else '')
                  + (f'<div class="chips">{chips}</div>' if chips else '')
                  + f'</div><span class="go" aria-hidden="true">{ARROW}</span></a></li>\n')
