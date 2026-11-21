@@ -1,5 +1,62 @@
 [
  {
+  "date": "2026-11-23",
+  "songs": [
+   {
+    "title": "Love Has Found Its Way",
+    "artist": "Dennis Brown",
+    "cover": "dennis-brown-love-has-found-its-way.jpg",
+    "blurb_zh": "很喜歡 Dennis Brown 慵懶的聲音和雷鬼的律動，演出後聽到這首，會有一種安心放鬆的感覺。",
+    "link": "https://www.youtube.com/watch?v=OuzFpc62_sU",
+    "spotify": "https://open.spotify.com/track/67WC3ZMEQDCvIEVIC0u2Gv",
+    "apple": "https://music.apple.com/tw/album/love-has-found-its-way/1443204400?i=1443204505",
+    "genre": "Lovers Rock · Reggae"
+   },
+   {
+    "title": "Dirty Work",
+    "artist": "Steely Dan",
+    "cover": "steely-dan-dirty-work.jpg",
+    "blurb_zh": "突然有一天很想聽 Steely Dan，聽到這首就想到當初自己去東京的 Cotton Club，聽到別人翻唱這首。不知為何，在那之後就會時不時把這首拿出來聽。",
+    "link": "https://www.youtube.com/watch?v=kR5Ki6jjPaY",
+    "spotify": "https://open.spotify.com/track/3IvTwPCCjfZczCN2k4qPiH",
+    "apple": "https://music.apple.com/tw/album/dirty-work/1650885288?i=1650885294",
+    "genre": "Soft Rock · Yacht Rock"
+   },
+   {
+    "title": "Wait",
+    "artist": "Earth, Wind & Fire",
+    "cover": "earth-wind-fire-wait.jpg",
+    "blurb_zh": "開車不知道聽什麼的時候放了這張專輯，好像很少好好把這張從頭到尾聽完。聽到這首蠻喜歡的，尤其是副歌，管樂和人聲的編制好好聽。",
+    "link": "https://www.youtube.com/watch?v=SaZFSoA7tZA",
+    "spotify": "https://open.spotify.com/track/124y2S8K9o7dDkgA29q6eX",
+    "apple": "https://music.apple.com/tw/album/wait/523223720?i=523223727",
+    "genre": "R&B · Soul"
+   },
+   {
+    "title": "Band On The Run",
+    "artist": "Paul McCartney & Wings",
+    "cover": "paul-mccartney-wings-band-on-the-run.jpg",
+    "blurb_zh": "一直很喜歡 Paul McCartney 這張的音樂，有股讓人很放鬆的煙草味。這首歌有搖滾、有抒情，又有點鄉村，非常精彩。",
+    "link": "https://www.youtube.com/watch?v=qznqW8KzMpE",
+    "spotify": "https://open.spotify.com/track/1H4idkmruFoJBg1DvUv2tY",
+    "apple": "https://music.apple.com/tw/album/band-on-the-run/1443413822?i=1443413828",
+    "genre": "Rock · Pop Rock"
+   },
+   {
+    "title": "Old Cape Cod",
+    "artist": "Patti Page",
+    "cover": "patti-page-old-cape-cod.jpg",
+    "blurb_zh": "在聽 Frank Sinatra 時，後面推播到的音樂。被一開頭的多聲部合唱吸引，很入耳，有種老派的浪漫 XD",
+    "link": "https://www.youtube.com/watch?v=a34kIKVideI",
+    "spotify": "https://open.spotify.com/track/43sOr5Up9U9XPfq5QfKeRX",
+    "apple": "https://music.apple.com/tw/album/old-cape-cod/1853912202?i=1853912208",
+    "genre": "Traditional Pop"
+   }
+  ],
+  "hook": "寺田創一與外雙溪的音療派對",
+  "intro_zh": "從嘉義演出回來，好好休息了幾天，重整自己的狀態。看了寺田創一的現場，也去外雙溪體驗了朋友的放鬆音療派對，腦袋多了好多新想法。"
+ },
+ {
   "date": "2026-11-16",
   "songs": [
    {
