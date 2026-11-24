@@ -1,5 +1,62 @@
 [
  {
+  "date": "2026-11-30",
+  "songs": [
+   {
+    "title": "Samba de Orfeu",
+    "artist": "Cal Tjader",
+    "cover": "cal-tjader-samba-de-orfeu.jpg",
+    "blurb_zh": "在吃滷肉飯時被 Spotify 演算法推薦到的，突然覺得跟吃的東西好搭，他的律動就好像切好的滷肉在嘴巴裡面香氣四溢。",
+    "link": "https://www.youtube.com/watch?v=KVf8_z145us",
+    "spotify": "https://open.spotify.com/track/3eV8J1c79S0iIdSO4XiDLd",
+    "apple": "https://music.apple.com/tw/album/samba-de-orfeu/1444121920?i=1444122979",
+    "genre": "Latin Jazz · Bossa Nova"
+   },
+   {
+    "title": "Saudade (Un Manque Habité)",
+    "artist": "Pierre Barouh",
+    "cover": "pierre-barouh-saudade.jpg",
+    "blurb_zh": "專輯封面上那句「Il y a des années où l'on a envie de ne rien faire」（有些年頭，就是什麼都不想做）大概就是這週的心情吧。本來要用在嘉義藝術日常的市集歌單，但口白比較長，怕觀眾會分心，所以就留著自己聽，是很溫暖、很有感覺的一首歌。",
+    "link": "https://www.youtube.com/watch?v=xPQ66MAnpBw",
+    "spotify": "https://open.spotify.com/track/3LwPnwWkzJpFcIbZtZGGV1",
+    "apple": "https://music.apple.com/tw/album/saudade-un-manque-habit%C3%A9/1631173710?i=1631173878",
+    "genre": "Bossa Nova · Chanson"
+   },
+   {
+    "title": "Last Train Home",
+    "artist": "Pat Metheny",
+    "cover": "pat-metheny-last-train-home.jpg",
+    "blurb_zh": "很喜歡 Pat Metheny 這張專輯這首歌，台北冬天在家獨處放空的時候常常拿出來聽。",
+    "link": "https://www.youtube.com/watch?v=mc_Mi0kz4Gc",
+    "spotify": "https://open.spotify.com/track/3RgP6kYibJz7koNvFLE0gb",
+    "apple": "https://music.apple.com/tw/album/last-train-home/1861838838?i=1861839233",
+    "genre": "Jazz · Solo Guitar"
+   },
+   {
+    "title": "Sit Around The Fire",
+    "artist": "Jon Hopkins, Ram Dass, East Forest",
+    "cover": "jon-hopkins-sit-around-the-fire.jpg",
+    "blurb_zh": "有口白和鋼琴的暖心 Ambient，當初在聽 Brian Eno 延伸聽到的，一查好像是 Jon Hopkins 去厄瓜多回來製作的專輯，剛好我去年也去了一趟厄瓜多，難怪聽起來比較有感覺。",
+    "link": "https://www.youtube.com/watch?v=3G4kCi_ldr8",
+    "spotify": "https://open.spotify.com/track/7Bl1GdYbcJ0QSffErVWOnv",
+    "apple": "https://music.apple.com/tw/album/sit-around-the-fire/1581582605?i=1581582914",
+    "genre": "Ambient · Electronic"
+   },
+   {
+    "title": "Cutting Branches For A Temporary Shelter",
+    "artist": "Penguin Cafe Orchestra",
+    "cover": "penguin-cafe-orchestra-cutting-branches.jpg",
+    "blurb_zh": "當初被專輯封面吸引，很喜歡這首曲名，非常貼切，有種臨時搭建的秘密基地，可以在那邊做任何自己想做的事的感覺。",
+    "link": "https://www.youtube.com/watch?v=RYLhVKKhanE",
+    "spotify": "https://open.spotify.com/track/0Lm3loChnSsNS37nxvLYcN",
+    "apple": "https://music.apple.com/tw/album/cutting-branches-for-a-temporary-shelter-2008-remaster/714892902?i=714892935",
+    "genre": "Ambient · Chamber"
+   }
+  ],
+  "hook": "出發去南湖之前",
+  "intro_zh": "靜下來的一週，開始思考一些未來的方向。選舉結束了，要去爬夢寐以求的南湖群峰，希望天氣和一切都會順利。"
+ },
+ {
   "date": "2026-11-23",
   "songs": [
    {
