@@ -108,6 +108,16 @@ def vibe_html(m):
     imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
     return f'\n  <section class="vibe">\n    <div class="vibe-masonry">\n{imgs}\n    </div>\n  </section>\n'
 
+def photos_html(m):
+    """Photo section, with an optional centred credit line under the photos."""
+    out = vibe_html(m)
+    c = m.get('photo_credit')
+    if not out or not c:
+        return out
+    line = ('    <p class="photo-credit" style="margin:24px 0 0; text-align:center; font-family:\'IBM Plex Mono\', monospace; font-size:12.5px; letter-spacing:.05em; color:var(--ink-soft);">'
+            f'{esc(c["text"])} <a href="{attr(c["url"])}" target="_blank" rel="noopener" style="color:var(--accent); text-underline-offset:3px;">{esc(c["name"])}</a></p>\n')
+    return out.replace('  </section>', line + '  </section>', 1)
+
 def video_html(m):
     vid = m.get('youtube_embed')
     if not vid:
@@ -279,7 +289,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
-        'VIDEO': video_html(m), 'TRACKLIST': tracklist + playlist_link_html(m), 'VIBE': vibe_html(m),
+        'VIDEO': video_html(m), 'TRACKLIST': tracklist + playlist_link_html(m), 'VIBE': photos_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():
@@ -437,7 +447,7 @@ def build_playlist(p):
             '      <p class="credit">Presented by GeneYao</p>\n'
             + actions + '    </div>\n  </section>\n'
             '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n'
-            + cards_html(p['items'], p.get('mix')) + '  </section>\n' + sets_html(p) + vibe_html(p))
+            + cards_html(p['items'], p.get('mix')) + '  </section>\n' + sets_html(p) + photos_html(p))
     write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
                '../../archive/#playlists', 'Playlists', main, mix_tail())
 
