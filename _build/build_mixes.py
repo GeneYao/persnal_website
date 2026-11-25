@@ -101,7 +101,8 @@ def vibe_html(m):
                 if j < len(v[key]):
                     ordered.append(v[key][j])
         mob = '' if m.get('mobile_legacy') else mobile_html(ordered)
-        return ('\n  <section class="' + ('vibe has-m' if mob else 'vibe') + '">\n    <div class="vibe-grid">\n'
+        fr = f' style="grid-template-columns: 1fr {v["mid_fr"]}fr 1fr"' if v.get('mid_fr') else ''
+        return ('\n  <section class="' + ('vibe has-m' if mob else 'vibe') + '">\n    <div class="vibe-grid"' + fr + '>\n'
                 + col(v['left'], 'vcol') + '\n' + col(v['mid'], mid_cls) + '\n' + col(v['right'], 'vcol')
                 + '\n    </div>\n' + mob + '  </section>\n')
     imgs = '\n'.join(f'      <img src="../../photos/{i["file"]}" alt="{attr(i["alt"])}" loading="lazy">' for i in v)
@@ -436,7 +437,7 @@ def build_playlist(p):
             '      <p class="credit">Presented by GeneYao</p>\n'
             + actions + '    </div>\n  </section>\n'
             '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n'
-            + cards_html(p['items'], p.get('mix')) + '  </section>\n' + sets_html(p))
+            + cards_html(p['items'], p.get('mix')) + '  </section>\n' + sets_html(p) + vibe_html(p))
     write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
                '../../archive/#playlists', 'Playlists', main, mix_tail())
 
