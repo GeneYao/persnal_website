@@ -308,21 +308,22 @@
   <style>
   .tracklist{ padding-bottom: 48px; }
   .pl-block{ padding-bottom: 80px; }
-  .pl-intro{ margin: 0 0 16px; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
+  .pl-block h2{ font-size: 32px; margin-bottom: 24px; }
+  .pl-intro{ margin: -10px 0 18px; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
   .pl-link{ display:flex; align-items:center; gap:18px; margin: 0; padding:14px 18px 14px 14px; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
   .pl-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
   .pl-link .pl-thumb{ flex:0 0 auto; width:104px; height:104px; object-fit:cover; border-radius:12px; display:block; }
   .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
-  .pl-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
   .pl-link .title{ font-size:17px; line-height:1.45; }
   .pl-link .arrow{ flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
   @media (max-width: 480px){ .pl-link{ gap:14px; padding-right:14px; } .pl-link .pl-thumb{ width:92px; height:92px; } .pl-link .title{ font-size:15.5px; } }
   </style>
   <section class="pl-block">
+  <h2><span class="lang-zh">歌單策劃</span><span class="lang-en">Playlist Curation</span></h2>
   <p class="pl-intro"><span class="lang-zh">嘉義藝術日常 2026 當天 11:00–17:00，除了 DJ set，也策劃了整天四個時段的歌單。</span><span class="lang-en">Four playlists curated for a full day at Art Week Chiayi 2026, from 11:00 to 17:00.</span></p>
   <a class="pl-link" href="../../playlists/art-week-chiayi-2026/">
     <img class="pl-thumb" src="../../photos/playlists/chiayi-2026-allday.jpg" alt="" loading="lazy">
-    <span class="head"><span class="kicker">Playlist Curation</span><span class="title"><span class="lang-zh">嘉義藝術日常 2026<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi 2026, Full Day Curation</span></span></span>
+    <span class="head"><span class="title"><span class="lang-zh">嘉義藝術日常 2026<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi 2026, Full Day Curation</span></span></span>
     <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
   </a>
   </section>
@@ -330,7 +331,7 @@
   <section class="more">
     <a class="btn solid" href="../../archive/">
       <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12.5 25v-3a9.5 9.5 0 0 1 19 0v3"/><rect x="9.5" y="24" width="6.5" height="10" rx="3"/><rect x="28" y="24" width="6.5" height="10" rx="3"/></svg>
-      <span class="lang-zh">聆聽更多 mix</span><span class="lang-en">Listen to more mixes</span>
+      <span class="lang-zh">聆聽更多</span><span class="lang-en">Listen to more</span>
       <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
   </section>
