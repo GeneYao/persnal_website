@@ -1,0 +1,123 @@
+[
+ {
+  "slug": "art-week-chiayi-2026",
+  "title": {
+   "zh": "嘉義藝術日常 2026｜全日歌單策劃",
+   "en": "Art Week Chiayi 2026, Full Day Curation"
+  },
+  "when": {
+   "zh": "2026.11.15 SUN · 實驗木場 · 嘉義",
+   "en": "2026.11.15 SUN · 實驗木場 · Chiayi"
+  },
+  "cover": "playlists/chiayi-2026-allday.jpg",
+  "intro": {
+   "zh": "嘉義藝術日常 2026 當天 11:00–17:00，除了 DJ set，也策劃了整天四個時段的歌單。",
+   "en": "Four playlists curated for a full day at Art Week Chiayi 2026, from 11:00 to 17:00."
+  },
+  "mix": "fire-in-motion",
+  "items": [
+   {
+    "cover": "playlists/chiayi-2026-water.jpg",
+    "url": "https://open.spotify.com/playlist/0GoB838EiJrpZYX7GwEvap",
+    "time": "11:00–13:00",
+    "zh": "水之靜",
+    "en": "Water",
+    "count": 23,
+    "tracks": [
+     "Hiroshi Yoshimura - Something blue",
+     "Hiroshi Yoshimura - Water Copy",
+     "Shuta Yasukochi - Particle",
+     "Harold Budd, Brian Eno - An Arc Of Doves - Remastered 2004",
+     "Gavin Bryars, Pascal Pongy, Charles Fullbrook - Prologue",
+     "Laraaji - Introspection - Edit",
+     "Four Tet - Two Thousand and Seventeen",
+     "Alice Coltrane - Wisdom Eye",
+     "Emahoy Tsege Mariam Gebru - Song of Abayi",
+     "Jorga Mesfin - The Kindest One",
+     "Nala Sinephro - Space 1",
+     "小久保 隆 - 虹を見た日",
+     "Green-House - Sun Dogs",
+     "Susumu Yokota - Hagoromo",
+     "Ryuichi Sakamoto - Aqua",
+     "Joseph Shabason - West of Heaven",
+     "Yoshio Chin Suzuki - ザ・ミラージュ",
+     "INOYAMALAND - GLASS CHIME",
+     "Domenique Dumont - Arrival",
+     "Yagya - Rigning Tvö",
+     "Greg Foat, Gigi Masin - Sabena",
+     "Mort Garson - Plantasia",
+     "Jieh - Chiayi Liujiao Township Sugarcane Field"
+    ]
+   },
+   {
+    "cover": "playlists/chiayi-2026-wood.jpg",
+    "url": "https://open.spotify.com/playlist/1zsbXScRdUj5pirRnAVtNI",
+    "time": "13:00–15:00",
+    "zh": "木之感",
+    "en": "Wood",
+    "count": 28,
+    "tracks": [
+     "sugar plant - rise",
+     "Masahiro Takahashi - Cloud Boat",
+     "Lynn Avery, Cole Pulice - Plantwood (Day)",
+     "Leon Lowman - Morning Song - Original",
+     "Ichiko Aoba - Asleep Among Endives",
+     "以莉.高露 - 阿嬤的呢喃",
+     "Jon Hassell - Toucan Ocean",
+     "Steve Hiett - Are These My Memories?",
+     "Misha Panfilov - Together",
+     "Bebel Gilberto - Undiú",
+     "Elis Regina, Antônio Carlos Jobim - Águas De Março",
+     "Gábor Szabó - Ferris Wheel - 2022 Remastered Version",
+     "Sessa - Gostar do Mundo",
+     "Stacey Kent, Jim Tomlinson, Matt Skelton, John Parricelli, Jeremy Brown - C'est le printemps",
+     "Brigitte Bardot - À la fin de l'été",
+     "Gilbert Bécaud - Plein soleil",
+     "Henri Salvador - Syracuse",
+     "Matt Maltese - Complicated",
+     "Mark Barrott - Baby Come Home",
+     "Arthur Verocai - Na boca do sol",
+     "Azymuth - Linha do Horizonte",
+     "Sven Wunder - Natura Morta",
+     "Hailu Mergia, Dahlak Band - Anchin Kfu Ayinkash",
+     "何灝, 蓬萊仙山 - Honey",
+     "Jerry Garcia Band, Jerry Garcia - Love In The Afternoon",
+     "Pat Thomas, Kwashibu Area Band - Me Ho Asem",
+     "Kokoroko - Ti-de",
+     "Khruangbin - August 10"
+    ]
+   },
+   {
+    "cover": "playlists/chiayi-2026-fire.jpg",
+    "url": "https://open.spotify.com/playlist/3LEf7JjifI4fBcoZRxz2lw",
+    "time": "15:00–16:20",
+    "zh": "火之動",
+    "en": "Fire in Motion",
+    "count": 18,
+    "dj": true
+   },
+   {
+    "cover": "playlists/chiayi-2026-after.jpg",
+    "url": "https://open.spotify.com/playlist/2FL0yKy92a4GmZfL9nSAgd",
+    "time": "16:20–17:00",
+    "zh": "火之後",
+    "en": "After the Fire",
+    "count": 12,
+    "tracks": [
+     "George McCrae - Rock Your Baby",
+     "Gwen McCrae - Rockin Chair",
+     "Betty Wright - Clean up Woman",
+     "The Dramatics - Whatcha See Is Whatcha Get",
+     "The Spinners - I'll Be Around",
+     "Al Green - Tired of Being Alone",
+     "Donny Hathaway - Love, Love, Love",
+     "Earth, Wind & Fire - That's the Way of the World",
+     "Bill Withers - Lovely Day",
+     "Rufus, Chaka Khan - Sweet Thing",
+     "The Isley Brothers - Footsteps in the Dark, Pts. 1 & 2",
+     "Smokey Robinson - Cruisin'"
+    ]
+   }
+  ]
+ }
+]

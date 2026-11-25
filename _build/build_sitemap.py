@@ -14,6 +14,8 @@ def lastmod(path):
 pages = [('index.html', '/', '1.0'), ('archive/index.html', '/archive/', '0.8'), ('songs/index.html', '/songs/', '0.8')]
 for f in sorted(glob.glob(os.path.join(ROOT, 'mix', '*', 'index.html'))):
     slug = f.split(os.sep)[-2]; pages.append((f'mix/{slug}/index.html', f'/mix/{slug}/', '0.7'))
+for f in sorted(glob.glob(os.path.join(ROOT, 'playlists', '*', 'index.html'))):
+    slug = f.split(os.sep)[-2]; pages.append((f'playlists/{slug}/index.html', f'/playlists/{slug}/', '0.7'))
 for f in sorted(glob.glob(os.path.join(ROOT, 'songs', '*', 'index.html'))):
     d = f.split(os.sep)[-2]; pages.append((f'songs/{d}/index.html', f'/songs/{d}/', '0.6'))
 

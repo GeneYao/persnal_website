@@ -136,51 +136,7 @@
    48
   ],
   "pub": "Tue, 24 Nov 2026 09:19:48 +0000",
-  "curation": {
-   "title": {
-    "zh": "全日歌單策劃",
-    "en": "Full Day Curation"
-   },
-   "intro": {
-    "zh": "嘉義藝術日常 2026 當天 11:00–17:00，除了 DJ set，也策劃了整天四個時段的歌單。",
-    "en": "Four playlists curated for a full day at Art Week Chiayi 2026, from 11:00 to 17:00."
-   },
-   "items": [
-    {
-     "cover": "playlists/chiayi-2026-water.jpg",
-     "url": "https://open.spotify.com/playlist/0GoB838EiJrpZYX7GwEvap",
-     "time": "11:00–13:00",
-     "zh": "水之靜",
-     "en": "Water",
-     "count": 23
-    },
-    {
-     "cover": "playlists/chiayi-2026-wood.jpg",
-     "url": "https://open.spotify.com/playlist/1zsbXScRdUj5pirRnAVtNI",
-     "time": "13:00–15:00",
-     "zh": "木之感",
-     "en": "Wood",
-     "count": 28
-    },
-    {
-     "cover": "playlists/chiayi-2026-fire.jpg",
-     "url": "https://open.spotify.com/playlist/3LEf7JjifI4fBcoZRxz2lw",
-     "time": "15:00–16:20",
-     "zh": "火之動",
-     "en": "Fire in Motion",
-     "count": 18,
-     "dj": true
-    },
-    {
-     "cover": "playlists/chiayi-2026-after.jpg",
-     "url": "https://open.spotify.com/playlist/2FL0yKy92a4GmZfL9nSAgd",
-     "time": "16:20–17:00",
-     "zh": "火之後",
-     "en": "After the Fire",
-     "count": 12
-    }
-   ]
-  }
+  "playlist_page": "art-week-chiayi-2026"
  },
  {
   "slug": "lultimo-tuffo",

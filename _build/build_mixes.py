@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build mix detail pages (mix/<slug>/index.html) and archive/index.html from mixes.json.
+"""Build mix pages (mix/<slug>/), playlist pages (playlists/<slug>/) and archive/ from mixes.json and playlists.json.
 Run from the repo root:  python3 _build/build_mixes.py
 """
 import json, re, html, os, urllib.parse
@@ -11,6 +11,8 @@ tpl = open(os.path.join(B, 'template.html'), encoding='utf-8').read()
 vibe = open(os.path.join(B, 'vibe_section.html'), encoding='utf-8').read()
 spot_tpl = open(os.path.join(B, 'spotify_btn.html'), encoding='utf-8').read()
 yt_tpl = open(os.path.join(B, 'youtube_btn.html'), encoding='utf-8').read()
+
+playlists = json.load(open(os.path.join(B, 'playlists.json'), encoding='utf-8'))
 
 esc = lambda s: html.escape(s, quote=False)
 attr = lambda s: html.escape(s, quote=True)
@@ -115,7 +117,12 @@ def video_html(m):
             '    </div>\n  </section>\n')
 
 CURATION_CSS = '''  <style>
-  .curation{ padding-block: 8px 56px; scroll-margin-top: 24px; }
+  .curation{ padding-block: 28px 56px; }
+  .curation h1{ margin-top: 12px; font-size: clamp(32px, 5.5vw, 52px); line-height:1.2; max-width: 20ch; }
+  .pl-cover{ display:block; width:min(420px, 100%); aspect-ratio:1/1; object-fit:cover; margin: 0 auto 32px; border-radius:20px; border:1px solid var(--line); box-shadow: var(--shadow); }
+  .curation .when{ margin-top: 14px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.05em; color: var(--accent); }
+  .pl-set{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; padding:12px 20px; border:1px solid var(--accent); border-radius:999px; color: var(--ink); text-decoration:none; font-size:15px; }
+  .pl-set .arrow{ width:14px; height:14px; color: var(--accent); }
   .curation .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
   .curation h2{ margin-top: 10px; font-size: 32px; }
   .curation .intro{ margin: 12px 0 0; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
@@ -136,22 +143,90 @@ SPOTIFY_DOT = '<svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path 
 def both(zh, en):
     return f'<span class="lang-zh">{esc(zh)}</span><span class="lang-en">{esc(en)}</span>'
 
-def curation_html(m):
-    c = m.get('curation')
-    if not c:
-        return ''
+def cards_html(items):
     lis = ''
-    for it in c['items']:
+    for it in items:
         n = it['count']
         dj = ' class="dj"' if it.get('dj') else ''
         lis += (f'      <li{dj}><a href="{attr(it["url"])}" target="_blank" rel="noopener">'
                 f'<img src="../../photos/{it["cover"]}" alt="{attr(it["zh"])}歌單封面" loading="lazy">'
                 f'<span class="tm">{it["time"]}</span><h3>{both(it["zh"], it["en"])}</h3>'
                 f'<span class="go">{SPOTIFY_DOT}{both(f"{n} 首", f"{n} tracks")} ↗</span></a></li>\n')
-    return (CURATION_CSS + '  <section class="curation" id="curation">\n    <p class="kicker">Playlist Curation</p>\n'
-            f'    <h2>{both(c["title"]["zh"], c["title"]["en"])}</h2>\n'
-            f'    <p class="intro">{both(c["intro"]["zh"], c["intro"]["en"])}</p>\n'
-            f'    <ul class="cur-grid">\n{lis}    </ul>\n  </section>\n')
+    return f'    <ul class="cur-grid">\n{lis}    </ul>\n'
+
+LINK_CSS = '''  <style>
+  .pl-link{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; margin: 8px 0 56px; padding:18px 52px 18px 20px; position:relative; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
+  .pl-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1 1 220px; }
+  .pl-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
+  .pl-link .title{ font-size:17px; line-height:1.4; }
+  .pl-link .thumbs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; flex:0 1 300px; width:100%; }
+  .pl-link .thumbs img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; display:block; }
+  .pl-link .arrow{ position:absolute; top:50%; right:18px; transform:translateY(-50%); width:15px; height:15px; color: var(--accent); }
+  @media (max-width: 719px){ .pl-link{ padding-right:20px; } .pl-link .head{ padding-right:28px; } .pl-link .arrow{ top:20px; transform:none; } }
+  </style>
+'''
+ARROW_SVG = '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
+
+def playlist_link_html(m):
+    slug = m.get('playlist_page')
+    if not slug:
+        return ''
+    p = next(x for x in playlists if x['slug'] == slug)
+    thumbs = ''.join(f'<img src="../../photos/{it["cover"]}" alt="" loading="lazy">' for it in p['items'])
+    return (LINK_CSS + f'  <a class="pl-link" href="../../playlists/{slug}/">\n'
+            f'    <span class="head"><span class="kicker">Playlist Curation</span><span class="title">{both(p["title"]["zh"], p["title"]["en"])}</span></span>\n'
+            f'    <span class="thumbs" aria-hidden="true">{thumbs}</span>\n    {ARROW_SVG}\n  </a>\n')
+
+def track_lis(tracks, times=None):
+    times = times or [''] * len(tracks)
+    return '\n'.join(f'        <li><span class="no">{i}.</span><span class="tx">{esc(t)}</span>' + (f'<span class="tm">{tm}</span>' if tm else '') + '</li>'
+                     for i, (t, tm) in enumerate(zip(tracks, times), 1))
+
+SETS_CSS = '''  <style>
+  .tl-tabs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-top: 22px; }
+  .tl-tabs button{ display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px 4px; border:1px solid var(--line); border-radius:14px; background:transparent; color: var(--ink); font-family:inherit; cursor:pointer; transition: border-color .2s ease, background .2s ease, color .2s ease; }
+  .tl-tabs button:hover{ border-color: var(--accent); }
+  .tl-tabs .n{ font-size:15.5px; white-space:nowrap; }
+  .tl-tabs .t{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.04em; color: var(--ink-soft); }
+  .tl-tabs button[aria-selected="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .tl-tabs button[aria-selected="true"] .t{ color: var(--bg); }
+  .tl-info{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; margin: 18px 0 0; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.04em; color: var(--ink-soft); }
+  .tl-info a{ color: var(--accent); text-decoration:none; }
+  .tracklist .tl-panel ol{ margin-top: 14px; }
+  .tl-panel[hidden]{ display:none; }
+  </style>
+'''
+SETS_JS = '''    <script>
+    (function(){
+      var box = document.getElementById('sets');
+      var tabs = box.querySelectorAll('.tl-tabs button');
+      tabs.forEach(function(b){ b.addEventListener('click', function(){
+        tabs.forEach(function(t){ var on = t === b; t.setAttribute('aria-selected', on); document.getElementById(t.getAttribute('aria-controls')).hidden = !on; });
+      }); });
+    })();
+    </script>
+'''
+
+def sets_html(p):
+    """Playlist page tracklist with one tab per time slot (first slot selected). The DJ set slot uses the mix's own tracks."""
+    tabs = panels = ''
+    for i, it in enumerate(p['items']):
+        on = i == 0
+        dj = bool(it.get('dj'))
+        tracks = next(x for x in mixes if x['slug'] == p['mix'])['tracks'] if dj else it['tracks']
+        n = len(tracks)
+        start = it['time'].split('–')[0]
+        kind = ' · DJ SET' if dj else ''
+        tabs += (f'      <button type="button" role="tab" id="tab-{i}" aria-controls="set-{i}" aria-selected="{str(on).lower()}">'
+                 f'<span class="n">{both(it["zh"], "Fire" if dj else it["en"])}</span><span class="t">{start}</span></button>\n')
+        panels += (f'    <div class="tl-panel" role="tabpanel" id="set-{i}" aria-labelledby="tab-{i}"{"" if on else " hidden"}>\n'
+                   f'      <p class="tl-info"><span>{it["time"]} · {both(f"{n} 首", f"{n} tracks")}{kind}</span>'
+                   f'<a href="{attr(it["url"])}" target="_blank" rel="noopener">{both("在 Spotify 收聽", "Listen on Spotify")} ↗</a></p>\n'
+                   f'      <ol>\n{track_lis(tracks)}\n      </ol>\n    </div>\n')
+    return (SETS_CSS + '  <section class="tracklist" id="sets">\n'
+            '    <h2><span class="lang-zh">曲目清單</span><span class="lang-en">Tracklist</span></h2>\n'
+            f'    <div class="tl-tabs" role="tablist">\n{tabs}    </div>\n{panels}{SETS_JS}  </section>\n')
 
 def build_detail(m, idx):
     title = m['title']
@@ -193,7 +268,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
-        'VIDEO': video_html(m), 'TRACKLIST': curation_html(m) + tracklist, 'VIBE': vibe_html(m),
+        'VIDEO': video_html(m), 'TRACKLIST': playlist_link_html(m) + tracklist, 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():
@@ -206,6 +281,11 @@ ARCHIVE_CSS = '''
   .arch-head{ padding-block: 28px 8px; }
   .arch-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; }
   .arch-head p{ margin: 14px 0 0; color: var(--ink-soft); max-width: 52ch; }
+  .arch-tabs{ display:flex; gap:10px; margin-top: 22px; }
+  .arch-tabs button{ padding:10px 18px; border-radius:999px; border:1px solid var(--line); background:transparent; color: var(--ink-soft); font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+  .arch-tabs button i{ font-style:normal; opacity:.6; margin-left:4px; }
+  .arch-tabs button[aria-selected="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .arch-grid[hidden]{ display:none; }
   .arch-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 26px 20px; padding-block: 36px 88px; }
   .acard{ display:block; text-decoration:none; color: var(--ink); }
   .acard .acover{ position:relative; aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:1px solid var(--line); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -218,22 +298,15 @@ ARCHIVE_CSS = '''
   @media (max-width: 560px){ .arch-grid{ grid-template-columns: 1fr 1fr; gap: 20px 12px; } .acard h3{ font-size:17px; } .acard .acover{ border-radius:14px; } }
 '''
 
-def build_archive():
+def write_page(rel, title, desc, og_image, back_href, back_label, main):
+    """A listing-style page: shared head, back link, content, footer and language switch."""
+    up = '../' * rel.count('/')
     head = tpl[:tpl.index('<body>')]
-    head = head.replace('mix/{{SLUG}}/', 'archive/').replace('photos/{{COVER}}', 'og-image.jpg')
-    for k, v in {'TITLE_SHORT': 'Archive Mixes', 'META_DESC': 'Archive Mixes. Every DJ set by GeneYao, collected in one place.',
-                 'TITLE_ATTR': 'Archive Mixes', 'OG_DESC': 'Every DJ set by GeneYao, collected in one place.'}.items():
+    head = head.replace('mix/{{SLUG}}/', rel).replace('photos/{{COVER}}', og_image)
+    for k, v in {'TITLE_SHORT': esc(title), 'META_DESC': attr(desc), 'TITLE_ATTR': attr(title), 'OG_DESC': attr(desc)}.items():
         head = head.replace('{{' + k + '}}', v)
     assert '{{' not in head
     head = head.replace('</style>', ARCHIVE_CSS + '</style>', 1)
-    cards = ''
-    for i, m in enumerate(mixes):
-        badge = '<span class="badge">Latest</span>' if i == 0 else ''
-        meta = m['dur'] + (f" · {len(m['tracks'])} TRACKS" if m['tracks'] else '')
-        cards += (f'    <a class="acard" href="../mix/{m["slug"]}/">'
-                  f'<div class="acover"><img src="../photos/{m["cover"]}" alt="{attr(m["title"])} artwork" loading="lazy">{badge}</div>'
-                  f'<h3>{esc(m["title"])}</h3><div class="ameta">{meta}</div></a>\n')
-    n = len(mixes)
     body = f'''<body>
 
 <div class="lang-switch">
@@ -244,28 +317,22 @@ def build_archive():
 
 <div id="page" data-lang="zh">
 <div class="wrap">
-  <a class="back" href="../#music">
+  <a class="back" href="{back_href}">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8H4M7.5 4L4 8l3.5 4"/></svg>
     {re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0).replace('<svg ', '<svg class="logo" aria-hidden="true" ', 1)}
-    <span>GeneYao</span>
+    <span>{back_label}</span>
   </a>
 
-  <header class="arch-head">
-    <h1>Archive Mixes</h1>
-  </header>
-
-  <section class="arch-grid">
-{cards}  </section>
-</div>
+{main}</div>
 
 <footer>
   <div class="wrap">
-    <a class="wordmark" href="../">{re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0)}<span>GeneYao</span></a>
+    <a class="wordmark" href="{up}">{re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0)}<span>GeneYao</span></a>
     <div class="foot-icons">
       <a href="https://www.instagram.com/geneyaooo/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a href="mailto:contact@geneyao.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M4 8l8 5.5L20 8"/></svg></a>
     </div>
-    <a class="fine" id="year-line" href="../">© GeneYao</a>
+    <a class="fine" id="year-line" href="{up}">© GeneYao</a>
   </div>
 </footer>
 </div>
@@ -291,10 +358,68 @@ def build_archive():
 </body>
 </html>
 '''
-    d = os.path.join(ROOT, 'archive'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(ROOT, rel); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(head + body)
+
+TABS_JS = '''  <script>
+  (function(){
+    var tabs = document.querySelectorAll('.arch-tabs button');
+    function show(name){
+      tabs.forEach(function(t){ var on = t.dataset.tab === name; t.setAttribute('aria-selected', on); document.getElementById(t.dataset.tab).hidden = !on; });
+    }
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); try{ history.replaceState(null, '', t.dataset.tab === 'playlists' ? '#playlists' : location.pathname); }catch(e){} }); });
+    window.addEventListener('hashchange', function(){ show(location.hash === '#playlists' ? 'playlists' : 'mixes'); });
+    show(location.hash === '#playlists' ? 'playlists' : 'mixes');
+  })();
+  </script>
+'''
+
+def build_archive():
+    cards = ''
+    for i, m in enumerate(mixes):
+        badge = '<span class="badge">Latest</span>' if i == 0 else ''
+        meta = m['dur'] + (f" · {len(m['tracks'])} TRACKS" if m['tracks'] else '')
+        cards += (f'    <a class="acard" href="../mix/{m["slug"]}/">'
+                  f'<div class="acover"><img src="../photos/{m["cover"]}" alt="{attr(m["title"])} artwork" loading="lazy">{badge}</div>'
+                  f'<h3>{esc(m["title"])}</h3><div class="ameta">{meta}</div></a>\n')
+    pcards = ''
+    for p in playlists:
+        n = sum(it['count'] for it in p['items'])
+        pcards += (f'    <a class="acard" href="../playlists/{p["slug"]}/">'
+                   f'<div class="acover"><img src="../photos/{p["cover"]}" alt="{attr(p["title"]["zh"])} 封面" loading="lazy"></div>'
+                   f'<h3>{title_lines(p["title"])}</h3>'
+                   f'<div class="ameta">{len(p["items"])} PLAYLISTS · {n} TRACKS</div></a>\n')
+    main = ('  <header class="arch-head">\n    <h1>Archive Mixes/<wbr>Playlists</h1>\n  </header>\n\n'
+            '  <div class="arch-tabs" role="tablist">\n'
+            f'    <button type="button" role="tab" data-tab="mixes" aria-selected="true">Mixes <i>{len(mixes)}</i></button>\n'
+            f'    <button type="button" role="tab" data-tab="playlists" aria-selected="false">Playlists <i>{len(playlists)}</i></button>\n'
+            '  </div>\n\n'
+            f'  <section class="arch-grid" id="mixes">\n{cards}  </section>\n'
+            f'  <section class="arch-grid" id="playlists" hidden>\n{pcards}  </section>\n' + TABS_JS)
+    write_page('archive/', 'Archive Mixes/Playlists', 'Every DJ set and curated playlist by GeneYao, collected in one place.',
+               'og-image.jpg', '../#music', 'GeneYao', main)
+
+def title_lines(t):
+    zh = '<br>'.join(esc(x) for x in t['zh'].split('｜'))
+    return f'<span class="lang-zh">{zh}</span><span class="lang-en">{esc(t["en"])}</span>'
+
+def build_playlist(p):
+    items = cards_html(p['items'])
+    mix = (f'    <a class="pl-set" href="../../mix/{p["mix"]}/">{both("聽當天的 DJ set 錄音", "Listen to the DJ set recording")} {ARROW_SVG}</a>\n'
+           if p.get('mix') else '')
+    main = (CURATION_CSS + '  <section class="curation">\n'
+            f'    <img class="pl-cover" src="../../photos/{p["cover"]}" alt="{attr(p["title"]["zh"])} 封面">\n'
+            '    <p class="kicker">Playlist Curation</p>\n'
+            f'    <h1>{title_lines(p["title"])}</h1>\n'
+            f'    <p class="when">{both(p["when"]["zh"], p["when"]["en"])}</p>\n'
+            f'    <p class="intro">{both(p["intro"]["zh"], p["intro"]["en"])}</p>\n'
+            + items + mix + '  </section>\n' + sets_html(p))
+    write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
+               '../../archive/#playlists', 'Playlists', main)
 
 for i, m in enumerate(mixes):
     build_detail(m, i)
+for p in playlists:
+    build_playlist(p)
 build_archive()
-print('built', len(mixes), 'mix pages + archive')
+print('built', len(mixes), 'mix pages +', len(playlists), 'playlist pages + archive')

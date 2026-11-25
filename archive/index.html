@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Archive Mixes | GeneYao</title>
-<meta name="description" content="Archive Mixes. Every DJ set by GeneYao, collected in one place.">
+<title>Archive Mixes/Playlists | GeneYao</title>
+<meta name="description" content="Every DJ set and curated playlist by GeneYao, collected in one place.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GeneYao">
-<meta property="og:title" content="Archive Mixes">
-<meta property="og:description" content="Every DJ set by GeneYao, collected in one place.">
+<meta property="og:title" content="Archive Mixes/Playlists">
+<meta property="og:description" content="Every DJ set and curated playlist by GeneYao, collected in one place.">
 <meta property="og:url" content="https://geneyao.com/archive/">
 <link rel="canonical" href="https://geneyao.com/archive/">
 <meta property="og:image" content="https://geneyao.com/og-image.jpg">
@@ -223,6 +223,11 @@
   .arch-head{ padding-block: 28px 8px; }
   .arch-head h1{ font-size: clamp(38px, 6vw, 64px); line-height:1.02; }
   .arch-head p{ margin: 14px 0 0; color: var(--ink-soft); max-width: 52ch; }
+  .arch-tabs{ display:flex; gap:10px; margin-top: 22px; }
+  .arch-tabs button{ padding:10px 18px; border-radius:999px; border:1px solid var(--line); background:transparent; color: var(--ink-soft); font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+  .arch-tabs button i{ font-style:normal; opacity:.6; margin-left:4px; }
+  .arch-tabs button[aria-selected="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .arch-grid[hidden]{ display:none; }
   .arch-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 26px 20px; padding-block: 36px 88px; }
   .acard{ display:block; text-decoration:none; color: var(--ink); }
   .acard .acover{ position:relative; aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:1px solid var(--line); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -252,10 +257,15 @@
   </a>
 
   <header class="arch-head">
-    <h1>Archive Mixes</h1>
+    <h1>Archive Mixes/<wbr>Playlists</h1>
   </header>
 
-  <section class="arch-grid">
+  <div class="arch-tabs" role="tablist">
+    <button type="button" role="tab" data-tab="mixes" aria-selected="true">Mixes <i>11</i></button>
+    <button type="button" role="tab" data-tab="playlists" aria-selected="false">Playlists <i>1</i></button>
+  </div>
+
+  <section class="arch-grid" id="mixes">
     <a class="acard" href="../mix/fire-in-motion/"><div class="acover"><img src="../photos/mix-fire-in-motion.jpg" alt="Fire in Motion | Live at Art Week Chiayi 2026 artwork" loading="lazy"><span class="badge">Latest</span></div><h3>Fire in Motion | Live at Art Week Chiayi 2026</h3><div class="ameta">1:15:49 · 18 TRACKS</div></a>
     <a class="acard" href="../mix/lultimo-tuffo/"><div class="acover"><img src="../photos/mix.jpg" alt="L&#x27;ultimo Tuffo | From Mediterranean Breeze to Italo artwork" loading="lazy"></div><h3>L'ultimo Tuffo | From Mediterranean Breeze to Italo</h3><div class="ameta">1:17:45 · 18 TRACKS</div></a>
     <a class="acard" href="../mix/yes-fil-we-can-boogie/"><div class="acover"><img src="../photos/mix-yes-fil-we-can-boogie.jpg" alt="Yes Fil, We Can Boogie | Late 70&#x27;s Funk/Disco Retro Groove artwork" loading="lazy"></div><h3>Yes Fil, We Can Boogie | Late 70's Funk/Disco Retro Groove</h3><div class="ameta">1:01:15 · 14 TRACKS</div></a>
@@ -268,6 +278,20 @@
     <a class="acard" href="../mix/bonne-soiree/"><div class="acover"><img src="../photos/mix-bonne-soiree.jpg" alt="BONNE SOIRÉE (From Chanson Française to French House) artwork" loading="lazy"></div><h3>BONNE SOIRÉE (From Chanson Française to French House)</h3><div class="ameta">1:07:01 · 23 TRACKS</div></a>
     <a class="acard" href="../mix/my-first-set/"><div class="acover"><img src="../photos/mix-my-first-set.jpg" alt="My First Set (House, Nu-Disco, Jazz) artwork" loading="lazy"></div><h3>My First Set (House, Nu-Disco, Jazz)</h3><div class="ameta">0:50:40 · 15 TRACKS</div></a>
   </section>
+  <section class="arch-grid" id="playlists" hidden>
+    <a class="acard" href="../playlists/art-week-chiayi-2026/"><div class="acover"><img src="../photos/playlists/chiayi-2026-allday.jpg" alt="嘉義藝術日常 2026｜全日歌單策劃 封面" loading="lazy"></div><h3><span class="lang-zh">嘉義藝術日常 2026<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi 2026, Full Day Curation</span></h3><div class="ameta">4 PLAYLISTS · 81 TRACKS</div></a>
+  </section>
+  <script>
+  (function(){
+    var tabs = document.querySelectorAll('.arch-tabs button');
+    function show(name){
+      tabs.forEach(function(t){ var on = t.dataset.tab === name; t.setAttribute('aria-selected', on); document.getElementById(t.dataset.tab).hidden = !on; });
+    }
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.tab); try{ history.replaceState(null, '', t.dataset.tab === 'playlists' ? '#playlists' : location.pathname); }catch(e){} }); });
+    window.addEventListener('hashchange', function(){ show(location.hash === '#playlists' ? 'playlists' : 'mixes'); });
+    show(location.hash === '#playlists' ? 'playlists' : 'mixes');
+  })();
+  </script>
 </div>
 
 <footer>
