@@ -119,7 +119,6 @@ def video_html(m):
 CURATION_CSS = '''  <style>
   .curation{ padding-block: 0 80px; }
   .curation h2{ font-size: 32px; margin-bottom: 24px; }
-  .curation .intro{ margin: -10px 0 24px; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
   .tracklist#sets{ padding-bottom: 56px; }
   .mix-hero .action-row{ margin-top: 22px; display:flex; flex-wrap:wrap; gap:10px; }
   .mix-hero .action-row .btn .arrow{ width:13px; height:13px; }
@@ -140,19 +139,31 @@ SPOTIFY_DOT = '<svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path 
 def both(zh, en):
     return f'<span class="lang-zh">{esc(zh)}</span><span class="lang-en">{esc(en)}</span>'
 
-def cards_html(items):
+HEADPHONES = ('<svg viewBox="8 11 28 25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="color:var(--accent)">'
+              '<path d="M12.5 25v-3a9.5 9.5 0 0 1 19 0v3"/><rect x="9.5" y="24" width="6.5" height="10" rx="3"/><rect x="28" y="24" width="6.5" height="10" rx="3"/></svg>')
+
+def cards_html(items, mix=None):
     lis = ''
     for it in items:
         n = it['count']
         dj = ' class="dj"' if it.get('dj') else ''
-        lis += (f'      <li{dj}><a href="{attr(it["url"])}" target="_blank" rel="noopener">'
+        if it.get('dj') and mix:   # the DJ set slot opens the set page on this site
+            link = f'href="../../mix/{mix}/"'
+            go = f'{HEADPHONES}{both("DJ set 頁面", "DJ set page")} ↗'
+        else:
+            link = f'href="{attr(it["url"])}" target="_blank" rel="noopener"'
+            go = f'{SPOTIFY_DOT}{both(f"{n} 首", f"{n} tracks")} ↗'
+        lis += (f'      <li{dj}><a {link}>'
                 f'<img src="../../photos/{it["cover"]}" alt="{attr(it["zh"])}歌單封面" loading="lazy">'
                 f'<span class="tm">{it["time"]}</span><h3>{both(it["zh"], it["en"])}</h3>'
-                f'<span class="go">{SPOTIFY_DOT}{both(f"{n} 首", f"{n} tracks")} ↗</span></a></li>\n')
+                f'<span class="go">{go}</span></a></li>\n')
     return f'    <ul class="cur-grid">\n{lis}    </ul>\n'
 
 LINK_CSS = '''  <style>
-  .pl-link{ display:flex; align-items:center; gap:18px; margin: 8px 0 56px; padding:14px 18px 14px 14px; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
+  .tracklist{ padding-bottom: 48px; }
+  .pl-block{ padding-bottom: 80px; }
+  .pl-intro{ margin: 0 0 16px; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
+  .pl-link{ display:flex; align-items:center; gap:18px; margin: 0; padding:14px 18px 14px 14px; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
   .pl-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
   .pl-link .pl-thumb{ flex:0 0 auto; width:104px; height:104px; object-fit:cover; border-radius:12px; display:block; }
   .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
@@ -169,10 +180,12 @@ def playlist_link_html(m):
     if not slug:
         return ''
     p = next(x for x in playlists if x['slug'] == slug)
-    return (LINK_CSS + f'  <a class="pl-link" href="../../playlists/{slug}/">\n'
+    intro = (f'  <p class="pl-intro">{both(p["segments_intro"]["zh"], p["segments_intro"]["en"])}</p>\n'
+             if p.get('segments_intro') else '')
+    return (LINK_CSS + '  <section class="pl-block">\n' + intro + f'  <a class="pl-link" href="../../playlists/{slug}/">\n'
             f'    <img class="pl-thumb" src="../../photos/{p["cover"]}" alt="" loading="lazy">\n'
             f'    <span class="head"><span class="kicker">Playlist Curation</span><span class="title">{title_lines(p["title"])}</span></span>\n'
-            f'    {ARROW_SVG}\n  </a>\n')
+            f'    {ARROW_SVG}\n  </a>\n  </section>\n')
 
 def track_lis(tracks, times=None):
     times = times or [''] * len(tracks)
@@ -265,7 +278,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
-        'VIDEO': video_html(m), 'TRACKLIST': playlist_link_html(m) + tracklist, 'VIBE': vibe_html(m),
+        'VIDEO': video_html(m), 'TRACKLIST': tracklist + playlist_link_html(m), 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():
@@ -295,7 +308,7 @@ ARCHIVE_CSS = '''
   @media (max-width: 560px){ .arch-grid{ grid-template-columns: 1fr 1fr; gap: 20px 12px; } .acard h3{ font-size:17px; } .acard .acover{ border-radius:14px; } }
 '''
 
-def write_page(rel, title, desc, og_image, back_href, back_label, main):
+def write_page(rel, title, desc, og_image, back_href, back_label, main, tail='</div>\n'):
     """A listing-style page: shared head, back link, content, footer and language switch."""
     up = '../' * rel.count('/')
     head = tpl[:tpl.index('<body>')]
@@ -320,8 +333,7 @@ def write_page(rel, title, desc, og_image, back_href, back_label, main):
     <span>{back_label}</span>
   </a>
 
-{main}</div>
-
+{main}{tail}
 <footer>
   <div class="wrap">
     <a class="wordmark" href="{up}">{re.search(r'<svg viewBox="0 0 32 32".*?</svg>', tpl, re.S).group(0)}<span>GeneYao</span></a>
@@ -400,6 +412,10 @@ def title_lines(t):
     zh = '<br>'.join(esc(x) for x in t['zh'].split('｜'))
     return f'<span class="lang-zh">{zh}</span><span class="lang-en">{esc(t["en"])}</span>'
 
+def mix_tail():
+    """Same closing blocks as a DJ set page: more mixes button, newsletter card, contact (closes the .wrap div)."""
+    return tpl[tpl.index('  <section class="more">'):tpl.index('<footer>')]
+
 def build_playlist(p):
     """Header laid out like a DJ set page (cover left, details right), then the slot cards and tracklists."""
     n = sum(it['count'] for it in p['items'])
@@ -421,10 +437,9 @@ def build_playlist(p):
             + actions + '    </div>\n  </section>\n'
             + sets_html(p) +
             '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n'
-            + (f'    <p class="intro">{both(p["segments_intro"]["zh"], p["segments_intro"]["en"])}</p>\n' if p.get('segments_intro') else '')
-            + cards_html(p['items']) + '  </section>\n')
+            + cards_html(p['items'], p.get('mix')) + '  </section>\n')
     write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
-               '../../archive/#playlists', 'Playlists', main)
+               '../../archive/#playlists', 'Playlists', main, mix_tail())
 
 for i, m in enumerate(mixes):
     build_detail(m, i)
