@@ -114,6 +114,45 @@ def video_html(m):
             'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>\n'
             '    </div>\n  </section>\n')
 
+CURATION_CSS = '''  <style>
+  .curation{ padding-block: 8px 56px; scroll-margin-top: 24px; }
+  .curation .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
+  .curation h2{ margin-top: 10px; font-size: 32px; }
+  .curation .intro{ margin: 12px 0 0; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
+  .cur-grid{ list-style:none; margin: 24px 0 0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cur-grid a{ display:flex; flex-direction:column; height:100%; padding:10px 10px 14px; background: var(--surface); border:1px solid var(--line); border-radius:18px; text-decoration:none; color: var(--ink); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .cur-grid a:hover{ transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
+  .cur-grid li.dj a{ border-color: var(--accent); }
+  .cur-grid img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; display:block; }
+  .cur-grid .tm{ margin-top:12px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.04em; color: var(--ink-soft); }
+  .cur-grid h3{ margin-top:4px; font-size:21px; line-height:1.25; }
+  .cur-grid .go{ margin-top:auto; padding-top:10px; display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:.04em; color: var(--ink-soft); white-space:nowrap; }
+  .cur-grid .go svg{ width:18px; height:18px; flex:none; }
+  @media (max-width: 720px){ .cur-grid{ grid-template-columns: 1fr 1fr; gap: 12px; } .cur-grid h3{ font-size:18px; } }
+  </style>
+'''
+SPOTIFY_DOT = '<svg viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>'
+
+def both(zh, en):
+    return f'<span class="lang-zh">{esc(zh)}</span><span class="lang-en">{esc(en)}</span>'
+
+def curation_html(m):
+    c = m.get('curation')
+    if not c:
+        return ''
+    lis = ''
+    for it in c['items']:
+        n = it['count']
+        dj = ' class="dj"' if it.get('dj') else ''
+        lis += (f'      <li{dj}><a href="{attr(it["url"])}" target="_blank" rel="noopener">'
+                f'<img src="../../photos/{it["cover"]}" alt="{attr(it["zh"])}歌單封面" loading="lazy">'
+                f'<span class="tm">{it["time"]}</span><h3>{both(it["zh"], it["en"])}</h3>'
+                f'<span class="go">{SPOTIFY_DOT}{both(f"{n} 首", f"{n} tracks")} ↗</span></a></li>\n')
+    return (CURATION_CSS + '  <section class="curation" id="curation">\n    <p class="kicker">Playlist Curation</p>\n'
+            f'    <h2>{both(c["title"]["zh"], c["title"]["en"])}</h2>\n'
+            f'    <p class="intro">{both(c["intro"]["zh"], c["intro"]["en"])}</p>\n'
+            f'    <ul class="cur-grid">\n{lis}    </ul>\n  </section>\n')
+
 def build_detail(m, idx):
     title = m['title']
     short = title.split(' | ')[0]
@@ -154,7 +193,7 @@ def build_detail(m, idx):
         'CREDITS_BLOCK': credits, 'DUR': m['dur'],
         'SC_ENC': urllib.parse.quote(m['sc_url'], safe=''), 'SC_URL': m['sc_url'],
         'SPOTIFY_BTN': (yt_tpl.replace('{{YOUTUBE_URL}}', m['youtube']) if m.get('youtube') else '') + (spot_tpl.replace('{{SPOTIFY_URL}}', m['spotify']) if m.get('spotify') else ''),
-        'VIDEO': video_html(m), 'TRACKLIST': tracklist, 'VIBE': vibe_html(m),
+        'VIDEO': video_html(m), 'TRACKLIST': curation_html(m) + tracklist, 'VIBE': vibe_html(m),
         'WAVE': json.dumps(m['wave']),
     }
     for k, v in sub.items():

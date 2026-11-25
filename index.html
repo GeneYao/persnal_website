@@ -340,6 +340,15 @@
   .songs-card .sub-note{ margin:-4px 0 0; font-size:12.5px; color: var(--ink-soft); max-width:300px; line-height:1.6; }
   .songs-card .go{ margin-top:0; text-decoration:none; }
   .songs-card .go:hover svg{ transform: translate(2px,-2px); }
+  .curation-link{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; margin-top:16px; padding:18px 20px; position:relative; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
+  .curation-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .curation-link .head{ display:flex; flex-direction:column; gap:6px; flex:1 1 220px; padding-right:28px; }
+  .curation-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
+  .curation-link .title{ font-size:17px; line-height:1.4; }
+  .curation-link .thumbs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; flex:0 1 300px; width:100%; }
+  .curation-link .thumbs img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; display:block; }
+  .curation-link .arrow{ position:absolute; top:20px; right:18px; width:15px; height:15px; color: var(--accent); }
+  @media (min-width: 720px){ .curation-link{ padding-right:52px; } .curation-link .head{ padding-right:0; } .curation-link .arrow{ top:50%; transform:translateY(-50%); } }
 </style>
 </head>
 <body>
@@ -405,13 +414,13 @@
     <div class="latest" id="latest">
       <p class="eyebrow">Latest Mix</p>
       <div class="latest-card" id="latestCard">
-        <img src="photos/mix.jpg" alt="L'ultimo Tuffo mix artwork" loading="lazy">
+        <img src="photos/mix-fire-in-motion.jpg" alt="Fire in Motion mix artwork" loading="lazy">
         <div>
-          <h3><a href="mix/lultimo-tuffo/">L'ultimo Tuffo | From Mediterranean Breeze to Italo</a></h3>
-          <div class="meta">1:17:45 · 18 TRACKS</div>
-          <p class="lang-zh">日落時分的 18 首曲目旅程，從地中海的微風一路潛入義式迪斯可的黃金時刻。</p>
-          <p class="lang-en">An 18-track sunset journey, from a Mediterranean breeze to the golden hour of Italo disco.</p>
-          <a class="go" href="mix/lultimo-tuffo/">
+          <h3><a href="mix/fire-in-motion/">Fire in Motion | Live at Art Week Chiayi 2026</a></h3>
+          <div class="meta">1:15:49 · 18 TRACKS</div>
+          <p class="lang-zh">午後的光轉為金黃，從 Balearic、world groove 一路走到 house 的 18 首曲目。</p>
+          <p class="lang-en">An 18-track golden hour set, from Balearic and world grooves into house.</p>
+          <a class="go" href="mix/fire-in-motion/">
             <span class="lang-zh">查看歌單與曲目</span><span class="lang-en">Details &amp; tracklist</span>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
           </a>
@@ -427,11 +436,17 @@
               <div class="wave-layer wave-fill" id="waveFill" aria-hidden="true"></div>
               <input type="range" class="mix-seek" id="mixSeek" min="0" max="1000" value="0" aria-label="Seek">
             </div>
-            <div class="mix-time"><span id="mixCur">0:00</span><span id="mixDur">1:17:45</span></div>
+            <div class="mix-time"><span id="mixCur">0:00</span><span id="mixDur">1:15:49</span></div>
           </div>
         </div>
-        <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgeneyao%2Flultimo-tuffo-from&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+        <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgeneyao%2Ffire-in-motion-live-at-art&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
       </div>
+      <a class="curation-link" href="mix/fire-in-motion/#curation">
+        <span class="head"><span class="kicker">Playlist Curation</span>
+          <span class="title"><span class="lang-zh">嘉義藝術日常｜全日歌單策劃</span><span class="lang-en">Art Week Chiayi, Full Day Curation</span></span></span>
+        <span class="thumbs" aria-hidden="true"><img src="photos/playlists/chiayi-2026-water.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-wood.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-fire.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-after.jpg" alt="" loading="lazy"></span>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
+      </a>
       <a class="archive-link" href="archive/">
         <span class="ico" aria-hidden="true">
           <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12.5 25v-3a9.5 9.5 0 0 1 19 0v3"/><rect x="9.5" y="24" width="6.5" height="10" rx="3"/><rect x="28" y="24" width="6.5" height="10" rx="3"/></svg>
@@ -606,7 +621,7 @@
         return h ? h + ':' + pad(m) + ':' + pad(sec) : m + ':' + pad(sec);
       }
       const wave = document.getElementById('mixWave');
-      const WAVE = [99, 108, 108, 106, 113, 113, 112, 112, 105, 109, 114, 106, 117, 100, 111, 115, 118, 115, 106, 91, 94, 93, 93, 114, 121, 119, 113, 112, 112, 110, 106, 109, 109, 110, 110, 108, 114, 121, 121, 118, 118, 120, 120, 125, 124, 114, 109, 108, 106, 106, 104, 116, 121, 121, 119, 118, 114, 115, 115, 116, 116, 116, 118, 114, 104, 103, 104, 108, 105, 108, 115, 116, 112, 120, 118, 117, 120, 121, 118, 126, 126, 126, 126, 126, 123, 107, 112, 114, 111, 88];
+      const WAVE = [84, 115, 117, 115, 116, 116, 92, 98, 102, 101, 103, 98, 122, 129, 129, 128, 106, 128, 123, 122, 123, 119, 115, 116, 117, 118, 124, 124, 120, 119, 99, 99, 97, 98, 118, 118, 117, 114, 113, 101, 109, 110, 106, 110, 111, 129, 115, 129, 118, 120, 123, 117, 127, 124, 117, 111, 112, 100, 107, 126, 107, 108, 122, 125, 129, 124, 124, 128, 125, 118, 93, 113, 118, 120, 108, 105, 94, 109, 110, 101, 99, 126, 127, 127, 97, 101, 127, 106, 70, 48];
       function buildWave(){
         const n = Math.max(24, Math.min(WAVE.length, Math.floor(wave.clientWidth / 4)));
         ['waveBase', 'waveFill'].forEach(function(id){
