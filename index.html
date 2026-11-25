@@ -173,7 +173,6 @@
 
   /* ---- latest mix ---- */
   .latest{ margin-top: 32px; scroll-margin-top: 24px; }
-  .latest > .eyebrow{ margin: 0 0 12px; }
   .latest-card{
     position:relative; display:grid; grid-template-columns: 132px 1fr; gap: 24px; align-items:center;
     background: var(--surface); border:1px solid var(--line); border-radius: 22px; padding: 16px;
@@ -187,6 +186,7 @@
   .latest-card h3 a:hover{ color: var(--accent); }
   .latest-card .meta{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.06em; color: var(--ink-soft); }
   .latest-card p{ margin: 10px 0 0; color: var(--ink-soft); font-size: 14.5px; }
+  .latest-card p.eyebrow{ margin: 0 0 8px; color: var(--accent); font-size: 11px; letter-spacing:.18em; line-height:1.4; }
   .latest-card .go{ margin-top:14px; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); text-decoration:none; }
   .latest-card .go svg{ width:13px; height:13px; transition: transform .2s ease; }
   .latest-card .go:hover svg{ transform: translate(2px,-2px); }
@@ -426,12 +426,11 @@
   <div class="wrap">
     <h2>My Mix/Playlist</h2>
     <div class="latest" id="latest">
-      <p class="eyebrow">Latest Mix</p>
       <div class="latest-card" id="latestCard">
         <img src="photos/mix-fire-in-motion.jpg" alt="Fire in Motion mix artwork" loading="lazy">
         <div>
+          <p class="eyebrow">Latest Mix</p>
           <h3><a href="mix/fire-in-motion/">Fire in Motion | Live at Art Week Chiayi 2026</a></h3>
-          <div class="meta">1:15:49 · 18 TRACKS</div>
           <p class="lang-zh">午後的光轉為金黃，從 Balearic、world groove 一路走到 house，在黃金時刻裡，舞動與感受的最後一段。</p>
           <p class="lang-en">An 18-track golden hour set, from Balearic and world grooves into house.</p>
           <a class="go" href="mix/fire-in-motion/">
