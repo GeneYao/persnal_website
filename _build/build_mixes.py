@@ -117,16 +117,11 @@ def video_html(m):
             '    </div>\n  </section>\n')
 
 CURATION_CSS = '''  <style>
-  .curation{ padding-block: 28px 56px; }
-  .curation h1{ margin-top: 12px; font-size: clamp(32px, 5.5vw, 52px); line-height:1.2; max-width: 20ch; }
-  .pl-cover{ display:block; width:min(420px, 100%); aspect-ratio:1/1; object-fit:cover; margin: 0 auto 32px; border-radius:20px; border:1px solid var(--line); box-shadow: var(--shadow); }
-  .curation .when{ margin-top: 14px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.05em; color: var(--accent); }
-  .pl-set{ display:inline-flex; align-items:center; gap:8px; margin-top: 28px; padding:12px 20px; border:1px solid var(--accent); border-radius:999px; color: var(--ink); text-decoration:none; font-size:15px; }
-  .pl-set .arrow{ width:14px; height:14px; color: var(--accent); }
-  .curation .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
-  .curation h2{ margin-top: 10px; font-size: 32px; }
-  .curation .intro{ margin: 12px 0 0; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
-  .cur-grid{ list-style:none; margin: 24px 0 0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .curation{ padding-block: 0 56px; }
+  .curation h2{ font-size: 32px; margin-bottom: 24px; }
+  .mix-hero .action-row{ margin-top: 22px; display:flex; flex-wrap:wrap; gap:10px; }
+  .mix-hero .action-row .btn .arrow{ width:13px; height:13px; }
+  .cur-grid{ list-style:none; margin: 0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .cur-grid a{ display:flex; flex-direction:column; height:100%; padding:10px 10px 14px; background: var(--surface); border:1px solid var(--line); border-radius:18px; text-decoration:none; color: var(--ink); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
   .cur-grid a:hover{ transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
   .cur-grid li.dj a{ border-color: var(--accent); }
@@ -184,13 +179,14 @@ def track_lis(tracks, times=None):
                      for i, (t, tm) in enumerate(zip(tracks, times), 1))
 
 SETS_CSS = '''  <style>
-  .tl-tabs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; margin-top: 22px; }
-  .tl-tabs button{ display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px 4px; border:1px solid var(--line); border-radius:14px; background:transparent; color: var(--ink); font-family:inherit; cursor:pointer; transition: border-color .2s ease, background .2s ease, color .2s ease; }
-  .tl-tabs button:hover{ border-color: var(--accent); }
+  .tl-tabs{ display:grid; grid-template-columns: repeat(4, 1fr); margin-top: 22px; border-bottom:1px solid var(--line); }
+  .tl-tabs button{ display:flex; flex-direction:column; align-items:center; gap:3px; margin:0 0 -1px; padding:8px 4px 12px; border:0; border-bottom:2px solid transparent; border-radius:0; background:transparent; color: var(--ink-soft); font-family:inherit; cursor:pointer; transition: color .2s ease, border-color .2s ease; }
+  .tl-tabs button:hover{ color: var(--ink); }
   .tl-tabs .n{ font-size:15.5px; white-space:nowrap; }
   .tl-tabs .t{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.04em; color: var(--ink-soft); }
-  .tl-tabs button[aria-selected="true"]{ background: var(--accent); border-color: var(--accent); color: var(--bg); }
-  .tl-tabs button[aria-selected="true"] .t{ color: var(--bg); }
+  .tl-tabs button[aria-selected="true"]{ color: var(--ink); border-bottom-color: var(--accent); }
+  .tl-tabs button[aria-selected="true"] .n{ font-weight:700; }
+  .tl-tabs button[aria-selected="true"] .t{ color: var(--accent); }
   .tl-info{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; margin: 18px 0 0; font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.04em; color: var(--ink-soft); }
   .tl-info a{ color: var(--accent); text-decoration:none; }
   .tracklist .tl-panel ol{ margin-top: 14px; }
@@ -404,16 +400,25 @@ def title_lines(t):
     return f'<span class="lang-zh">{zh}</span><span class="lang-en">{esc(t["en"])}</span>'
 
 def build_playlist(p):
-    items = cards_html(p['items'])
-    mix = (f'    <a class="pl-set" href="../../mix/{p["mix"]}/">{both("聽當天的 DJ set 錄音", "Listen to the DJ set recording")} {ARROW_SVG}</a>\n'
-           if p.get('mix') else '')
-    main = (CURATION_CSS + '  <section class="curation">\n'
-            f'    <img class="pl-cover" src="../../photos/{p["cover"]}" alt="{attr(p["title"]["zh"])} 封面">\n'
-            '    <p class="kicker">Playlist Curation</p>\n'
-            f'    <h1>{title_lines(p["title"])}</h1>\n'
-            f'    <p class="when">{both(p["when"]["zh"], p["when"]["en"])}</p>\n'
-            f'    <p class="intro">{both(p["intro"]["zh"], p["intro"]["en"])}</p>\n'
-            + items + mix + '  </section>\n' + sets_html(p))
+    """Header laid out like a DJ set page (cover left, details right), then the slot cards and tracklists."""
+    n = sum(it['count'] for it in p['items'])
+    btns = ''
+    if p.get('full'):
+        icon = re.search(r'<svg.*?</svg>', spot_tpl, re.S).group(0)
+        btns += f'        <a class="btn solid" href="{attr(p["full"]["url"])}" target="_blank" rel="noopener">{icon}{both("全天歌單", "Full day playlist")}</a>\n'
+    if p.get('mix'):
+        btns += f'        <a class="btn" href="../../mix/{p["mix"]}/">{both("聽當天的 DJ set 錄音", "Listen to the DJ set recording")} {ARROW_SVG}</a>\n'
+    actions = f'      <div class="action-row">\n{btns}      </div>\n' if btns else ''
+    main = (CURATION_CSS + '  <section class="mix-hero">\n'
+            f'    <div class="cover"><img src="../../photos/{p["cover"]}" alt="{attr(p["title"]["zh"])} 封面"></div>\n'
+            '    <div>\n      <p class="eyebrow">Playlist Curation</p>\n'
+            f'      <h1>{title_lines(p["title"])}</h1>\n'
+            f'      <div class="meta when">{both(p["when"]["zh"], p["when"]["en"])}</div>\n'
+            f'      <div class="meta dur">{len(p["items"])} PLAYLISTS · {n} TRACKS</div>\n'
+            f'      <p class="desc">{both(p["intro"]["zh"], p["intro"]["en"])}</p>\n'
+            '      <p class="credit">Presented by GeneYao</p>\n'
+            + actions + '    </div>\n  </section>\n'
+            '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n' + cards_html(p['items']) + '  </section>\n' + sets_html(p))
     write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
                '../../archive/#playlists', 'Playlists', main)
 
