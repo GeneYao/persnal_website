@@ -181,7 +181,19 @@ LINK_CSS = '''  <style>
   .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
   .pl-link .title{ font-size:17px; line-height:1.45; }
   .pl-link .arrow{ flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
-  @media (max-width: 480px){ .pl-link{ gap:14px; padding-right:14px; } .pl-link .pl-thumb{ width:92px; height:92px; } .pl-link .title{ font-size:15.5px; } }
+  .pl-link .desc{ margin-top:4px; max-width:60ch; font-size:13.5px; line-height:1.75; color: var(--ink-soft); }
+  @media (min-width: 761px){
+    .pl-link .head{ display:grid; grid-template-columns: max-content 1fr; column-gap:36px; align-items:center; }
+    .pl-link .desc{ margin:0; max-width:52ch; padding-left:36px; border-left:1px solid var(--line); }
+  }
+  @media (max-width: 640px){
+    .pl-link{ display:grid; grid-template-columns: 92px 1fr 15px; column-gap:14px; row-gap:10px; padding:14px; }
+    .pl-link .head{ display:contents; }
+    .pl-link .pl-thumb{ grid-column:1; grid-row:1; width:92px; height:92px; }
+    .pl-link .title{ grid-column:2; grid-row:1; align-self:center; font-size:15.5px; }
+    .pl-link .arrow{ grid-column:3; grid-row:1; align-self:center; }
+    .pl-link .desc{ grid-column:1 / -1; grid-row:2; margin:0; }
+  }
   </style>
 '''
 ARROW_SVG = '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
@@ -195,7 +207,8 @@ def playlist_link_html(m):
              if p.get('segments_intro') else '')
     return (LINK_CSS + '  <section class="pl-block">\n  <h2><span class="lang-zh">歌單策劃</span><span class="lang-en">Playlist Curation</span></h2>\n' + intro + f'  <a class="pl-link" href="../../playlists/{slug}/">\n'
             f'    <img class="pl-thumb" src="../../photos/{p["cover"]}" alt="" loading="lazy">\n'
-            f'    <span class="head"><span class="title">{title_lines(p["title"])}</span></span>\n'
+            f'    <span class="head"><span class="title">{title_lines(p["title"])}</span>'
+            f'<span class="desc">{both(p["intro"]["zh"], p["intro"]["en"])}</span></span>\n'
             f'    {ARROW_SVG}\n  </a>\n  </section>\n')
 
 def track_lis(tracks, times=None):

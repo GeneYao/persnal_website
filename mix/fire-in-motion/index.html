@@ -316,14 +316,26 @@
   .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
   .pl-link .title{ font-size:17px; line-height:1.45; }
   .pl-link .arrow{ flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
-  @media (max-width: 480px){ .pl-link{ gap:14px; padding-right:14px; } .pl-link .pl-thumb{ width:92px; height:92px; } .pl-link .title{ font-size:15.5px; } }
+  .pl-link .desc{ margin-top:4px; max-width:60ch; font-size:13.5px; line-height:1.75; color: var(--ink-soft); }
+  @media (min-width: 761px){
+    .pl-link .head{ display:grid; grid-template-columns: max-content 1fr; column-gap:36px; align-items:center; }
+    .pl-link .desc{ margin:0; max-width:52ch; padding-left:36px; border-left:1px solid var(--line); }
+  }
+  @media (max-width: 640px){
+    .pl-link{ display:grid; grid-template-columns: 92px 1fr 15px; column-gap:14px; row-gap:10px; padding:14px; }
+    .pl-link .head{ display:contents; }
+    .pl-link .pl-thumb{ grid-column:1; grid-row:1; width:92px; height:92px; }
+    .pl-link .title{ grid-column:2; grid-row:1; align-self:center; font-size:15.5px; }
+    .pl-link .arrow{ grid-column:3; grid-row:1; align-self:center; }
+    .pl-link .desc{ grid-column:1 / -1; grid-row:2; margin:0; }
+  }
   </style>
   <section class="pl-block">
   <h2><span class="lang-zh">歌單策劃</span><span class="lang-en">Playlist Curation</span></h2>
   <p class="pl-intro"><span class="lang-zh">嘉義藝術日常 2026 當天 11:00–17:00，除了 DJ set，也策劃了整天四個時段的歌單。</span><span class="lang-en">Four playlists curated for a full day at Art Week Chiayi 2026, from 11:00 to 17:00.</span></p>
   <a class="pl-link" href="../../playlists/art-week-chiayi-2026/">
     <img class="pl-thumb" src="../../photos/playlists/chiayi-2026-allday.jpg" alt="" loading="lazy">
-    <span class="head"><span class="title"><span class="lang-zh">嘉義藝術日常 2026<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi 2026, Full Day Curation</span></span></span>
+    <span class="head"><span class="title"><span class="lang-zh">嘉義藝術日常 2026<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi 2026, Full Day Curation</span></span><span class="desc"><span class="lang-zh">水生木，木生火。從一泓清水到黃金時刻，環境音樂、原聲與世界律動、Balearic 到 house，最後落在 70 年代的溫暖 soul。</span><span class="lang-en">Water feeds wood, wood feeds fire. From a clear spring to the golden hour: ambient, acoustic and world grooves, Balearic into house, and finally warm 70s soul.</span></span></span>
     <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
   </a>
   </section>
@@ -332,12 +344,12 @@
     <div class="vibe-grid" style="grid-template-columns: 1fr 1.12fr 1fr">
       <div class="vcol">
         <img src="../../photos/chiayi-day-2.jpg" alt="市集街道上往來的人潮" loading="lazy">
-        <img src="../../photos/chiayi-set-1.jpg" alt="Gene 穿著紅色花紋襯衫，在 DJ 台前專注操作控台" loading="lazy">
+        <img src="../../photos/chiayi-set-3.jpg" alt="Gene 站在鋪著藍色織布的 DJ 台後望向一旁" loading="lazy">
         <img src="../../photos/chiayi-set-5.jpg" alt="觀眾坐在白色折疊椅上，看著木屋舞台上的 Gene" loading="lazy">
       </div>
       <div class="vcol mid midg">
         <img src="../../photos/chiayi-day-4.jpg" alt="嘉義藝術日常 2026 的入口布旗" class="wide" loading="lazy">
-        <img src="../../photos/chiayi-set-3.jpg" alt="Gene 站在鋪著藍色織布的 DJ 台後望向一旁" loading="lazy">
+        <img src="../../photos/chiayi-set-1.jpg" alt="Gene 穿著紅色花紋襯衫，在 DJ 台前專注操作控台" loading="lazy">
         <img src="../../photos/chiayi-set-4.jpg" alt="DJ 控台旁立著嘉義藝術日常的圓扇" loading="lazy">
         <img src="../../photos/chiayi-day-3.jpg" alt="布旗旁坐在陽傘下聆聽的觀眾" class="wide" loading="lazy">
       </div>
@@ -352,8 +364,8 @@
         <div class="vm-col">
           <img src="../../photos/chiayi-day-2.jpg" alt="市集街道上往來的人潮" loading="lazy">
           <img src="../../photos/chiayi-set-2.jpg" alt="隔著前景的橘色傘面，看見舞台上的 Gene 與 DJ 台" loading="lazy">
-          <img src="../../photos/chiayi-set-1.jpg" alt="Gene 穿著紅色花紋襯衫，在 DJ 台前專注操作控台" loading="lazy">
           <img src="../../photos/chiayi-set-3.jpg" alt="Gene 站在鋪著藍色織布的 DJ 台後望向一旁" loading="lazy">
+          <img src="../../photos/chiayi-set-1.jpg" alt="Gene 穿著紅色花紋襯衫，在 DJ 台前專注操作控台" loading="lazy">
         </div>
         <div class="vm-col">
           <img src="../../photos/chiayi-set-6.jpg" alt="Gene 在 DJ 台後調整控台旋鈕" loading="lazy">
