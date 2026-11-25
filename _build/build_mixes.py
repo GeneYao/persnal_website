@@ -117,8 +117,10 @@ def video_html(m):
             '    </div>\n  </section>\n')
 
 CURATION_CSS = '''  <style>
-  .curation{ padding-block: 0 56px; }
+  .curation{ padding-block: 0 80px; }
   .curation h2{ font-size: 32px; margin-bottom: 24px; }
+  .curation .intro{ margin: -10px 0 24px; max-width: 56ch; font-size:15px; line-height:1.8; color: var(--ink-soft); }
+  .tracklist#sets{ padding-bottom: 56px; }
   .mix-hero .action-row{ margin-top: 22px; display:flex; flex-wrap:wrap; gap:10px; }
   .mix-hero .action-row .btn .arrow{ width:13px; height:13px; }
   .cur-grid{ list-style:none; margin: 0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -150,15 +152,14 @@ def cards_html(items):
     return f'    <ul class="cur-grid">\n{lis}    </ul>\n'
 
 LINK_CSS = '''  <style>
-  .pl-link{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; margin: 8px 0 56px; padding:18px 52px 18px 20px; position:relative; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
+  .pl-link{ display:flex; align-items:center; gap:18px; margin: 8px 0 56px; padding:14px 18px 14px 14px; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
   .pl-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
-  .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1 1 220px; }
+  .pl-link .pl-thumb{ flex:0 0 auto; width:104px; height:104px; object-fit:cover; border-radius:12px; display:block; }
+  .pl-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
   .pl-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
-  .pl-link .title{ font-size:17px; line-height:1.4; }
-  .pl-link .thumbs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; flex:0 1 300px; width:100%; }
-  .pl-link .thumbs img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; display:block; }
-  .pl-link .arrow{ position:absolute; top:50%; right:18px; transform:translateY(-50%); width:15px; height:15px; color: var(--accent); }
-  @media (max-width: 719px){ .pl-link{ padding-right:20px; } .pl-link .head{ padding-right:28px; } .pl-link .arrow{ top:20px; transform:none; } }
+  .pl-link .title{ font-size:17px; line-height:1.45; }
+  .pl-link .arrow{ flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
+  @media (max-width: 480px){ .pl-link{ gap:14px; padding-right:14px; } .pl-link .pl-thumb{ width:92px; height:92px; } .pl-link .title{ font-size:15.5px; } }
   </style>
 '''
 ARROW_SVG = '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>'
@@ -168,10 +169,10 @@ def playlist_link_html(m):
     if not slug:
         return ''
     p = next(x for x in playlists if x['slug'] == slug)
-    thumbs = ''.join(f'<img src="../../photos/{it["cover"]}" alt="" loading="lazy">' for it in p['items'])
     return (LINK_CSS + f'  <a class="pl-link" href="../../playlists/{slug}/">\n'
-            f'    <span class="head"><span class="kicker">Playlist Curation</span><span class="title">{both(p["title"]["zh"], p["title"]["en"])}</span></span>\n'
-            f'    <span class="thumbs" aria-hidden="true">{thumbs}</span>\n    {ARROW_SVG}\n  </a>\n')
+            f'    <img class="pl-thumb" src="../../photos/{p["cover"]}" alt="" loading="lazy">\n'
+            f'    <span class="head"><span class="kicker">Playlist Curation</span><span class="title">{title_lines(p["title"])}</span></span>\n'
+            f'    {ARROW_SVG}\n  </a>\n')
 
 def track_lis(tracks, times=None):
     times = times or [''] * len(tracks)
@@ -418,7 +419,10 @@ def build_playlist(p):
             f'      <p class="desc">{both(p["intro"]["zh"], p["intro"]["en"])}</p>\n'
             '      <p class="credit">Presented by GeneYao</p>\n'
             + actions + '    </div>\n  </section>\n'
-            '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n' + cards_html(p['items']) + '  </section>\n' + sets_html(p))
+            + sets_html(p) +
+            '  <section class="curation">\n    <h2><span class="lang-zh">分段歌單</span><span class="lang-en">Playlists by Time Slot</span></h2>\n'
+            + (f'    <p class="intro">{both(p["segments_intro"]["zh"], p["segments_intro"]["en"])}</p>\n' if p.get('segments_intro') else '')
+            + cards_html(p['items']) + '  </section>\n')
     write_page(f'playlists/{p["slug"]}/', p['title']['zh'], p['intro']['zh'], 'photos/' + p['cover'],
                '../../archive/#playlists', 'Playlists', main)
 

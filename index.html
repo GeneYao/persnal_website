@@ -340,15 +340,14 @@
   .songs-card .sub-note{ margin:-4px 0 0; font-size:12.5px; color: var(--ink-soft); max-width:300px; line-height:1.6; }
   .songs-card .go{ margin-top:0; text-decoration:none; }
   .songs-card .go:hover svg{ transform: translate(2px,-2px); }
-  .curation-link{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 20px; margin-top:16px; padding:18px 20px; position:relative; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
+  .curation-link{ display:flex; align-items:center; gap:18px; margin-top:16px; padding:14px 18px 14px 14px; background: var(--surface); border:1px solid var(--line); border-radius:22px; text-decoration:none; color: var(--ink); transition: border-color .2s ease, transform .2s ease; }
   .curation-link:hover{ border-color: var(--accent); transform: translateY(-2px); }
-  .curation-link .head{ display:flex; flex-direction:column; gap:6px; flex:1 1 220px; padding-right:28px; }
+  .curation-link .thumb{ flex:0 0 auto; width:104px; height:104px; object-fit:cover; border-radius:12px; display:block; }
+  .curation-link .head{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:0; }
   .curation-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
-  .curation-link .title{ font-size:17px; line-height:1.4; }
-  .curation-link .thumbs{ display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; flex:0 1 300px; width:100%; }
-  .curation-link .thumbs img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; display:block; }
-  .curation-link .arrow{ position:absolute; top:20px; right:18px; width:15px; height:15px; color: var(--accent); }
-  @media (min-width: 720px){ .curation-link{ padding-right:52px; } .curation-link .head{ padding-right:0; } .curation-link .arrow{ top:50%; transform:translateY(-50%); } }
+  .curation-link .title{ font-size:17px; line-height:1.45; }
+  .curation-link .arrow{ flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
+  @media (max-width: 480px){ .curation-link{ gap:14px; padding-right:14px; } .curation-link .thumb{ width:92px; height:92px; } .curation-link .title{ font-size:15.5px; } }
 </style>
 </head>
 <body>
@@ -442,9 +441,9 @@
         <iframe class="mix-frame" id="mixFrame" title="SoundCloud player" aria-hidden="true" tabindex="-1" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgeneyao%2Ffire-in-motion-live-at-art&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
       </div>
       <a class="curation-link" href="playlists/art-week-chiayi-2026/">
+        <img class="thumb" src="photos/playlists/chiayi-2026-allday.jpg" alt="" loading="lazy">
         <span class="head"><span class="kicker">Playlist Curation</span>
-          <span class="title"><span class="lang-zh">嘉義藝術日常｜全日歌單策劃</span><span class="lang-en">Art Week Chiayi, Full Day Curation</span></span></span>
-        <span class="thumbs" aria-hidden="true"><img src="photos/playlists/chiayi-2026-water.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-wood.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-fire.jpg" alt="" loading="lazy"><img src="photos/playlists/chiayi-2026-after.jpg" alt="" loading="lazy"></span>
+          <span class="title"><span class="lang-zh">嘉義藝術日常<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi, Full Day Curation</span></span></span>
         <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </a>
       <a class="archive-link" href="archive/">
