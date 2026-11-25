@@ -347,7 +347,16 @@
   .curation-link .kicker{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); }
   .curation-link .title{ font-size:17px; line-height:1.45; }
   .curation-link .arrow{ order:2; flex:0 0 auto; width:15px; height:15px; color: var(--accent); }
-  @media (max-width: 480px){ .curation-link{ gap:14px; padding-left:18px; padding-right:14px; } .curation-link .thumb{ width:92px; height:92px; } .curation-link .title{ font-size:15.5px; } }
+  .curation-link .desc{ margin-top:4px; max-width:60ch; font-size:13.5px; line-height:1.75; color: var(--ink-soft); }
+  @media (max-width: 640px){
+    .curation-link{ display:grid; grid-template-columns: 1fr 92px 15px; column-gap:14px; row-gap:6px; padding:16px 14px 16px 18px; }
+    .curation-link .head{ display:contents; }
+    .curation-link .kicker{ grid-column:1; grid-row:1; align-self:end; }
+    .curation-link .title{ grid-column:1; grid-row:2; align-self:start; font-size:15.5px; }
+    .curation-link .thumb{ grid-column:2; grid-row:1 / 3; width:92px; height:92px; }
+    .curation-link .arrow{ grid-column:3; grid-row:1 / 3; align-self:center; }
+    .curation-link .desc{ grid-column:1 / -1; grid-row:3; margin-top:6px; }
+  }
 </style>
 </head>
 <body>
@@ -443,7 +452,8 @@
       <a class="curation-link" href="playlists/art-week-chiayi-2026/">
         <img class="thumb" src="photos/playlists/chiayi-2026-allday.jpg" alt="" loading="lazy">
         <span class="head"><span class="kicker">Playlist Curation</span>
-          <span class="title"><span class="lang-zh">嘉義藝術日常<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi, Full Day Curation</span></span></span>
+          <span class="title"><span class="lang-zh">嘉義藝術日常<br>全日歌單策劃</span><span class="lang-en">Art Week Chiayi, Full Day Curation</span></span>
+          <span class="desc"><span class="lang-zh">水生木，木生火。從一泓清水到黃金時刻，環境音樂、原聲與世界律動、Balearic 到 house，最後落在 70 年代的溫暖 soul。</span><span class="lang-en">Water feeds wood, wood feeds fire. From a clear spring to the golden hour: ambient, acoustic and world grooves, Balearic into house, and finally warm 70s soul.</span></span></span>
         <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </a>
       <a class="archive-link" href="archive/">
